@@ -564,7 +564,55 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, minus debitis libero esse fugiat natus animi, porro voluptates nulla qui quam, quasi corrupti rem? Labore eius unde nobis dignissimos dolor!
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique facilis aliquid libero exercitationem iusto placeat obcaecati commodi corporis, autem ullam, porro soluta facere nisi dignissimos hic reprehenderit. Aspernatur, autem ad?
             </div>
+    <!-- 도서 목록 -->
+    <section id="one" class="section">
+    
+    <c:forEach var="hp_book" items="${booklistbyIndex}">
+    
+    
+    
+        <div class="book">
+
+            <div class="booksimg">
+                <img src="/upload/${hp_book.book_Image}" alt="책">
+            </div>
+
+            <div class="books-content">
+                <div class="books-title">
+                    <p>제목 ${hp_book.book_Title}</p>
+                </div>
+                <div class="writer">
+                    <p>지은이 ${hp_book.book_Writer}</p>
+                </div>
+                <div class="favorites">
+                    <button class="button-favor" type="button" name="즐겨찾기에 추가">즐겨찾기에 추가</button>
+                </div>
+                <div class="read">
+                    <button class="button-read" type="button" name="읽기">읽기</button>
+                </div>
+                <div class="rating">
+                    <div>
+                        <button class="button-rating" type="button" name="좋아요"><i class="fas fa-thumbs-up"> 0</i></button>
+                    </div>
+                    <div>
+                        <button class="button-rating" type="button" name="싫어요"><i class="fas fa-thumbs-down"> 0</i></button>
+                    </div>
+                </div>
+
+            </div>
         </div>
+        <div class="summary">
+            <div class="p-1">
+                책 소개
+            </div>
+            <div class="p-2">
+                ${hp_book.book_Introduce}
+            </div>
+        </div>
+        
+  </c:forEach>
+        
+        
         <div class="review">
             <div class="review-1">
                 리뷰
