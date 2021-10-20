@@ -1076,6 +1076,13 @@ public class MyController_KHD {
 	 // 도서 상세 페이지
 		@RequestMapping("/user/views/books/books_introduction")
 		public String books_introduction( HttpServletRequest req, Model model ) {
+		// 유저페이지 도서정보 불러오기(관리자 페이지 아님)
+		
+		@RequestMapping("/user/views/books/books_introduction")
+		public String books_introduction(@RequestParam("book_Index") int book_Index, HttpServletRequest req, Model model) {
+			
+			List<BookListDto> booklistbyIndex = adminService.booklistbyIndex( book_Index );
+			model.addAttribute("booklistbyIndex",booklistbyIndex);
 			
 			return "user/views/books/books_introduction";
 		}
