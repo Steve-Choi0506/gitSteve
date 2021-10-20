@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.springboot.dao.IBookReviewDao"> 
+
+    <!-- 도서 리뷰 가져오기_오름차순 ; 리뷰 번호 -->
+	<select id="reviewlist" resultType="com.study.springboot.dto.BookReviewDto"> 
+		select * from book_review order by review_Index
+	</select>
+	
+	
+	<!-- 리뷰 정보 불러오기 -->
+	<select id="bookreviewbyIndex" resultType="com.study.springboot.dto.BookReviewDto">
+ 	select * from Book_review where review_Index=#{param1}
+ 	</select>
+	
+	
+	<!-- 도서 리뷰 추가하기 ; 도서 번호, 제목, 작가, 출판사, 내용, 소개, 이미지 -->
+	<insert id="addBookReview" parameterType="com.study.springboot.dto.BookReviewDto">
+		INSERT INTO Book_review (
+		  review_Index, book_Index, hp_Index, book_Title,
+		  review_name, review_password, book_review)
+		<!-- 	values(hp_Book_Book_Index.nextval, #{book_Title}, #{book_Writer}, #{book_Company},
+					#{book_Image}, #{book_Content}, #{book_Introduce}, #{book_Category}) -->
+			<!--  	values(hp_Book_Book_Index.nextval, book_Title=#{param2}, book_Writer=#{param3}, book_Company=#{param4},
+					book_Image=#{param5}, book_Content=#{param6}, book_Introduce=#{param7}, book_Category=#{param8})	-->
+					values(Book_review_review_Index.nextval, #{param1}, #{param2}, #{param3},
+					#{param4}, #{param5}, #{param6})
+					
+	</insert>
+	
+	<!-- 도서 리뷰 편집하기 ; 도서 번호로 편집 : 편집버튼으로 번호 얻어오기 
+						  ;	도서 제목, 작가, 출판사, 이미지, 내용, 소개 -->
+	<update id="updateBookReview" parameterType="com.study.springboot.dto.BookReviewDto">
+		UPDATE Book_review set
+			book_Index=#{param2}, hp_Index=#{param3}, book_Title=#{param4},
+			review_name=#{param5}, review_password=#{param6}, book_review=#{param7}
+		  WHERE review_Index=#{param1}
+	</update>
+ 	
+ 	<!-- 도서 리뷰 삭제하기 ; 도서 인덱스 : 삭제버튼으로 번호 얻어오기! -->
+ 	<delete id="deleteBookReview" parameterType="com.study.springboot.dto.BookReviewDto">
+ 		DELETE FROM Book_review WHERE review_Index=#{param1}
+ 	</delete>
+ 	
+ 	<select id="contentView" resultType="com.study.springboot.dto.BookReviewDto">
+ 	select * from Book_review where review_Index=#{param1}
+ 	</select>
+ 	
+ 	<insert id="writeReview">
+ 	<selectKey keyProperty="id" resultType="int" order="BEFORE">
+ 	select Book_review_review_Index.nextval FROM DUAL
+ 	</selectKey>
+ 	INSERT INTO Book_review (
+		  review_Index, book_Index, hp_Index, book_Title,
+		  review_name, review_password, book_review)
+			values(Book_review_review_Index.nextval, #{book_Index}, #{hp_Index}, #{book_Title},
+					#{review_name}, #{review_password}, #{book_review})
+ 	</insert>
+ 
+    
+ </mapper>

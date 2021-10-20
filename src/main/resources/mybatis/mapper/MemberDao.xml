@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.study.springboot.dao.IMemberDao">
+	
+	<!-- 회원 로그인 : 아이디 & 패스워드 -->
+	<select id="userLogin" resultType="_int">
+		SELECT COUNT(*) FROM hp_Member WHERE hp_ID=#{param1} AND hp_Password=#{param2} AND hp_auth=0
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="userjoin" parameterType="com.study.springboot.dto.MemberDto">
+		INSERT INTO hp_Member(
+			hp_Index, hp_ID, hp_Password, hp_Name, hp_Birthday_Year,
+		  hp_Birthday_Month, hp_Sex, hp_Email, hp_Phone, hp_Ticket, hp_Auth)
+					values(hp_Member_hp_Index.nextval, #{param1}, #{param2}, #{param3},
+					#{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{param9}, #{param10})
+	</insert>
+	
+	<!-- 아이디 중복 체크 -->
+	<select id="idCheck" resultType="_int">
+		SELECT * FROM hp_Member WHERE hp_ID=#{param1}
+	</select>
+	
+	<!-- 아이디 찾기 : 이름 & 이메일 -->
+	<select id="findID" resultType="com.study.springboot.dto.MemberDto">
+		SELECT * FROM hp_Member WHERE hp_Name=#{param1} AND hp_Email=#{param2}
+ 	</select>
+ 	
+ 	<!-- 패스워드 찾기 : 이름 & 아이디 & 이메일 -->
+ 	<select id="findPassword" resultType="com.study.springboot.dto.MemberDto">
+ 		SELECT * FROM hp_Member WHERE hp_Name=#{param1} AND hp_ID=#{param2} AND hp_Email=#{param3}
+ 	</select>	
+ 	
+ 	<!-- 회원목록 가져오기_오름차순 ; 회원 번호 -->
+	<select id="memberlist" resultType="com.study.springboot.dto.MemberDto">
+		SELECT * FROM hp_Member ORDER BY hp_Index
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	<!-- 관리자 로그인 : 아이디 & 패스워드 -->
+	<select id="adminLogin" resultType="_int">
+		SELECT COUNT(*) FROM hp_Member WHERE hp_ID=#{param1} AND hp_Password=#{param2} AND hp_auth=1
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	<!-- 유저 추가하기 ; -->
+	<insert id="addMember" parameterType="com.study.springboot.dto.MemberDto">
+		INSERT INTO hp_Member(
+		  hp_Index, hp_ID, hp_Password, hp_Name, hp_Birthday_Year,
+		  hp_Birthday_Month, hp_Sex, hp_Email, hp_Phone, hp_Ticket, hp_Auth)
+					values(hp_Member_hp_Index.nextval, #{param1}, #{param2}, #{param3},
+					#{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{param9}, #{param10})
+					
+	</insert>
+	
+	<!-- 유저 편집하기 ; 도서 번호로 편집 : 편집버튼으로 번호 얻어오기 
+						  ; -->
+	<update id="updateMember" parameterType="com.study.springboot.dto.MemberDto">
+		UPDATE hp_Member set
+			hp_ID=#{param2}, hp_Password=#{param3}, hp_Name=#{param4},
+			hp_Birthday_Year=#{param5}, hp_Birthday_Month=#{param6}, hp_Sex=#{param7},
+			hp_Email=#{param8}, hp_Phone=#{param9}, hp_Ticket=#{param10}, hp_Auth=#{param11}
+		  WHERE hp_Index=#{param1}
+	</update>
+ 	
+ 	<!-- 유저 삭제하기 ; 도서 인덱스 : 삭제버튼으로 번호 얻어오기! -->
+ 	<delete id="deleteMember" parameterType="com.study.springboot.dto.MemberDto">
+ 		DELETE FROM hp_Member WHERE hp_Index=#{param1}
+ 	</delete>
+	
+
+	<!-- 회원 정보 불러오기 -->
+	<select id="memberlist_byIndex" resultType="com.study.springboot.dto.MemberDto">
+		SELECT * FROM hp_Member WHERE hp_ID = #{param1}
+	</select>
+	
+ 	
+</mapper>

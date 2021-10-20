@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.study.springboot.dao.IMyBooksDao">    
+<!-- 도서 목록 가져오기_오름차순 ; 도서 번호 -->
+	<select id="booklist" resultType="com.study.springboot.dto.MyBooksDto">
+		SELECT * FROM hp_Book ORDER BY book_Index
+	</select>
+	
+	<!-- 도서 추가하기 ; 도서 번호, 제목, 작가, 출판사, 내용, 소개, 이미지 -->
+	<insert id="addBook" parameterType="com.study.springboot.dto.MyBooksDto">
+		INSERT INTO hp_Book ( 
+		  book_Index, book_Title, book_Writer, book_Company, 
+		  book_Content, book_Introduce, book_Image ) 
+			values( hp_Book_book_Index.nextval, #{book_Title}, #{book_Writer}, #{book_Company},
+					 #{book_Content}, #{book_Introduce}, #{book_Image} )
+	</insert>
+	
+	<!-- 도서 편집하기 ; 도서 번호로 편집 : 편집버튼으로 번호 얻어오기 
+						  ;	도서 제목, 작가, 출판사, 이미지, 내용, 소개 -->
+	<update id="updateBook" parameterType="com.study.springboot.dto.MyBooksDto">
+		UPDATE hp_Book set 
+			book_Title=#{param2}, book_Writer=#{param3}, book_Company=#{param4}, 
+			book_Image=#{param5}, book_Content=#{param6}, book_Introduce=#{param7}
+		  WHERE book_Index=#{param1}
+	</update>
+ 	
+ 	<!-- 도서 삭제하기 ; 도서 인덱스 : 삭제버튼으로 번호 얻어오기! -->
+ 	<delete id="deleteBook" parameterType="com.study.springboot.dto.MyBooksDto">
+ 		DELETE FROM hp_Book WHERE book_Index=#{param1} 
+ 	</delete>
+ 	
+ 	
+ 	<!-- 즐겨찾기 목록 가져오기-->
+	<select id="mybookslist" resultType="com.study.springboot.dto.MyBooksDto">
+		SELECT * FROM hp_Mybooks
+	</select>
+ 	
+ </mapper>

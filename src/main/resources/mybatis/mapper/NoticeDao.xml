@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.springboot.dao.INoticeDao">
+<!-- 공지사항 리스트_내림차순 ; 공지사항 번호 -->
+ 	<select id="noticelist" resultType="com.study.springboot.dto.NoticeDto">
+ 		SELECT * FROM hp_Notice ORDER BY notice_Index
+ 	</select>
+ 	
+ 	<!-- 공지사항 추가하기 ; 공지사항 번호, 제목, 내용, 날짜, 조회수 -->
+ 	<!--<insert id="addNotice" parameterType="com.study.springboot.dto.NoticeDto">
+ 		INSERT INTO hp_Notice (
+ 			notice_Index, notice_Title, notice_Content, notice_Date)
+ 				values ( hp_Notice_Index.nextval, #{notice_Title}, #{notice_Content},
+ 							 sysdate)
+ 	</insert>
+ 	-->
+ 	
+ 	<insert id="addNotice">
+	  <selectKey keyProperty="id" resultType="int" order="BEFORE">
+	        select hp_Notice_Index.nextval FROM DUAL
+	  </selectKey>
+      INSERT INTO hp_Notice(notice_Index, notice_Title, notice_Content, notice_Date) VALUES (#{id}, #{param1}, #{param2}, sysdate)
+   </insert>
+ 	
+ 		<!-- 공지사항 내용 불러오기 -->
+ 	<select id="noticebyIndex" resultType="com.study.springboot.dto.NoticeDto">
+ 	select * from hp_Notice where notice_Index=#{param1}
+ 	</select>
+ 	
+ 	
+ 	
+ 	<!-- 공지사항 편집하기 ; 공지사항 번호로 변경 : 제목 누르면 번호 얻어오기
+ 							  ; 공지사항 제목, 내용 -->
+ 	<update id="updateNotice" parameterType="com.study.springboot.dto.NoticeDto">
+ 		UPDATE hp_Notice set
+ 			notice_Title=#{param2}, notice_Content=#{param3}
+ 		  WHERE notice_Index=#{param1}
+ 	</update>
+ 	
+ 	<!-- 공지사항 삭제하기 ; 공지사항 번호 -->
+ 	<delete id="deleteNotice" parameterType="com.study.springboot.dto.NoticeDto">
+ 		DELETE FROM hp_Notice WHERE notice_Index=#{param1}
+ 	</delete>
+ 	
+ 	<update id="countNotice" parameterType="com.study.springboot.dto.NoticeDto">
+ 	     UPDATE hp_Notice SET notice_Count=notice_Count+1 WHERE notice_Index=#{param1}
+ 	</update>
+ 	
+</mapper>

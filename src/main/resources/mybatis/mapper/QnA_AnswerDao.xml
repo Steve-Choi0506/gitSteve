@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.study.springboot.dao.IQnA_Answer">
+    
+	<!-- 1:1 문의 답변하기 ; 답변 번호, 문의 번호, 답변, 답변 날짜 -->
+	<insert id="reply_QnAnwer" parameterType="com.study.springboot.dto.QnA_AnswerDto">
+		INSERT INTO QnA_Answer (
+			answer_Index, qna_Index, qna_Answer, answer_Date )
+				values ( QnA_Answer_Index.nextval, #{qna_Index}, #{qna_Answer}, #{answer_Date} )
+	</insert>
+	
+	<!-- 1:1 문의 답변 편집하기 ; 답변 번호로 변경 
+								  ; 답변 내용 -->
+	<update id="updateReplyAnswer" parameterType="com.study.springboot.dto.QnA_AnswerDto">
+		UPDATE QnA_Answer set 
+			qna_Answer=#{param2}
+		  WHERE answer_Index=#{param1}
+	</update>
+	
+	</mapper>
