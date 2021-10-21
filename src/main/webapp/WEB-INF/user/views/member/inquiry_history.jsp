@@ -441,20 +441,21 @@
                     <p>1:1 문의</p>
                 </div>
                 <div>
-                  <c:forEach var="hp_Qna" items="${qnalistByuser}">
+                    
                     <table class="table">
                         <tr>
                             <td id="t1">제목</td>
                             <td id="t2">작성일자</td>
                             <td id="t3">처리여부</td>
                         </tr>
+                        <c:forEach var="hp_Qna" items="${qnalistByuser}">
                         <tr>
                             <td id="t1"><a href="/user/views/member/inquiry_in?qna_Index=${hp_Qna.qna_Index}">${hp_Qna.qna_Title}</a></td>
                             <td id="t2"><fmt:formatDate value="${hp_Qna.qna_Date}" pattern="yyyy년 MM월 dd일"/></td>
                             <td id="t3">${hp_Qna.answer_Check}</td>
                         </tr>
+                        </c:forEach>
                     </table>
-                  </c:forEach>
                 </div>
                 <div class="btn1">
                     <button id="btn2" class="button" type="button" onclick="location.href='/user/views/member/inquiry'">문의하기</button>
