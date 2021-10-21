@@ -457,7 +457,7 @@
                 </div>
                 <textarea class="text3" name="qna_Content">${hp_Qna.qna_Content}</textarea>
                 <div class="btn1">
-                    <button id="btn1" class="button" onclick="location.href='/user/views/member/inquiry_history?qna_Index=${hp_Qna.qna_Index}'">갱신</button>
+                    <button id="btn1" class="button" onclick="location.href='/user/views/member/inquiry_history'">갱신</button>
                 </div>
             </div>
                 

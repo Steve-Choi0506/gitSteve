@@ -950,6 +950,8 @@ public class MyController_KHD {
 			List<QnADto> qnalistByuser = adminService.qnalistByuser(hp_ID);
 			model.addAttribute("qnalistByuser",qnalistByuser);
 			
+			
+			
 			return "user/views/member/inquiry_history";
 		}
 
@@ -972,7 +974,6 @@ public class MyController_KHD {
 			model.addAttribute("qnabyIndex",qnabyIndex);
 			
 			
-			
 			return "user/views/member/inquiry_update";
 		}
 		
@@ -991,7 +992,9 @@ public class MyController_KHD {
 			
 	         iQnADao.updateQnA(qna_Index,hp_Index, hp_ID, qna_Title,qna_Content, answer_Check);
 						                     
-			return "redirect:/user/views/member/inquiry_history";
+	         // /user/views/member/inquiry_history
+	        		 
+			return "redirect:/user/views/member/inquiry_history?hp_ID="+hp_ID;
 					
 		}
 	
