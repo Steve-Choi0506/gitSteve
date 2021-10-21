@@ -8,7 +8,7 @@
 	
 	<!-- 회원 로그인 : 아이디 & 패스워드 -->
 	<select id="userLogin" resultType="_int">
-		SELECT COUNT(*) FROM hp_Member WHERE hp_ID=#{param1} AND hp_Password=#{param2} AND hp_auth=0
+		SELECT COUNT(*) FROM hp_Member WHERE hp_ID=#{param1} AND hp_Password=#{param2}
 	</select>
 	
 	<!-- 회원가입 -->
@@ -48,7 +48,7 @@
 	
 	<!-- 관리자 로그인 : 아이디 & 패스워드 -->
 	<select id="adminLogin" resultType="_int">
-		SELECT COUNT(*) FROM hp_Member WHERE hp_ID=#{param1} AND hp_Password=#{param2} AND hp_auth=1
+		SELECT COUNT(*) FROM hp_Member WHERE hp_ID=#{param1} AND hp_Password=#{param2}
 	</select>
 	
 	
