@@ -410,7 +410,7 @@
             <ul class="aside-1">
                 <li><a id="a-1" href="/user/views/member/mypage">홈</a></li>
                 <li><a id="a-2" href="/user/views/member/change_infor">정보 변경</a></li>
-                <li><a id="a-3" href="/user/views/member/inquiry_history">1:1 문의</a></li>
+                <li><a id="a-3" href="/user/views/member/inquiry_history?hp_ID=${hp_ID}">1:1 문의</a></li>
                 <li><a id="a-4" href="/user/views/member/notice">공지 사항</a></li>
             </ul>
         </aside>
@@ -453,7 +453,7 @@
             <img id="footerimg" src="/img/footerimg.png" alt="부키도키">
         </div>
         <div class="footer-2">
-            <a id="footer-p" class="footer-p" href="/user/views/member/login">1 : 1 문의</a>
+            <a id="footer-p" class="footer-p" href="/user/views/member/login?hp_ID=${hp_ID}">1 : 1 문의</a>
             <a id="footer-p" class="footer-p" href="/user/views/member/login">공지사항</a>
         </div>
     </footer>

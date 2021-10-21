@@ -431,7 +431,7 @@
             <ul class="aside-1">
                 <li><a id="a-1" href="/user/views/member/mypage">홈</a></li>
                 <li><a id="a-2" href="/user/views/member/change_infor">정보 변경</a></li>
-                <li><a id="a-3" href="/user/views/member/inquiry_history">1:1 문의</a></li>
+                <li><a id="a-3" href="/user/views/member/inquiry_history?hp_ID=${hp_ID}">1:1 문의</a></li>
                 <li><a id="a-4" href="/user/views/member/notice">공지 사항</a></li>
             </ul>
         </aside>
@@ -441,7 +441,7 @@
                     <p>1:1 문의</p>
                 </div>
                 <div>
-                  <c:forEach var="hp_Qna" items="${hp_qna_list}">
+                  <c:forEach var="hp_Qna" items="${qnalistByuser}">
                     <table class="table">
                         <tr>
                             <td id="t1">제목</td>
@@ -457,7 +457,6 @@
                   </c:forEach>
                 </div>
                 <div class="btn1">
-                    <button id="btn1" class="button" type="button" onclick="location.href='/user/views/member/myInquiry?hp_ID=${hp_ID}'">내 문의</button>
                     <button id="btn2" class="button" type="button" onclick="location.href='/user/views/member/inquiry'">문의하기</button>
                 </div>
             </div>
@@ -475,7 +474,7 @@
             <img id="footerimg" src="/img/footerimg.png" alt="부키도키">
         </div>
         <div class="footer-2">
-            <a id="footer-p" class="footer-p" href="/user/views/member/login">1 : 1 문의</a>
+            <a id="footer-p" class="footer-p" href="/user/views/member/login?hp_ID=${hp_ID}">1 : 1 문의</a>
             <a id="footer-p" class="footer-p" href="/user/views/member/login">공지사항</a>
         </div>
     </footer>

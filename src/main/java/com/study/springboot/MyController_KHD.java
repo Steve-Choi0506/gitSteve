@@ -945,22 +945,13 @@ public class MyController_KHD {
 		
 	// 마이페이지 -> 1:1 문의 목록 보기
 		@RequestMapping("/user/views/member/inquiry_history")
-		public String inquiry_history(HttpServletRequest req, Model model ) {
+		public String inquiry_history( @RequestParam("hp_ID") String hp_ID, HttpServletRequest req, Model model ) {
 
-			List<QnADto> qnalist = adminService.QnAlist();
-			model.addAttribute("hp_qna_list",qnalist);
+			List<QnADto> qnalistByuser = adminService.qnalistByuser(hp_ID);
+			model.addAttribute("qnalistByuser",qnalistByuser);
 			
 			return "user/views/member/inquiry_history";
 		}
-	// 마이페이지 -> 내 1:1 문의 목록 보기
-			@RequestMapping("/user/views/member/myInquiry")
-			public String myInquiry( @RequestParam("hp_ID") String hp_ID,HttpServletRequest req, Model model ) {
-
-				List<QnADto> qnalistByuser = adminService.qnalistByuser(hp_ID);
-				model.addAttribute("qnalistByuser",qnalistByuser);
-				
-				return "user/views/member/myInquiry";
-			}
 
 		
 		
