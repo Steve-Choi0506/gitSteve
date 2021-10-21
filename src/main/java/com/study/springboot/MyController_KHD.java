@@ -1073,9 +1073,7 @@ public class MyController_KHD {
 			return "user/views/books/books_overseas";
 		}
 		
-	 // 도서 상세 페이지
-		@RequestMapping("/user/views/books/books_introduction")
-		public String books_introduction( HttpServletRequest req, Model model ) {
+	 
 		// 유저페이지 도서정보 불러오기(관리자 페이지 아님)
 		
 		@RequestMapping("/user/views/books/books_introduction")

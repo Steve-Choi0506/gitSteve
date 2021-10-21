@@ -330,7 +330,7 @@
     </section>
 
     <section id="two" class="section">
-        <div id="box1" class="box"><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="도서"></a><a href="/user/views/books/books_introduction"><p>1번 도서</p></a></div>
+        
     	<c:forEach var="hp_book" items="${hp_book_list}">
 	        <div id="box1" class="box">
 	        	<a href="/user/views/books/books_introduction?book_Index=${hp_book.book_Index}"><img src="/upload/${hp_book.book_Image}" alt="도서"></a>

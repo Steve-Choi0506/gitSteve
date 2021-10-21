@@ -524,48 +524,6 @@
     
     <!-- 도서 목록 -->
     <section id="one" class="section">
-        <div class="book">
-
-            <div class="booksimg">
-                <img src="/img/books/book.png" alt="책">
-            </div>
-
-            <div class="books-content">
-                <div class="books-title">
-                    <p>제목</p>
-                </div>
-                <div class="writer">
-                    <p>ㅁㅁㅁ지음</p>
-                </div>
-                <div class="favorites">
-                    <button class="button-favor" type="button" name="즐겨찾기에 추가">즐겨찾기에 추가</button>
-                </div>
-                <div class="read">
-                    <button class="button-read" type="button" name="읽기">읽기</button>
-                </div>
-                <div class="rating">
-                    <div>
-                        <button class="button-rating" type="button" name="좋아요"><i class="fas fa-thumbs-up"> 0</i></button>
-                    </div>
-                    <div>
-                        <button class="button-rating" type="button" name="싫어요"><i class="fas fa-thumbs-down"> 0</i></button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="summary">
-            <div class="p-1">
-                책 소개
-            </div>
-            <div class="p-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum doloremque voluptatem expedita maiores earum pariatur facere itaque non, qui odit corporis similique error rerum quasi hic distinctio quidem autem aspernatur.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti cum nam modi quod possimus nemo iste itaque! Natus, suscipit, illum consequuntur eius, earum repellendus delectus exercitationem omnis numquam unde facilis!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, minus debitis libero esse fugiat natus animi, porro voluptates nulla qui quam, quasi corrupti rem? Labore eius unde nobis dignissimos dolor!
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique facilis aliquid libero exercitationem iusto placeat obcaecati commodi corporis, autem ullam, porro soluta facere nisi dignissimos hic reprehenderit. Aspernatur, autem ad?
-            </div>
-    <!-- 도서 목록 -->
-    <section id="one" class="section">
     
     <c:forEach var="hp_book" items="${booklistbyIndex}">
     
@@ -630,6 +588,9 @@
                 </tr>
             </table>
         </div>
+        
+          
+        
     </section>
     <!-- 도서 목록 종료 -->
 
