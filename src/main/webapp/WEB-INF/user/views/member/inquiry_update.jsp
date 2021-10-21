@@ -173,7 +173,8 @@
 
 
         /* 메인 */
-        .main {            
+        .main {
+            /* border: 1px solid blue; */
             display: flex;
             position: relative;
             width: 100%;
