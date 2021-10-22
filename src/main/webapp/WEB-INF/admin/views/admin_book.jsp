@@ -58,11 +58,16 @@
             align-items: center;
             cursor: pointer;
             border: black 1px solid;
+            justify-content: space-around;
         }
         li a{
             text-decoration: none;
             font-size: 16pt;
             color: black;
+        }
+         .table {
+        	height : 100px;
+        	text-align : center;
         }
     </style>
     <script type="text/javascript">
@@ -83,7 +88,7 @@
                 <li><a href="/admin/views/admin_notice">공지사항</a></li>
             </ul>
             <ul id="nav2">
-                <li><a href="/admin/views/admin_member">회원정보 변경</a></li>
+            	<li><a href="/user/views/main">사용자 페이지</a></li>
                 <li><a href="/admin/views/admin">로그아웃</a></li>
             </ul>
         </nav>
