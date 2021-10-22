@@ -591,7 +591,7 @@
           {   //로그인 상태
           %>
             <span>${hp_ID}님</span>
-            <a id="footer-p" class="footer-p" href="/user/views/member/inquiry_history">1 : 1 문의</a>
+            <a id="footer-p" class="footer-p" href="/user/views/member/inquiry_history?hp_ID=${hp_ID}">1 : 1 문의</a>
             <a id="footer-p" class="footer-p" href="/user/views/member/notice">공지사항</a>
           <%		
           }
