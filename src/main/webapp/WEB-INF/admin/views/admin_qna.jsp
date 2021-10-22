@@ -116,7 +116,6 @@
                     <td>${hp_Qna.answer_Check}</td>
                     <td><fmt:formatDate value="${hp_Qna.qna_Date}" pattern="yyyy년 MM월 dd일"/>
                     <td><a href="/admin/views/write_qna?qna_Index=${hp_Qna.qna_Index}">갱신</a></td>
-                    <td><a href="/admin/views/write_qna1?qna_Index=${hp_Qna.qna_Index}">삽입</a></td>
                     <td><a href="/admin/views/write_qna2">삭제</a></td>
                   
                 </tr>
