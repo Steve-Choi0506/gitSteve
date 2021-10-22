@@ -57,6 +57,7 @@
             align-items: center;
             cursor: pointer;
             border: black 1px solid;
+            justify-content: space-around;
         }
         li a{
             text-decoration: none;
@@ -65,6 +66,10 @@
         }
         #test1 { 
           display:none;
+        }
+         .table {
+        	height : 100px;
+        	text-align : center;
         }
     </style>
     <script type="text/javascript">
@@ -85,7 +90,7 @@
                 <li><a href="/admin/views/admin_notice">공지사항</a></li>
             </ul>
             <ul id="nav2">
-                <li><a href="">회원정보 변경</a></li>
+            	<li><a href="/user/views/main">사용자 페이지</a></li>
                 <li><a href="/admin/views/admin">로그아웃</a></li>
             </ul>
         </nav>
@@ -111,7 +116,6 @@
                     <td>${hp_Qna.answer_Check}</td>
                     <td><fmt:formatDate value="${hp_Qna.qna_Date}" pattern="yyyy년 MM월 dd일"/>
                     <td><a href="/admin/views/write_qna?qna_Index=${hp_Qna.qna_Index}">갱신</a></td>
-                    <td><a href="/admin/views/write_qna1?qna_Index=${hp_Qna.qna_Index}">삽입</a></td>
                     <td><a href="/admin/views/write_qna2">삭제</a></td>
                   
                 </tr>
