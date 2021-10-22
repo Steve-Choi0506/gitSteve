@@ -292,7 +292,7 @@
         </div>
 
         <ul class="navbar__menu">
-            <li><a href="/user/views/books/books-korea">도서</a></li>
+            <li><a href="/user/views/books/books_korea">도서</a></li>
             <li><a href="/user/views/member/favorites">즐겨찾기</a></li>
             <li><a href="/user/views/member/mypage">마이페이지</a></li>
         </ul>
