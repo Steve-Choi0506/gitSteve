@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page trimDirectiveWhitespaces="true" %>    
+<%@ page trimDirectiveWhitespaces="true" %> 
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<%
+    Date nowTime = new Date();
+    SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 ");
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -431,7 +438,7 @@
                 </div>
                 <div class="text2">
                     <span>문의사항</span>
-                    <span>작성일자 : 0000/00/00</span>
+                    <span>작성일자 : <%= sf.format(nowTime) %> </span>
                 </div>
                 <textarea class="text3" ></textarea>
                 <div class="btn1">
