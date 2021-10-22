@@ -338,7 +338,7 @@
               <p>
               <a href="/user/views/member/findID">아이디 찾기</a>｜
               <a href="/user/views/member/findPW">비밀번호 찾기</a>｜
-              <a href="/user/views/member/join">회원가입</a>
+              <a href="/user/views/member/join_preview">회원가입</a>
               </p>
             </div>
           </div>

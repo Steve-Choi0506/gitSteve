@@ -321,9 +321,7 @@
             .main {
                 margin: 0;
             }
-
-
-
+            
 
 
             /* 푸터 시작 */
@@ -409,11 +407,10 @@
                     아이디 : ${hp_ID}
                 </div>
                 <div>
-                    비밀번호 : <input type="password" id="password1">
+                    비밀번호 : <input type="password" name="hp_password" id = "pw1" onchange="check_Password()" required>
+                    <span><input type="hidden" name="hp_password2" id = "pw2" value="${hp_Password}"></span>
                 </div>
-                <div>
-                    비밀번호 확인 : <input type="password" id="password2">
-                </div>
+                  <span id="confirmMsg"></span>
                 <div class="btn1">
                     <button id="btn1" class="button" onclick="location.href='/user/views/member/change_infor2'">확인</button>
                 </div>
@@ -451,16 +448,20 @@
             login.classList.toggle('active');
         });
 
-        function test() {
-            var p1 = document.getElementById('password1').value;
-            var p2 = document.getElementById('password2').value;
-            if( p1 != p2 ) {
-                alert("비밀번호가 일치 하지 않습니다");
-                return false;
-            } else{
-                alert("비밀번호가 일치합니다");
-                return true;
-            }};
+        function check_Password() {
+          var password = document.getElementById('pw1');
+          var repassword = document.getElementById('pw2');
+          var confrimMsg = document.getElementById('confirmMsg');
+          var correctColor = "#00ff00";	//맞았을 때 출력되는 색깔.
+          var wrongColor = "#ff0000";	//틀렸을 때 출력되는 색깔
+          if (password.value == repassword.value) {//password 변수의 값과 repassword 변수의 값과 동일하다.
+            confirmMsg.style.color = correctColor;/* span 태그의 ID(confirmMsg) 사용  */
+            confirmMsg.innerHTML = "비밀번호 일치";
+          } else {
+            confirmMsg.style.color = wrongColor;
+            confirmMsg.innerHTML = "비밀번호 불일치";
+          }
+        }
     </script>
 
 

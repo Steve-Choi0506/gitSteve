@@ -798,50 +798,42 @@ public class MyController_KHD {
 		
 			return "user/views/member/join_preview";
 		}			
-	// 유저 회원가입
-		@RequestMapping(value="/userjoin", method=RequestMethod.POST)
-		public String join( 
-				 @RequestParam("hp_ID") String hp_ID,
-	               @RequestParam("hp_Password") String hp_Password, 
-	               @RequestParam("hp_Name") String hp_Name, 
-	               @RequestParam("hp_Birthday_Year") int hp_Birthday_Year,
-	               @RequestParam("hp_Birthday_Month") int hp_Birthday_Month,
-	               @RequestParam("hp_Sex") int hp_Sex,
-	               @RequestParam("hp_Email") String hp_Email,
-	               @RequestParam("hp_Phone") String hp_Phone,
-	               @RequestParam("hp_Ticket") int hp_Ticket,
-	               @RequestParam("hp_Auth") int hp_Auth,
-				              
-				               ModelMap modelMap, HttpServletRequest request) throws Exception{
+		// 유저 회원가입
+				@RequestMapping(value="/userjoin", method=RequestMethod.POST)
+				public String join( 
+						 @RequestParam("hp_ID") String hp_ID,
+			               @RequestParam("hp_Password") String hp_Password, 
+			               @RequestParam("hp_Name") String hp_Name, 
+			               @RequestParam("hp_Birthday_Year") int hp_Birthday_Year,
+			               @RequestParam("hp_Birthday_Month") int hp_Birthday_Month,
+			               @RequestParam("hp_Sex") int hp_Sex,
+			               @RequestParam("hp_Email") String hp_Email,
+			               @RequestParam("hp_Phone") String hp_Phone,
+			               @RequestParam("hp_Ticket") int hp_Ticket,
+			               @RequestParam("hp_Auth") int hp_Auth,
+						              
+						               ModelMap modelMap, HttpServletRequest request) throws Exception{
+					
+					                   int result =iMemberDao.userjoin(hp_ID, hp_Password, hp_Name, hp_Birthday_Year, hp_Birthday_Month,
+					                		   hp_Sex, hp_Email, hp_Phone, hp_Ticket, hp_Auth);
+					                   
+					                   if( result == 1) {
+							               					   		
+							        	   System.out.println("회원가입 성공");
+							        	   
+							                  return "user/views/member/login";
+					
+						               } else {
+						            	   				            
+						            	   System.out.println("회원가입 실패"); 	 
+							                	 
+							               	 return "user/views/member/join";
+							                	 
+							            }
+						                     
+					
 			
-			                   int result =iMemberDao.userjoin(hp_ID, hp_Password, hp_Name, hp_Birthday_Year, hp_Birthday_Month,
-			                		   hp_Sex, hp_Email, hp_Phone, hp_Ticket, hp_Auth);
-			                   
-			                   if( result == 1) {
-					                  //세션객체에 회원가입 정보 저장해놓기
-			                	   request.getSession().setAttribute("hp_ID", hp_ID);
-					       			request.getSession().setAttribute("hp_Password", hp_Password);
-					       			
-					   		
-					        	   System.out.println("회원가입 성공");
-					        	   
-					                  return "user/views/member/join_ok";
-			
-				               } else {
-				            	   
-				            	   request.getSession().setAttribute("hp_ID", hp_ID);
-					       			request.getSession().setAttribute("hp_Password", hp_Password);
-					       			
-					       			
-				            	   System.out.println("회원가입 실패"); 	 
-					                	 
-					               	 return "user/views/member/join_fail";
-					                	 
-					            }
-				                     
-			
-	
-		}
+				}
 		
 		//사용자 로그인	
 					@RequestMapping("/user/views/member/login")

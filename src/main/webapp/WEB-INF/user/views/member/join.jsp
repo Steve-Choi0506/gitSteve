@@ -299,7 +299,7 @@
         </div>
 
         <ul class="navbar__menu">
-            <li><a href="/user/views/books/books-korea">도서</a></li>
+            <li><a href="/user/views/books/books_korea">도서</a></li>
             <li><a href="/user/views/member/favorites">즐겨찾기</a></li>
             <li><a href="/user/views/member/mypage">마이페이지</a></li>
         </ul>
@@ -339,27 +339,31 @@
       <div id="wrap">
         <div id="main">
           <div id="join">
-            <form method="get" action="hp_member.php">
+            <form method="post" action="/userjoin">
               <p>아이디</p>
-              <input type="text" name="hp_id" required>
+              <input type="text" name="hp_ID" required>
               <!-- <button type="button" class="id_check_button" onclick="check_id()">중복검사</button>
               <img id="id_check_sucess" style="display: none;"> -->
               <p>패스워드</p>
-              <input type="password" name="hp_password" id = "pw" onchange="check_Password()" required>
+              <input type="password" name="hp_Password" id = "pw" onchange="check_Password()" required>
               <p>패스워드 확인</p>
               <input type="password" name="hp_repassword" id = "pw2" onchange="check_Password()" required>
               <span id="confirmMsg"></span>
               <p>이름</p>
-              <input type="text" name="hp_name" required>
-              <p>생년월일(주민등록번호 앞자리)</p>
-              <input type="text" name="hp_birthday" required>
+              <input type="text" name="hp_Name" required>
+              <p>생년월일(년도)</p>
+              <input type="text" name="hp_Birthday_Year" required>
+              <p>생년월일(월)</p>
+              <input type="text" name="hp_Birthday_Month" required>
               <p>성별</p>
-              <label><input type="radio" name="hp_sex" value="male" checked="checked">남</label>
-              <label><input type="radio" name="hp_sex" value="female">여</label>
+              <label><input type="radio" name="hp_Sex" value="1" checked="checked">남</label>
+              <label><input type="radio" name="hp_Sex" value="2">여</label>
               <p>이메일</p>
-              <input type="email" name="hp_email" required>
+              <input type="email" name="hp_Email" required>
               <p>전화번호</p>
-              <input type="text" name="hp_phone" required>
+              <input type="text" name="hp_Phone" required>
+              <input type="hidden" name="hp_Ticket" value=0 required>
+              <input type="hidden" name="hp_Auth" value=0 required>
               </br></br></br>
               <input type="submit" value="회원가입">
             </form>
