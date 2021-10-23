@@ -9,7 +9,7 @@
 <head>
 <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<title>유저 갱신</title>
+<title>회원정보 수정</title>
 </head>
 <body>
 	<form action="<c:url value="/updateMember"/>" method="post">

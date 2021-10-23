@@ -97,7 +97,7 @@
         <table class="table table-hover">
             <Thead>
                 <tr>
-                    <th>번호1</th>
+                    <th>문의 번호</th>
                     <th>회원 번호</th>
                     <th>질문자</th>
                     <th>제목</th>
