@@ -60,11 +60,16 @@ public class MemberService {
 	}
 	
 	// ID 중복체크
-	public int idCheckAjax( String hp_ID ) {
-		int result = 0;
-		
-		return result;
-	}
+		public int idCheckAjax( String hp_ID ) {
+			int result = 0;
+			
+			try {
+				result = memberDao.idCheck(hp_ID);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return result;
+		}
 	
 	// 회원가입
 	public int userjoin(int hp_Index, String hp_ID, String hp_Password, String hp_Name, 

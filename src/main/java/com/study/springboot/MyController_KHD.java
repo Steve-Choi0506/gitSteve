@@ -691,6 +691,21 @@ public class MyController_KHD {
 	               }
 					                     
 			}	
+			
+			// 아이디 체크
+			 @RequestMapping("/user/views/member/idCheckAjax")
+			 @ResponseBody
+			 public String idCheckAjax( @RequestParam("hp_ID") String hp_ID,
+					 					HttpServletRequest req, Model model ) {
+				 int result = memberService.idCheckAjax(hp_ID);
+				 System.out.println( "아이디 중복 확인 result : " + result );
+				 
+				 if( result >= 1 ) {
+					 return("1"); // 아이디 중복됨
+				 } else {
+					 return("0"); // 아이디 사용 가능
+				 }
+			 }
 		
 		
 	// 마이페이지

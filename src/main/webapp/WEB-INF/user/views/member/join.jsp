@@ -341,27 +341,27 @@
           <div id="join">
             <form method="post" action="/userjoin">
               <p>아이디</p>
-              <input type="text" name="hp_ID" required>
-              <!-- <button type="button" class="id_check_button" onclick="check_id()">중복검사</button>
-              <img id="id_check_sucess" style="display: none;"> -->
+	              <input type="text" name="hp_ID" id="hp_ID" required>
+	              <button onclick="location.href='javascript:check_ID();'">중복 확인</button>
+				  <input type="hidden" name="check_hp_ID" id="check_hp_ID" value="no">
               <p>패스워드</p>
-              <input type="password" name="hp_Password" id = "pw" onchange="check_Password()" required>
+	              <input type="password" name="hp_Password" id = "pw" onchange="check_Password()" required>
               <p>패스워드 확인</p>
-              <input type="password" name="hp_repassword" id = "pw2" onchange="check_Password()" required>
-              <span id="confirmMsg"></span>
+	              <input type="password" name="hp_repassword" id = "pw2" onchange="check_Password()" required>
+	              <span id="confirmMsg"></span>
               <p>이름</p>
-              <input type="text" name="hp_Name" required>
+	              <input type="text" name="hp_Name" required>
               <p>생년월일(년도)</p>
-              <input type="text" name="hp_Birthday_Year" required>
+	              <input type="text" name="hp_Birthday_Year" required>
               <p>생년월일(월)</p>
-              <input type="text" name="hp_Birthday_Month" required>
+	              <input type="text" name="hp_Birthday_Month" required>
               <p>성별</p>
-              <label><input type="radio" name="hp_Sex" value="1" checked="checked">남</label>
-              <label><input type="radio" name="hp_Sex" value="2">여</label>
+	              <label><input type="radio" name="hp_Sex" value="1" checked="checked">남</label>
+	              <label><input type="radio" name="hp_Sex" value="2">여</label>
               <p>이메일</p>
-              <input type="email" name="hp_Email" required>
+	              <input type="email" name="hp_Email" required>
               <p>전화번호</p>
-              <input type="text" name="hp_Phone" required>
+              	<input type="text" name="hp_Phone" required>
               <input type="hidden" name="hp_Ticket" value=0 required>
               <input type="hidden" name="hp_Auth" value=0 required>
               </br></br></br>
@@ -402,7 +402,38 @@
             login.classList.toggle('active');
         });
 
+        
+     // 아이디 중복처리
+        function check_ID(){
+        var hp_ID = $('#hp_ID').val(); // hp_ID값이 "hp_ID"인 입력란의 값을 저장
+        $.ajax({
+            url:'/user/views/member/idCheckAjax?hp_ID='+hp_ID, // Controller에서 인식할 주소
+            type:'post', // POST 방식으로 전달
+            success:function( data ){
+                console.log( data ); // 0 : 사용 가능 / 1 : 사용 중
+                
+                if( !hp_ID ) {
+        			alert("아이디를 입력하세요.");
+        			return false;
+        		}
+                
+                var data_num = Number( data );
+                
+                if( data_num == 0 ) {
+                	alert('사용 가능한 아이디입니다.');
+                	$('check_hp_ID').val("yes");
+                } else {
+                	alert('이미 사용중인 아이디입니다.');
+                	$('check_hp_ID').val("no");
+                }
+            },
+            error:function(){
+                alert("에러입니다");
+            }
+        });
+        }
 
+	 // 패스워드 일치 확인
         function check_Password() {
           var password = document.getElementById('pw');
           var repassword = document.getElementById('pw2');

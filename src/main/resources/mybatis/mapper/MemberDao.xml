@@ -22,7 +22,7 @@
 	
 	<!-- 아이디 중복 체크 -->
 	<select id="idCheck" resultType="_int">
-		SELECT * FROM hp_Member WHERE hp_ID=#{param1}
+		SELECT COUNT(*) FROM hp_Member WHERE hp_ID=#{param1}
 	</select>
 	
 	<!-- 아이디 찾기 : 이름 & 이메일 -->
