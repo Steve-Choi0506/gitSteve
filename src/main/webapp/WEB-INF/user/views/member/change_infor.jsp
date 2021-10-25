@@ -224,6 +224,10 @@
             margin-top: 30px;
         }
 
+        #btn1 {
+          display: none;
+        }
+
 
 
 
@@ -407,7 +411,7 @@
                     아이디 : ${hp_ID}
                 </div>
                 <div>
-                    비밀번호 : <input type="password" name="hp_password" id = "pw1" onchange="check_Password()" required>
+                    비밀번호 : <input type="password" name="hp_password" id = "pw1"  onchange="check_Password()" required>
                     <span><input type="hidden" name="hp_password2" id = "pw2" value="${hp_Password}"></span>
                 </div>
                   <span id="confirmMsg"></span>
@@ -457,10 +461,22 @@
           if (password.value == repassword.value) {//password 변수의 값과 repassword 변수의 값과 동일하다.
             confirmMsg.style.color = correctColor;/* span 태그의 ID(confirmMsg) 사용  */
             confirmMsg.innerHTML = "비밀번호 일치";
+            div_show()
           } else {
             confirmMsg.style.color = wrongColor;
             confirmMsg.innerHTML = "비밀번호 불일치";
+            div_hide()
+            //alert('비밀번호를 다시 입력해주세요.');
           }
+        }
+        //보이기
+        function div_show() {
+          document.getElementById("btn1").style.display = "block";
+        }
+        
+        //숨기기
+        function div_hide() {
+          document.getElementById("btn1").style.display = "none";
         }
     </script>
 
