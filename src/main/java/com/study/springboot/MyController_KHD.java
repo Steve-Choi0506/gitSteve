@@ -120,51 +120,6 @@ public class MyController_KHD {
 	}
 	
 // 관리자
-	
-	 // 관리자 로그인	
-		@RequestMapping("/admin/views/admin")
-		public String adminLogin( HttpServletRequest req, Model model ) {
-			
-			return "admin/views/admin";
-		}	
-		
-	 // 관리자 로그인 구현		
-		@RequestMapping(value="/adminLogin", method=RequestMethod.POST)
-		public String adminLogin( 
-			       @RequestParam("hp_ID") String hp_ID, 
-	               @RequestParam("hp_Password") String hp_Password, 
-	               ModelMap modelMap, HttpServletRequest request ) throws Exception {
-			
-						if( !hp_ID.equals("admin") ) {
-							
-							System.out.println( "관리자 로그인 실패 : 아이디 불일치" );
-							
-							return "admin/views/admin";
-						}
-			
-			           int result = adminService.adminLogin( hp_ID, hp_Password );	
-			                 
-			           if( result == 1 ) {
-			                 
-			        	   // 세션객체에 아이디 저장해놓기
-			        	   	  request.getSession().setAttribute( "alert", "로그인되었습니다." );
-			        	   	  request.getSession().setAttribute( "hp_ID", hp_ID );
-
-			        	   	  System.out.println( "관리자 로그인 성공" );
-			        	   
-			                  return "admin/views/admin_member";
-	
-		               } else {
-		            	   
-		            	   	  request.getSession().setAttribute( "alert", "다시 로그인하세요." );
-		            	   	  request.getSession().setAttribute( "hp_Password", hp_Password );
-		            	   
-		            	   	  System.out.println( "관리자 로그인 실패" ); 	 
-			                	 
-		            	   	  return "admin/views/admin";
-			               	 
-			            }
-				}
 
 		
 	// 회원
@@ -637,7 +592,18 @@ public class MyController_KHD {
 				
 				int result = memberService.userLogin(hp_ID,hp_Password);	
 				
-				if( result == 1) {
+				if( result == 1 && hp_ID.equals("admin") ){
+					
+					// 세션객체에 아이디 저장해놓기 
+					request.getSession().setAttribute( "alert", "로그인되었습니다." );
+					request.getSession().setAttribute( "hp_ID", hp_ID );
+					request.getSession().setAttribute( "hp_Password", hp_Password );
+					
+					System.out.println( "관리자 로그인 성공" );
+					
+					return "redirect:/admin/views/admin_member";
+					
+				} else if( result == 1 && !hp_ID.equals("admin") ) {
 					
 					// 세션객체에 아이디 저장해놓기 
 					request.getSession().setAttribute( "alert", "로그인되었습니다." );
