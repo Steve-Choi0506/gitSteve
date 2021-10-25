@@ -537,10 +537,10 @@
 
             <div class="books-content">
                 <div class="books-title">
-                    <p>제목 ${hp_book.book_Title}</p>
+                    <h2>${hp_book.book_Title}</h2>
                 </div>
                 <div class="writer">
-                    <p>지은이 ${hp_book.book_Writer}</p>
+                    <p>${hp_book.book_Writer} 지음</p>
                 </div>
                 <div class="favorites">
                     <button class="button-favor" type="button" name="즐겨찾기에 추가">즐겨찾기에 추가</button>
