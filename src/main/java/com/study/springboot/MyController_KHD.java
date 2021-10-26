@@ -209,7 +209,7 @@ public class MyController_KHD {
 			public String deleteMember( @RequestParam("hp_Index") int hp_Index, ModelMap modelMap ) throws Exception {
 				
 				iMemberDao.deleteMember(hp_Index);
-								                     
+				
 				return "redirect:/admin/views/admin_member";				
 			}
 			
@@ -747,6 +747,18 @@ public class MyController_KHD {
 					}
 							
 				return "user/views/member/change_infor2";
+			}
+		// 마이페이지 -> 회원탈퇴
+			@RequestMapping(value="/deleteMyself", method=RequestMethod.POST)
+			public String deleteMyself( @RequestParam("hp_Index") int hp_Index, HttpServletRequest req, ModelMap modelMap ) throws Exception {
+				
+				iMemberDao.deleteMyself(hp_Index);
+				
+				req.getSession().invalidate();
+				
+				req.getSession().removeAttribute("hp_ID");
+				
+				return "redirect:/user/views/member/login";
 			}
 		
 		// 마이페이지 -> 1:1 문의 목록 보기

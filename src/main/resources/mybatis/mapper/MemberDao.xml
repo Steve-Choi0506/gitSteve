@@ -43,9 +43,6 @@
 	
 	
 	
-	
-	
-	
 	<!-- 관리자 로그인 : 아이디 & 패스워드 -->
 	<select id="adminLogin" resultType="_int">
 		SELECT COUNT(*) FROM hp_Member WHERE hp_ID=#{param1} AND hp_Password=#{param2}
@@ -79,6 +76,11 @@
  	
  	<!-- 유저 삭제하기 ; 도서 인덱스 : 삭제버튼으로 번호 얻어오기! -->
  	<delete id="deleteMember" parameterType="com.study.springboot.dto.MemberDto">
+ 		DELETE FROM hp_Member WHERE hp_Index=#{param1}
+ 	</delete>
+ 	
+ 	<!-- 유저 스스로 삭제하기  -->
+ 	<delete id="deleteMyself" parameterType="com.study.springboot.dto.MemberDto">
  		DELETE FROM hp_Member WHERE hp_Index=#{param1}
  	</delete>
 	

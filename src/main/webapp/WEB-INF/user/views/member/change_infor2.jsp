@@ -418,6 +418,7 @@
         </aside>
         <main class="main">
             <div class="main-1">
+              <form action="<c:url value="/deleteMyself"/>" method="post">
                 <div>
                     <p>내 정보</p>
                 </div>
@@ -445,9 +446,11 @@
                 <div class="btn1">
                     <button class="button" type="button" onclick="location.href='#'">정보변경</button>
                 </div>
-                <div class="btn2">
-                    <button class="button" type="button" onclick="location.href='#'">회원탈퇴</button>
-                </div>
+                  <div class="btn2">
+                      <input type="hidden" name="hp_Index" value="${memberDto.hp_Index}">
+                      <button class="button" type="submit" name="hp_Index" onclick="location.href='/user/views/member/login?hp_Index=${memberDto.hp_Index}'">회원탈퇴</button>
+                  </div>
+                </form>
             </div>
         </main>
     </section>

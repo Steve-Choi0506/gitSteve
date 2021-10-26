@@ -33,6 +33,8 @@ public interface IMemberDao {
 			  					String hp_Email, String hp_Phone, int hp_Ticket, int hp_Auth);
 	// 유저 삭제
 	  public int deleteMember( int hp_Index );
+	  
+	  public int deleteMyself( int hp_Index );
 
 	  
 	  public int writeMember(int hp_Index, String hp_ID, String hp_Password, String hp_Name,

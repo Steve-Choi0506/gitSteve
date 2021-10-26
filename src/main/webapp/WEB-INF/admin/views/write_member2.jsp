@@ -23,7 +23,6 @@
 	
 		<tr>
 			<td colspan="2"> 
-
 				<a href="/admin/views/admin_member"><input type="submit" value="삭제"></a> 
 			</td>
 		</tr>
