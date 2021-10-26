@@ -303,6 +303,10 @@
           {  //로그아웃 상태
           %>
             <li><a href="/user/views/member/login">로그인</a></li>
+            <script>
+            	alert('로그인 후 이용 가능합니다.');
+            	history.back();
+            </script>
           <%
           }
           %>
