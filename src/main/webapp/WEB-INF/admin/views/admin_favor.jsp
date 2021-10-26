@@ -7,7 +7,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>공지사항 목록</title>
+    <title>즐겨찾기</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         *{
@@ -96,25 +97,27 @@
             <Thead>
                 <tr>
                     <th>번호</th>
+                    <th>책번호</th>
                     <th>제목</th>
-                    <th>내용</th>
-                    <th>날짜</th>
-                    <th>조회수</th>
+                    <th>작가</th>
+                    <th>이미지</th>
                 </tr>
             </Thead>
-            <c:forEach var="hp_Notice" items="${hp_notice_list}">
+            <c:forEach var="hp_book" items="${hp_book_list}">
                 <tr>
-                    <td>${hp_Notice.notice_Index}</td>
-                    <td>${hp_Notice.notice_Title}</td>
-                    <td>${hp_Notice.notice_Content}</td>
-                    <td><fmt:formatDate value="${hp_Notice.notice_Date}" pattern="yyyy년 MM월 dd일"/>
-                    <td>${hp_Notice.notice_Count}</td>
-                    <td><a href="/admin/views/write_notice?notice_Index=${hp_Notice.notice_Index}">갱신</a></td>
-                    <td><a href="/admin/views/write_notice1">삽입</a></td>
-                    <td><a href="/admin/views/write_notice2">삭제</a></td>
+                    <td>${hp_book.book_Index}</td>
+                    <td>${hp_book.book_Title}</td>
+                    <td>${hp_book.book_Writer}</td>
+                    <td>${hp_book.book_Company}</td>
+                    <td><img src="/upload/${hp_book.book_Image}" wdith="20px" height="30px"></td>
+                    <td>
+                        <a href="/admin/views/write_view1">삽입</a>
+                        <a href="/admin/views/write_view2">삭제</a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
     </div>
+    
 </body>
 </html>

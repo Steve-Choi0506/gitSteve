@@ -82,6 +82,7 @@
                 <li id="logo"><a href="/admin/views/admin_member"><img src="/img/logo.png" alt="로고"></a></li>
                 <li><a href="/admin/views/admin_member">회원정보</a></li>
                 <li><a href="/admin/views/admin_book">도서정보</a></li>
+                <li><a href="/admin/views/admin_favor">즐겨찾기</a></li>
                 <li><a href="/admin/views/admin_review">리뷰관리</a></li>
                 <li><a href="/admin/views/admin_qna">1:1문의</a></li>
                 <li><a href="/admin/views/admin_notice">공지사항</a></li>
