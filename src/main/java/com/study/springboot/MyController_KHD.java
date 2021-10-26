@@ -197,12 +197,13 @@ public class MyController_KHD {
 							return "redirect:/admin/views/admin_member";
 				}
 		
-		// 회원 삭제 가능한 페이지
+			// 회원 삭제 가능한 페이지
 			@RequestMapping("/admin/views/write_member2")
 			public String member2(HttpServletRequest req, Model model) {
 							
 				return "admin/views/write_member2";
 			}
+
 		
 		// 회원 삭제
 			@RequestMapping(value="/deleteMember", method=RequestMethod.POST)
