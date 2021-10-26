@@ -10,8 +10,13 @@ import com.study.springboot.dto.BookListDto;
 public interface IBookListDao {
 
 	// 도서 목록
-	public List<BookListDto> booklist();
+		public List<BookListDto> booklist();
 
+	// 국내도서 목록
+		public List<BookListDto> booksKorea();
+		
+	// 국외도서 목록
+		public List<BookListDto> booksOverseas();
 	
 	// 도서 정보 불러오기
 		public List<BookListDto> booklistbyIndex(int book_Index);

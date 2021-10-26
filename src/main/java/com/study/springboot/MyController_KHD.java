@@ -849,8 +849,8 @@ public class MyController_KHD {
 			@RequestMapping("/user/views/books/books_korea")
 			public String books_korea( HttpServletRequest req, Model model ) {
 				
-				List<BookListDto> booklist = adminService.booklist();
-				model.addAttribute("hp_book_list",booklist);
+				List<BookListDto> booksKorea = adminService.booksKorea();
+				model.addAttribute("korea_book_list",booksKorea);
 				
 				return "user/views/books/books_korea";
 			}
@@ -858,6 +858,9 @@ public class MyController_KHD {
 		 // 국외도서	
 			@RequestMapping("/user/views/books/books_overseas")
 			public String books_overseas( HttpServletRequest req, Model model ) {
+				
+				List<BookListDto> booksOverseas = adminService.booksOverseas();
+				model.addAttribute("overseas_book_list",booksOverseas);
 				
 				return "user/views/books/books_overseas";
 			}

@@ -10,10 +10,21 @@
 		SELECT * FROM hp_Book ORDER BY book_Index
 	</select>
 	
+	<!-- 도서 목록 _ 국내도서 ; 도서 번호 오름차순 -->
+	<select id="booksKorea" resultType="com.study.springboot.dto.BookListDto">
+		SELECT * FROM hp_book WHERE book_Category='0' ORDER BY book_Index
+	</select>
+		
+	<!-- 도서 목록 _ 국외도서 ; 도서 번호 오름차순 -->
+	<select id="booksOverseas" resultType="com.study.springboot.dto.BookListDto">
+		SELECT * FROM hp_book WHERE book_Category='1' ORDER BY book_Index
+	</select>
+	
 	<!-- 도서 정보 불러오기 -->
  	<select id="booklistbyIndex" resultType="com.study.springboot.dto.BookListDto">
  	select * from hp_Book where book_Index=#{param1}
  	</select>
+ 	
 	<!-- 도서 추가하기 ; 도서 번호, 제목, 작가, 출판사, 내용, 소개, 이미지 -->
 	<insert id="addBook" parameterType="com.study.springboot.dto.BookListDto">
 		INSERT INTO hp_Book (

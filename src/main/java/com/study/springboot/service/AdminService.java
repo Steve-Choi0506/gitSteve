@@ -69,6 +69,18 @@ public class AdminService {
 			  
 			  return booklistbyIndex;
 		  }
+		  
+		// 국내도서 목록
+			 public List<BookListDto> booksKorea() {
+				  List<BookListDto> booksKorea = BookListDao.booksKorea();
+				  return booksKorea;
+			 }
+		  
+		 // 국외도서 목록
+			  public List<BookListDto> booksOverseas() {
+				  List<BookListDto> booksOverseas = BookListDao.booksOverseas();
+				  return booksOverseas;
+			  }
 
 
 	// 책 리뷰 목록
