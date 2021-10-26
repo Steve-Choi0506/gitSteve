@@ -12,6 +12,8 @@ public interface INoticeDao {
 	// 공지사항 목록 
 	  public List<NoticeDto> noticelist();
 	  
+	  public NoticeDto noticeForhit(int notice_Index);
+	  
 	// 공지사항 내용 불러오기
 		  public List<NoticeDto> noticebyIndex(int notice_Index);
 	// 공지사항 추가하기
@@ -21,6 +23,6 @@ public interface INoticeDao {
 	// 공지사항 삭제하기
 	  public int deleteNotice(int notice_Index);	
 	// 공지사항 조회수
-	  public int countNotice(int count);
+	  public int hit(int notice_Index);
 
 }

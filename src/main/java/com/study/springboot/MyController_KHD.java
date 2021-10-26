@@ -413,15 +413,6 @@ public class MyController_KHD {
 				return "admin/views/admin_notice";
 			}
 			
-		// 공지사항 조회수 올리기
-			@RequestMapping(value="/countNotice", method=RequestMethod.POST)
-			public ModelAndView countNotice( @RequestParam("notice_Count") int notice_Count ) throws Exception {
-				
-				adminService.countNotice( notice_Count );
-			
-				return new ModelAndView( "countNotice", "countNotice1", adminService.countNotice( notice_Count ) );
-			}
-			
 		// 공지사항 목록 삽입이 가능한 페이지
 			@RequestMapping("/admin/views/write_notice1")
 			public String notice1(HttpServletRequest req, Model model) {
@@ -838,10 +829,13 @@ public class MyController_KHD {
 				return "user/views/member/notice";
 			}
 		
-		// 마이페이지 -> 공지사항 -> 읽기
+		// 공지사항 -> 읽기
 			@RequestMapping("/user/views/member/notice_in")
 			public String mypage_notice_in( @RequestParam("notice_Index") int notice_Index, HttpServletRequest req, Model model ) {
-						
+				
+				iNoticeDao.hit( notice_Index );
+				model.addAttribute("dto", iNoticeDao.noticeForhit(notice_Index) );
+				
 				List<NoticeDto> noticebyIndex = adminService.noticebyIndex( notice_Index );
 				model.addAttribute("noticebyIndex",noticebyIndex);
 				

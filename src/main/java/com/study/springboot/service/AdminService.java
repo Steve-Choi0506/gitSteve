@@ -122,12 +122,6 @@ public class AdminService {
 		  return qnalistByuser;
 		  
 	  }
-	 
-	  // 공지사항 조회수 올리기
-	  public int countNotice(int count) throws Exception{
-		  
-		  return NoticeDao.countNotice(count);
-	  }
 	  
 	  
 	  

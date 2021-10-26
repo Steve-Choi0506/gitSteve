@@ -31,6 +31,9 @@
  	select * from hp_Notice where notice_Index=#{param1}
  	</select>
  	
+ 	<select id="noticeForhit" resultType="com.study.springboot.dto.NoticeDto">
+ 	select * from hp_Notice where notice_Index=#{param1}
+ 	</select>
  	
  	
  	<!-- 공지사항 편집하기 ; 공지사항 번호로 변경 : 제목 누르면 번호 얻어오기
@@ -50,4 +53,9 @@
  	     UPDATE hp_Notice SET notice_Count=notice_Count+1 WHERE notice_Index=#{param1}
  	</update>
  	
+ 	<!-- 조회수 올리기 -->
+ 	<update id="hit">
+		UPDATE hp_Notice SET notice_Count=notice_Count+1 WHERE notice_Index=#{param1}
+	</update>
+	
 </mapper>
