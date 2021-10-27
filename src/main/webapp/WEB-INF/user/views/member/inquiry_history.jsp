@@ -270,7 +270,7 @@
 
         /* 푸터 */
         #foo {
-            padding-top: 230px;
+            padding-top: 300px;
         }
 
         .footer {

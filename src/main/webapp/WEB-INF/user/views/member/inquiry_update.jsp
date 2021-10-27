@@ -457,7 +457,7 @@
                 </div>
                 <textarea class="text3" name="qna_Content">${hp_Qna.qna_Content}</textarea>
                 <div class="btn1">
-                    <button id="btn1" class="button" onclick="location.href='/user/views/member/inquiry_history'">갱신</button>
+                    <button id="btn1" class="button" onclick="btn()" onclick="location.href='/user/views/member/inquiry_history'">수정</button>
                 </div>
             </div>
                 
@@ -524,6 +524,12 @@
             menu.classList.toggle('active');
             login.classList.toggle('active');
         });
+
+        function btn(){
+            alert('수정 되었습니다');
+        }
+
+
     </script>
 
 

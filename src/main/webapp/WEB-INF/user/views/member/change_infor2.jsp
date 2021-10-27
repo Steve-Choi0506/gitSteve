@@ -250,7 +250,7 @@
 
         /* 푸터 */
         #foo {
-            padding-top: 150px;
+            padding-top: 0px;
         }
 
         .footer {
@@ -418,46 +418,69 @@
         </aside>
         <main class="main">
             <div class="main-1">
-              
+
+                <form action="<c:url value="/updateMember"/>" method="post">
+                <c:forEach var="hp_member" items="${memberlist_byIndex}">
+
                 <div>
                     <p>내 정보</p>
                 </div>
 
+                <!-- 번호 -->
+                <input type="hidden" rows="16" cols="95" name="hp_Index" value="${hp_member.hp_Index}">
+
                 <div>
-                    아이디 : <input type="text1" name="qna_Title" value="${memberDto.hp_ID}">
+                    아이디 : <input type="text1" name="hp_ID" value="${hp_member.hp_ID}">
                 </div>
+
                 <div>
-                    패스워드 : <input type="text1" name="qna_Title" value="${memberDto.hp_Password}">
+                    패스워드 : <input type="text1" name="hp_Password" value="${hp_member.hp_Password}">
                 </div>
+
                 <div>
-                    이름 : <input type="text1" name="qna_Title" value="${memberDto.hp_Name}">
+                    이름 : <input type="text1" name="hp_Name" value="${hp_member.hp_Name}">
                 </div>
+
                 <div>
-                    생년월일 : <input type="text1" name="qna_Title" value="${memberDto.hp_Birthday_Year}">
+                    생년월일 (년) : <input type="text1" name="hp_Birthday_Year" value="${hp_member.hp_Birthday_Year}">
                 </div>
+
                 <div>
-                    성별 : <input type="text1" name="qna_Title" value="${memberDto.hp_Sex}">
+                    생년월일 (월) : <input type="text1" name="hp_Birthday_Month" value="${hp_member.hp_Birthday_Month}">
                 </div>
+
                 <div>
-                    이메일 : <input type="text1" name="qna_Title" value="${memberDto.hp_Email}">
+                    성별 : <input type="text1" name="hp_Sex" value="${hp_member.hp_Sex}">
                 </div>
+
                 <div>
-                    휴대전화 : <input type="text1" name="qna_Title" value="${memberDto.hp_Phone}">
+                    이메일 : <input type="text1" name="hp_Email" value="${hp_member.hp_Email}">
                 </div>
+
+                <div>
+                    전화번호 : <input type="text1" name="hp_Phone" value="${hp_member.hp_Phone}">
+                </div>
+
+                <!-- 티켓여부 -->
+                <input type="hidden" rows="16" cols="95" name="hp_Ticket" value="${hp_member.hp_Ticket}">
+                <!-- 권한여부 -->
+                <input type="hidden" rows="16" cols="95" name="hp_Auth" value="${hp_member.hp_Auth}">
 
 
                 <div class="btn1">
-                    <button class="button" type="button" onclick="location.href='#'">정보변경</button>
+                    <button type="submit" id="btn1" class="button" onclick="btn()" onclick="location.href='/user/views/member/change_infor2'">정보변경</button>
                 </div>
 
+            </c:forEach>
+            </form>
 
                 
-                <form action="<c:url value="/deleteMyself"/>" method="post">
-                  <div class="btn2">
-                      <input type="hidden" name="hp_Index" value="${memberDto.hp_Index}">
-                      <button class="button" type="submit" name="hp_Index" onclick="btn2()" onclick="location.href='/user/views/member/login?hp_Index=${memberDto.hp_Index}'">회원탈퇴</button>
-                  </div>
-                </form>
+            <form action="<c:url value="/deleteMyself"/>" method="post">
+                <div class="btn2">
+                    <input type="hidden" name="hp_Index" value="${memberDto.hp_Index}">
+                    <button class="button" type="submit" name="hp_Index" onclick="btn()" onclick="location.href='/user/views/member/login?hp_Index=${memberDto.hp_Index}'">회원탈퇴</button>
+                </div>
+            </form>
 
 
             </div>
@@ -495,8 +518,8 @@
 
         
 
-        function btn2(){
-            alert('회원탈퇴 되었습니다');
+        function btn(){
+            alert('수정 되었습니다');
         }
 
 

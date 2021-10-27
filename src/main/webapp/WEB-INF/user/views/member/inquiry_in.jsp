@@ -426,48 +426,45 @@
         <main class="main">
 		<form action="<c:url value="/deleteQnAByself"/>" method="post">
 
-  <c:forEach var="hp_Qna" items="${qnabyIndex}">
-		<table width="500">
-		
-		<tr>
-			<td>공지사항 번호</td>
-			<td><input type="text" rows="16" cols="95" name="qna_Index" value="${hp_Qna.qna_Index}"></td>
-		</tr>
-		<tr id="hidden">
-			<td>번호</td>
-			<td><input type="hidden" name="hp_Index" value="${hp_Qna.hp_Index}"> </td>
-		</tr>
-		<tr id="hidden">
-			<td>작성자</td>
-			<td><input type="hidden" name="hp_ID" value="${hp_Qna.hp_ID}"> </td>
-		</tr>
-	  <tr>
-			<td>제목</td>
-			<td><input type="text" name="qna_Title" value="${hp_Qna.qna_Title}"> </td>
-		</tr>
-    <tr>
-			<td>날짜</td>
-			<td><input name="qna_Date" value="${hp_Qna.qna_Date}"> </td>
-		</tr>
-		<tr>
-			<td>내용</td>
-			<td><textarea rows="16" cols="95" name="qna_Content">${hp_Qna.qna_Content}</textarea> </td>
-		</tr>
-		<tr id="hidden">
-			<td>답변확인</td>
-			<td><input type="hidden" name="answer_Check" value="${hp_Qna.answer_Check}"> </td>
-		</tr>
-		
-		
-		
-		<tr>
-			<td colspan="2"> 
+    <c:forEach var="hp_Qna" items="${qnabyIndex}">
 
-			<input type="submit" value="삭제" onclick="location.href='/user/views/member/inquiry_history?hp_ID=${hp_ID}'"></a> 
-			</td>
-		</tr>
-		
-		</table>
+
+
+    <div class="main-1">
+        <div>
+            <p>1:1 문의</p>
+        </div>
+
+        <!-- 공지사항 번호 -->
+        <input type="hidden" rows="16" cols="95" name="qna_Index" value="${hp_Qna.qna_Index}">
+        <!-- 번호 -->
+        <input type="hidden" name="hp_Index" value="${hp_Qna.hp_Index}">
+        <!-- 작성자 -->
+        <input type="hidden" name="hp_ID" value="${hp_Qna.hp_ID}">
+        <!-- 제목 -->
+        <div class="text1">
+            <span>제목 : </span>
+            <span id="t1">${hp_Qna.qna_Title}</span>
+        </div>
+        <!-- 날짜 -->
+        <div class="text2">
+            <span> </span>
+            <span>작성일자 : <fmt:formatDate value="${hp_Qna.qna_Date}" pattern="yyyy년 MM월 dd일"/></span>
+        </div>
+        <!-- 내용 -->
+        <div class="text3" >
+            ${hp_Qna.qna_Content}
+        </div>
+        <!-- 답변확인 -->
+        <input type="hidden" name="answer_Check" value="${hp_Qna.answer_Check}">
+        <div class="btn1">
+            <button id="btn1" class="button" type="button" onclick="location.href='/user/views/member/inquiry_update?qna_Index=${hp_Qna.qna_Index}'">수정</button>
+
+            <button id="btn1" class="button" type="submit" onclick="btn()" onclick="location.href='/user/views/member/inquiry_history?hp_ID=${hp_ID}'">삭제</button>
+        </div>
+
+
+
 	</c:forEach>
 	
 	</form>
@@ -501,6 +498,15 @@
             menu.classList.toggle('active');
             login.classList.toggle('active');
         });
+
+
+
+        function btn(){
+            alert('삭제 되었습니다');
+        }
+
+
+
     </script>
 
 

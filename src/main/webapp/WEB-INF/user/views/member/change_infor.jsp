@@ -188,6 +188,7 @@
         .main-1 {
             border: 1px solid black;
             width: 500px;
+            height: 400px;
             padding-left: 20px;
             line-height: 50px;
             font-size: 20px;
@@ -228,6 +229,17 @@
           display: none;
         }
 
+        #pw1 {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 2px solid black;
+            background-color: var(--background-color);
+            /* width: 300px; */
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
 
 
 
@@ -238,7 +250,7 @@
 
         /* 푸터 */
         #foo {
-            padding-top: 150px;
+            padding-top: 180px;
         }
 
         .footer {
