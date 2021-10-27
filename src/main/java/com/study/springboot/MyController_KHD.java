@@ -831,6 +831,7 @@ public class MyController_KHD {
 				req.getSession().invalidate();
 				
 				req.getSession().removeAttribute("hp_ID");
+				req.getSession().removeAttribute("hp_Password");
 				
 				return "redirect:/user/views/member/login";
 			}
