@@ -541,7 +541,10 @@ public class MyController_KHD {
 			
 		// 1:1 문의 목록 삭제가 가능한 페이지
 			@RequestMapping("/admin/views/write_qna2")
-			public String qna2(HttpServletRequest req, Model model) {
+			public String qna2( @RequestParam("qna_Index") int qna_Index, HttpServletRequest req, Model model) {
+				
+				List<QnADto> qnabyIndex = adminService.qnabyIndex( qna_Index );
+				model.addAttribute("qnabyIndex",qnabyIndex);
 				
 				return "admin/views/write_qna2";
 			}
@@ -771,6 +774,16 @@ public class MyController_KHD {
 				model.addAttribute( "qnabyIndex", qnabyIndex );
 				
 				return "user/views/member/inquiry_in";
+			}
+		// 마이페이지 -> 1:1 문의 스스로 삭제
+			@RequestMapping(value="/deleteQnAByself", method=RequestMethod.POST)
+			public String deleteQnAByself( @RequestParam("qna_Index") int qna_Index, HttpServletRequest req, ModelMap modelMap ) throws Exception {
+				
+				String hp_ID = (String) req.getSession().getAttribute( "hp_ID" );
+				
+				iQnADao.deleteQnA(qna_Index);
+				
+				return "redirect:/user/views/member/inquiry_history?hp_ID="+hp_ID;
 			}
 		
 		// 마이페이지 -> 1:1 문의 -> 작성하기
