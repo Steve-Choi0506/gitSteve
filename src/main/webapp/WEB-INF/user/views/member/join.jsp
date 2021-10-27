@@ -144,11 +144,12 @@
           position: relative;
           border: solid black 1px;
           width: 400px;
-          height: 850px;
+          height: 950px;
           flex-direction: column;
           align-items: center;
-          padding: 2%;
+          padding: 1%;
           margin: 10px;
+          margin-top: 100px;
 
         }
 

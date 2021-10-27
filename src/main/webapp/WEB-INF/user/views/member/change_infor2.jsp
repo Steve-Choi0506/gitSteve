@@ -455,9 +455,11 @@
                 <form action="<c:url value="/deleteMyself"/>" method="post">
                   <div class="btn2">
                       <input type="hidden" name="hp_Index" value="${memberDto.hp_Index}">
-                      <button class="button" type="submit" name="hp_Index" onclick="location.href='/user/views/member/login?hp_Index=${memberDto.hp_Index}'">회원탈퇴</button>
+                      <button class="button" type="submit" name="hp_Index" onclick="btn2()" onclick="location.href='/user/views/member/login?hp_Index=${memberDto.hp_Index}'">회원탈퇴</button>
                   </div>
                 </form>
+
+
             </div>
         </main>
     </section>
@@ -490,6 +492,20 @@
             menu.classList.toggle('active');
             login.classList.toggle('active');
         });
+
+        
+
+        function btn2(){
+            alert('회원탈퇴 되었습니다');
+        }
+
+
+
+
+          </script>
+
+
+
     </script>
 
 
