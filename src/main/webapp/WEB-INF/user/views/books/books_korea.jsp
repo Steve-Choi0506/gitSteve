@@ -187,7 +187,7 @@
         
         /* 푸터 */
         #foo {
-            padding-top: 200px;
+            padding-top: 350px;
         }
         
         .footer {
@@ -342,6 +342,7 @@
 
 
     <!-- 푸터 -->
+    <div id="foo">
     <footer class="footer">
         <div class="footer-1">
             <img id="footerimg" src="/img/footerimg.png" alt="부키도키">
@@ -366,6 +367,7 @@
           %>
         </div>
     </footer>
+    </div>
     <!-- 푸터 종료 -->
 
 

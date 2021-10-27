@@ -202,6 +202,17 @@
             font-weight: bolder;
         }
 
+        input[type=text1] {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 2px solid black;
+            background-color: var(--background-color);
+            width: 300px;
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
         .button {
             width: 100px;
             height: 50px;
@@ -226,17 +237,6 @@
             display: flex;
             justify-content: center;
             margin-bottom: 30px;
-        }
-
-        .cor {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        #btn1 {
-            margin-right: 30px;
-            height: 30px;
-            margin-top: 15px;
         }
 
 
@@ -418,34 +418,41 @@
         </aside>
         <main class="main">
             <div class="main-1">
-              <form action="<c:url value="/deleteMyself"/>" method="post">
+              
                 <div>
                     <p>내 정보</p>
                 </div>
+
                 <div>
-                    아이디 : ${memberDto.hp_ID}
-                </div>
-                <div>
-                    패스워드 : ${memberDto.hp_Password}
+                    아이디 : <input type="text1" name="qna_Title" value="${memberDto.hp_ID}">
                 </div>
                 <div>
-                    이름 : ${memberDto.hp_Name}
+                    패스워드 : <input type="text1" name="qna_Title" value="${memberDto.hp_Password}">
                 </div>
                 <div>
-                    생년월일 : ${memberDto.hp_Birthday_Year}
+                    이름 : <input type="text1" name="qna_Title" value="${memberDto.hp_Name}">
                 </div>
                 <div>
-                    성별 : ${memberDto.hp_Sex}
+                    생년월일 : <input type="text1" name="qna_Title" value="${memberDto.hp_Birthday_Year}">
                 </div>
-                <div class="cor">
-                    이메일 : ${memberDto.hp_Email} <button id="btn1" type="button" onclick="location.href='#'">수정</button>
+                <div>
+                    성별 : <input type="text1" name="qna_Title" value="${memberDto.hp_Sex}">
                 </div>
-                <div class="cor">
-                    휴대전화 : ${memberDto.hp_Phone} <button id="btn1" type="button" onclick="location.href='#'">수정</button>
+                <div>
+                    이메일 : <input type="text1" name="qna_Title" value="${memberDto.hp_Email}">
                 </div>
+                <div>
+                    휴대전화 : <input type="text1" name="qna_Title" value="${memberDto.hp_Phone}">
+                </div>
+
+
                 <div class="btn1">
                     <button class="button" type="button" onclick="location.href='#'">정보변경</button>
                 </div>
+
+
+                
+                <form action="<c:url value="/deleteMyself"/>" method="post">
                   <div class="btn2">
                       <input type="hidden" name="hp_Index" value="${memberDto.hp_Index}">
                       <button class="button" type="submit" name="hp_Index" onclick="location.href='/user/views/member/login?hp_Index=${memberDto.hp_Index}'">회원탈퇴</button>

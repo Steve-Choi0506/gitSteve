@@ -187,7 +187,7 @@
         
         /* 푸터 */
         #foo {
-            padding-top: 200px;
+            padding-top: 350px;
         }
         
         .footer {
