@@ -62,7 +62,6 @@
  	<delete id="deleteQnA" parameterType="com.study.springboot.dto.QnADto">
  		DELETE FROM hp_QnA WHERE qna_Index=#{param1}
  	</delete>
-
 	<!-- 1:1 스스로 삭제하기 ; 공지사항 번호 -->
  	<delete id="deleteQnAByself" parameterType="com.study.springboot.dto.QnADto">
  		DELETE FROM hp_QnA WHERE qna_Index=#{param1}

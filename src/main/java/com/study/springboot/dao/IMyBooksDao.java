@@ -25,7 +25,7 @@ public interface IMyBooksDao {
 	   // 즐겨찾기 목록
 		public List<MyBooksDto> mybookslist();
 		
-        public void addfavor(int hp_Index, int book_Index, String book_Title, String book_Writer, String filename);
+		public void addfavor(int hp_Index, int book_Index, String book_Title, String book_Writer, String filename);
 		
 		public void deletefavor(int hp_Index);
 }

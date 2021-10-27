@@ -558,83 +558,84 @@ public class MyController_KHD {
 				return "redirect:/admin/views/admin_qna";	
 			}
 			
-			// 즐겨찾기
+			
+		// 즐겨찾기
 			
 			
 			
-			// 즐겨찾기 페이지(관리자 페이지)
-		
-		       @RequestMapping("/admin/views/admin_favor")
-		       public String admin_mybooks( HttpServletRequest req, Model model ) {
-		    				
-		    				
-		       List<MyBooksDto> mybookslist = iMyBooksDao.mybookslist();
-		    				
-		       model.addAttribute( "my_books_list", mybookslist );
-		    				
-		    				
-		       return "admin/views/admin_favor";
-		    			
-		       }
-		    		
-		    		// 즐겨찾기 정보 불러오기
-		    //			@RequestMapping("/admin/views/write_Mybooks")
-		    //			public String view( @RequestParam("hp_Index") int hp_Index, 
-		    //								HttpServletRequest req, Model model ) {
-		    				
-		    //				List<BookListDto> booklistbyIndex = adminService.booklistbyIndex( hp_Index );
-		    //				model.addAttribute( "booklistbyIndex", booklistbyIndex );
-		   // 				
-		    //				return "admin/views/write_Mybooks";
-		    //			} 
-		    			
-		    		// 즐겨찾기 목록 삽입이 가능한 페이지
-		    			@RequestMapping("/admin/views/write_favor1")
-		    			public String favor1( HttpServletRequest req, Model model ) {
-		    				
-		    				return "admin/views/write_favor1";
-		    			}
-		    			
-		    	// 즐겨찾기 목록 삽입
-		      		@RequestMapping(value="/addfavor", method=RequestMethod.POST)
-		    			public String addBook( 
-		    					
-		    					@RequestParam("hp_Index") int hp_Index,
-		    					@RequestParam("book_Index") int book_Index,
-		    					@RequestParam("book_Title") String book_Title,
-		    					@RequestParam("book_Writer") String book_Writer,
-		    					@RequestParam("book_Image") MultipartFile book_Image,
-		    					
-		    					ModelMap modelMap, Model model ) throws Exception {
-		    				
-		    					String filename = fileUploadService.restore( book_Image );
-		    					
-		    					System.out.println( "book_Image:" + book_Image );
-		    					model.addAttribute( "book_Image:", book_Image );
-		    					
-		    					iMyBooksDao.addfavor(hp_Index, book_Index, book_Title, book_Writer, filename);
-		    					
-		    					return "redirect:/admin/views/admin_favor";
-		    			}
-		    			
+		// 즐겨찾기 페이지(관리자 페이지)
+	
+	       @RequestMapping("/admin/views/admin_favor")
+	       public String admin_mybooks( HttpServletRequest req, Model model ) {
+	    				
+	    				
+	       List<MyBooksDto> mybookslist = iMyBooksDao.mybookslist();
+	    				
+	       model.addAttribute( "my_books_list", mybookslist );
+	    				
+	    				
+	       return "admin/views/admin_favor";
+	    			
+	       }
+	    		
+	    		// 즐겨찾기 정보 불러오기
+	    //			@RequestMapping("/admin/views/write_Mybooks")
+	    //			public String view( @RequestParam("hp_Index") int hp_Index, 
+	    //								HttpServletRequest req, Model model ) {
+	    				
+	    //				List<BookListDto> booklistbyIndex = adminService.booklistbyIndex( hp_Index );
+	    //				model.addAttribute( "booklistbyIndex", booklistbyIndex );
+	   // 				
+	    //				return "admin/views/write_Mybooks";
+	    //			} 
+	    			
+	    		// 즐겨찾기 목록 삽입이 가능한 페이지
+	    			@RequestMapping("/admin/views/write_favor1")
+	    			public String favor1( HttpServletRequest req, Model model ) {
+	    				
+	    				return "admin/views/write_favor1";
+	    			}
+	    			
+	    	// 즐겨찾기 목록 삽입
+	      		@RequestMapping(value="/addfavor", method=RequestMethod.POST)
+	    			public String addBook( 
+	    					
+	    					@RequestParam("hp_Index") int hp_Index,
+	    					@RequestParam("book_Index") int book_Index,
+	    					@RequestParam("book_Title") String book_Title,
+	    					@RequestParam("book_Writer") String book_Writer,
+	    					@RequestParam("book_Image") MultipartFile book_Image,
+	    					
+	    					ModelMap modelMap, Model model ) throws Exception {
+	    				
+	    					String filename = fileUploadService.restore( book_Image );
+	    					
+	    					System.out.println( "book_Image:" + book_Image );
+	    					model.addAttribute( "book_Image:", book_Image );
+	    					
+	    					iMyBooksDao.addfavor(hp_Index, book_Index, book_Title, book_Writer, filename);
+	    					
+	    					return "redirect:/admin/views/admin_favor";
+	    			}
+	    			
 
-		    		
-		    		// 도서 삭제 페이지
-		    			@RequestMapping("/admin/views/write_favor2")
-		    			public String favor2( HttpServletRequest req, Model model ) {
-		    				
-		    				return "admin/views/write_favor2";
-		    			}
+	    		
+	    		// 도서 삭제 페이지
+	    			@RequestMapping("/admin/views/write_favor2")
+	    			public String favor2( HttpServletRequest req, Model model ) {
+	    				
+	    				return "admin/views/write_favor2";
+	    			}
 
-		    		// 도서 목록 삭제
-		    			@RequestMapping(value="/deletefavor", method=RequestMethod.POST)
-		    			public String deletefavor( @RequestParam("hp_Index") int hp_Index, ModelMap modelMap ) throws Exception {
-		    			
-		    				iMyBooksDao.deletefavor( hp_Index );
-		    				                     
-		    				return "redirect:/admin/views/admin_favor";		
-		    			}	       
-								
+	    		// 도서 목록 삭제
+	    			@RequestMapping(value="/deletefavor", method=RequestMethod.POST)
+	    			public String deletefavor( @RequestParam("hp_Index") int hp_Index, ModelMap modelMap ) throws Exception {
+	    			
+	    				iMyBooksDao.deletefavor( hp_Index );
+	    				                     
+	    				return "redirect:/admin/views/admin_favor";		
+	    			}	       
+				
 
 /* ************************************************************************************************************************* */
 	

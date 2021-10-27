@@ -45,12 +45,9 @@
  		DELETE FROM hp_Mybooks WHERE hp_Index=#{param1}
  	</delete>
  	
- 	
  	<!-- 즐겨찾기 목록 가져오기-->
 	<select id="mybookslist" resultType="com.study.springboot.dto.MyBooksDto">
 		SELECT * FROM hp_Mybooks
 	</select>
-	
-	
  	
  </mapper>
