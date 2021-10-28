@@ -489,10 +489,7 @@ public class MyController_KHD {
 		
 		// 1:1 문의 목록 삽입이 가능한 페이지
 				@RequestMapping("/admin/views/write_qna1")
-				public String qna1(@RequestParam("qna_Index") int qna_Index, HttpServletRequest req, Model model) {
-					
-					List<QnADto> qnabyIndex = adminService.qnabyIndex( qna_Index );
-					model.addAttribute("qnabyIndex",qnabyIndex);
+				public String qna1( HttpServletRequest req, Model model) {
 					
 					return "admin/views/write_qna1";
 				}
@@ -870,19 +867,30 @@ public class MyController_KHD {
 			@RequestMapping("/user/views/member/inquiry")
 			public String inquiry( HttpServletRequest req, Model model ) {
 						
+				// 세션값 받아오기
+               		String hp_ID_Session = (String) req.getSession().getAttribute( "hp_ID" );
+               		
+               		List<MemberDto> list = memberService.memberlist_byIndex(hp_ID_Session);
+               		
+               		if( list.size() > 0 ) {
+               			model.addAttribute( "memberDto", list.get(0) );
+               		}
+
 				return "user/views/member/inquiry";
 			}
 			
 		// 마이페이지 -> 1:1 문의 내용 작성
 			@RequestMapping(value="/addQnAByuser", method=RequestMethod.POST)
 			public String addQnAByuser( 
+						 @RequestParam("hp_Index") String hp_Index,
+						 @RequestParam("hp_ID") String hp_ID,
 		               	 @RequestParam("qna_Title") String qna_Title,
 		               	 @RequestParam("qna_Content") String qna_Content,
-		               	 ModelMap modelMap ) throws Exception {
+		               	 ModelMap modelMap, HttpServletRequest req, Model model ) throws Exception {
 				
-		                   iQnADao.addQnAByuser( qna_Title, qna_Content );
+		                   iQnADao.addQnAByuser( hp_Index, hp_ID, qna_Title, qna_Content );
 				                                 
-		                   return "redirect:/user/views/member/mypage";
+		                   return "redirect:/user/views/member/inquiry_history?hp_ID="+hp_ID;
 			}
 		
 		// 마이페이지 -> 1:1 문의 -> 수정하기

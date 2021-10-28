@@ -432,18 +432,24 @@
                 <div>
                     <p>1:1 문의</p>
                 </div>
-                <div class="text1">
-                  <form action="<c:url value="/addQnAByuser"/>" method="post">
-                    제목 : <input type="text1">
-                </div>
-                <div class="text2">
-                    <span>문의사항</span>
-                    <span>작성일자 : <%= sf.format(nowTime) %> </span>
-                </div>
-                <textarea class="text3" ></textarea>
-                <div class="btn1">
-                    <button id="btn1" class="button" type="button" onclick="location.href='/user/views/member/inquiryAction'">등록하기</button>
-                </div>
+				<form action="<c:url value="/addQnAByuser"/>" method="post">
+	             	<div class="hp_Index">
+	             		<input type="hidden" name="hp_Index" value="${memberDto.hp_Index}">
+	             	</div>
+	                <div class="hp_ID">
+	             		<input type="hidden" name="hp_ID" value="${memberDto.hp_ID}">
+	             	</div>
+	                <div class="text1">
+	                  제목 : <input type="text1" name="qna_Title" value="${qna_Title}">
+	                </div>
+	                <div class="text2">
+	                    <span>문의사항</span>
+	                    <span>작성일자 : <%= sf.format(nowTime) %> </span>
+	                </div>
+	                <textarea class="text3" name="qna_Content" value="${qna_Content}" ></textarea>
+	                <div class="btn1">
+	                    <button id="btn1" class="button" type="submit" >등록하기</button>
+	                </div>
               </form>
             </div>
 

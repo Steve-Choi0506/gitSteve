@@ -16,7 +16,7 @@ public interface IQnADao {
 	// 1:1 문의 추가하기
 		  public int addQnA(int hp_Index, String hp_ID, String qna_Title, String qna_Content);
 		// 사용자가 1:1 문의 추가하기
-		  public int addQnAByuser(String qna_Title, String qna_Content);
+		  public int addQnAByuser( String hp_Index, String hp_ID, String qna_Title, String qna_Content);
 		// 1:1 문의 편집하기
 		  public int updateQnA(int qna_Index, int hp_Index, String hp_ID, String qna_Title, String qna_Content, int answer_Check);
 		// 1:1 문의 삭제하기
