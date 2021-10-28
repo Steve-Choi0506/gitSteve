@@ -427,7 +427,6 @@
                     <p>내 정보</p>
                 </div>
                 <form action="<c:url value="/updateMemberMyself"/>" method="post">
-
                 <c:forEach var="hp_member" items="${memberlist_byIndex}">
 		<table width="500">
 		
@@ -438,39 +437,39 @@
 		</tr>
 		<tr>
 			<td>아이디</td>
-			<td><input type="text" rows="16" cols="95" name="hp_ID" value="${hp_member.hp_ID}"> </td>
+			<td><input type="text1" rows="16" cols="95" name="hp_ID" value="${hp_member.hp_ID}"> </td>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
-			<td><input type="text" rows="16" cols="95" name="hp_Password" value="${hp_member.hp_Password}"> </td>
+			<td><input type="text1" rows="16" cols="95" name="hp_Password" value="${hp_member.hp_Password}"> </td>
 		</tr>
 		
 		
 		<tr>
 			<td>이름</td>
-			<td><input type="text" rows="16" cols="95" name="hp_Name" value="${hp_member.hp_Name}"> </td>
+			<td><input type="text1" rows="16" cols="95" name="hp_Name" value="${hp_member.hp_Name}"> </td>
 		</tr>
 		
 		<tr>
 			<td>생년월일(연)</td>
-			<td><input rows="16" cols="95" name="hp_Birthday_Year" value="${hp_member.hp_Birthday_Year}"></td>
+			<td><input type="text1" rows="16" cols="95" name="hp_Birthday_Year" value="${hp_member.hp_Birthday_Year}"></td>
 		</tr>
 		<tr>
 			<td>생년월일(월)</td>
-			<td><input rows="16" cols="95" name="hp_Birthday_Month" value="${hp_member.hp_Birthday_Month}"></td>
+			<td><input type="text1" rows="16" cols="95" name="hp_Birthday_Month" value="${hp_member.hp_Birthday_Month}"></td>
 		</tr>
 		<tr>
 			<td>성별</td>
-			<td><input type="text" rows="16" cols="95" name="hp_Sex" value="${hp_member.hp_Sex}"></td>
+			<td><input type="text1" rows="16" cols="95" name="hp_Sex" value="${hp_member.hp_Sex}"></td>
 		</tr>
 		
 		<tr>
 			<td>이메일</td>
-			<td><input type="text" rows="16" cols="95" name="hp_Email" value="${hp_member.hp_Email}"> </td>
+			<td><input type="text1" rows="16" cols="95" name="hp_Email" value="${hp_member.hp_Email}"> </td>
 		</tr>
 		<tr>
 			<td>전화번호</td>
-			<td><input type="text" rows="16" cols="95" name="hp_Phone" value="${hp_member.hp_Phone}"> </td>
+			<td><input type="text1" rows="16" cols="95" name="hp_Phone" value="${hp_member.hp_Phone}"> </td>
 		</tr>
 		<tr id="hidden">
 			<td>티켓여부</td>
@@ -483,11 +482,12 @@
 		
 		</table>
 	
-	</c:forEach>
-                  <div class="btn1">
-                    <button class="button" type="submit" onclick="location.href='/user/views/member/change_infor?hp_Index=${memberDto.hp_Index}'">정보변경</button>
-                  </form>
-                </div>
+	
+            <div class="btn1">
+            <button class="button" type="submit" onclick="btn1()" onclick="location.href='/user/views/member/change_infor?hp_Index=${memberDto.hp_Index}'">정보변경</button>
+        </c:forEach>
+        </form>
+        </div>
 
 
                 
@@ -532,7 +532,9 @@
             login.classList.toggle('active');
         });
 
-        
+        function btn1(){
+            alert('정보변경 되었습니다');
+        }
 
         function btn2(){
             alert('회원탈퇴 되었습니다');
