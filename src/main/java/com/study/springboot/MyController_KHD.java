@@ -831,7 +831,7 @@ public class MyController_KHD {
 					   	 @RequestParam("hp_Email") String hp_Email,
 					   	 @RequestParam("hp_Phone") String hp_Phone,
 					   	 @RequestParam("hp_Ticket") int hp_Ticket,
-					   	 @RequestParam("hp_Auth") int hp_Auth, 
+					   	 @RequestParam("hp_Auth") int hp_Auth, HttpServletRequest req,
 					   	 ModelMap modelMap) throws Exception {
 				
 							iMemberDao.updateMemberMyself( hp_Index, hp_ID, hp_Password, hp_Name, hp_Birthday_Year, hp_Birthday_Month,
