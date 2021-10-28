@@ -836,6 +836,9 @@ public class MyController_KHD {
 				
 							iMemberDao.updateMemberMyself( hp_Index, hp_ID, hp_Password, hp_Name, hp_Birthday_Year, hp_Birthday_Month,
 														hp_Sex, hp_Email, hp_Phone, hp_Ticket, hp_Auth );
+							
+							req.getSession().setAttribute( "hp_ID", hp_ID );
+							req.getSession().setAttribute( "hp_Password", hp_Password );
 				
 							return "redirect:/user/views/member/change_infor?hp_Index="+hp_Index;
 				}
