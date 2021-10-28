@@ -188,7 +188,7 @@
         .main-1 {
             border: 1px solid black;
             width: 500px;
-            height: 400px;
+	    height: 400px;
             padding-left: 20px;
             line-height: 50px;
             font-size: 20px;
@@ -229,7 +229,7 @@
           display: none;
         }
 
-        #pw1 {
+	#pw1 {
             border-top: none;
             border-left: none;
             border-right: none;
@@ -239,14 +239,6 @@
             font-size: 20px;
             font-weight: bolder;
         }
-
-
-
-
-
-
-
-
 
         /* 푸터 */
         #foo {
@@ -428,7 +420,7 @@
                 </div>
                   <span id="confirmMsg"></span>
                 <div class="btn1">
-                    <button id="btn1" class="button" onclick="location.href='/user/views/member/change_infor2'">확인</button>
+                    <button id="btn1" class="button" onclick="location.href='/user/views/member/change_infor2?hp_ID=${hp_ID}'">확인</button>
                 </div>
             </div>
         </main>

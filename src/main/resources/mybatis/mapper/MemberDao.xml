@@ -73,6 +73,14 @@
 			hp_Email=#{param8}, hp_Phone=#{param9}, hp_Ticket=#{param10}, hp_Auth=#{param11}
 		  WHERE hp_Index=#{param1}
 	</update>
+	<!-- 유저 스스로 편집하기 ; -->
+	<update id="updateMemberMyself" parameterType="com.study.springboot.dto.MemberDto">
+		UPDATE hp_Member set
+			hp_ID=#{param2}, hp_Password=#{param3}, hp_Name=#{param4},
+			hp_Birthday_Year=#{param5}, hp_Birthday_Month=#{param6}, hp_Sex=#{param7},
+			hp_Email=#{param8}, hp_Phone=#{param9}, hp_Ticket=#{param10}, hp_Auth=#{param11}
+		  WHERE hp_Index=#{param1}
+	</update>
  	
  	<!-- 유저 삭제하기 ; 도서 인덱스 : 삭제버튼으로 번호 얻어오기! -->
  	<delete id="deleteMember" parameterType="com.study.springboot.dto.MemberDto">
@@ -90,5 +98,9 @@
 		SELECT * FROM hp_Member WHERE hp_ID = #{param1}
 	</select>
 	
+	<!-- 마이페이지에서 회원정보 불러오기 -->
+	<select id="memberInforInMypage" resultType="com.study.springboot.dto.MemberDto">
+		SELECT * FROM hp_Member WHERE hp_ID = #{param1}
+	</select>
  	
 </mapper>

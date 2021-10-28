@@ -581,8 +581,8 @@
             </div>
             <table class="table">
                 <tr>
-                    <td id="num">번호</td>
-                    <td id="name">닉네임</td>
+                    <td id="num">리뷰번호</td>
+                    <td id="name">아이디</td>
                     <td id="text">내용</td>
                     <td id="day">날짜</td>
                 </tr>

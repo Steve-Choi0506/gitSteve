@@ -14,15 +14,15 @@
 <body>
 	<form action="<c:url value="/addBookReview"/>" method="post">
 		
-		<table width="500">
+		<table width="1200">
 		
 		
 		<tr>
-			<td>책리뷰 번호</td>
+			<td>책 번호</td>
 			<td><input type="text" rows="16" cols="95" name="book_Index" value="${book_Index}"> </td>
 		</tr>
 		<tr>
-			<td>번호</td>
+			<td>회원번호</td>
 			<td><input type="text" rows="16" cols="95" name="hp_Index" value="${hp_Index}"> </td>
 		</tr>
 		

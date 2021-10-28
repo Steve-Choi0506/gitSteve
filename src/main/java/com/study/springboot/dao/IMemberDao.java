@@ -16,6 +16,7 @@ public interface IMemberDao {
 
   //회원 정보 불러오기
     public List<MemberDto> memberlist_byIndex(String hp_ID);
+	public List<MemberDto> memberInforInMypage(String hp_ID);
     
     public int adminLogin(String hp_ID,String hp_Password);
     
@@ -31,6 +32,11 @@ public interface IMemberDao {
 	  public int updateMember( int hp_Index, String hp_ID, String hp_Password, String hp_Name, 
 			  					int hp_Birthday_Year, int hp_Birthday_Month, int hp_Sex, 
 			  					String hp_Email, String hp_Phone, int hp_Ticket, int hp_Auth);
+
+	// 유저 스스로 편집  
+	  public int updateMemberMyself( int hp_Index, String hp_ID, String hp_Password, String hp_Name, 
+				  					int hp_Birthday_Year, int hp_Birthday_Month, int hp_Sex, 
+				  					String hp_Email, String hp_Phone, int hp_Ticket, int hp_Auth);
 	// 유저 삭제
 	  public int deleteMember( int hp_Index );
 	  

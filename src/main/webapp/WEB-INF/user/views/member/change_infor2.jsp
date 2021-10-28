@@ -238,6 +238,9 @@
             justify-content: center;
             margin-bottom: 30px;
         }
+	#hidden {
+          display: none;
+        }
 
 
 
@@ -342,6 +345,7 @@
 
 
 
+
             /* 푸터 시작 */
             #footerimg {
                 width: 200px;
@@ -422,57 +426,64 @@
                 <div>
                     <p>내 정보</p>
                 </div>
-
-                <tr>
-                  <td>번호</td>
-                  <td><input type="text" rows="16" cols="95" name="hp_Index" value="${memberDto.hp_Index}"></td>
-                </tr>
-                <tr>
-                  <td>아이디</td>
-                  <td><input type="text" rows="16" cols="95" name="hp_ID" value="${memberDto.hp_ID}"> </td>
-                </tr>
-                <tr>
-                  <td>비밀번호</td>
-                  <td><input type="text" rows="16" cols="95" name="hp_Password" value="${memberDto.hp_Password}"> </td>
-                </tr>
-                
-                
-                <tr>
-                  <td>이름</td>
-                  <td><input type="text" rows="16" cols="95" name="hp_Name" value="${memberDto.hp_Name}"> </td>
-                </tr>
-                
-                <tr>
-                  <td>생년월일(연)</td>
-                  <td><input rows="16" cols="95" name="hp_Birthday_Year" value="${memberDto.hp_Birthday_Year}"></td>
-                </tr>
-                <tr>
-                  <td>생년월일(월)</td>
-                  <td><input rows="16" cols="95" name="hp_Birthday_Month" value="${memberDto.hp_Birthday_Month}"></td>
-                </tr>
-                <tr>
-                  <td>성별</td>
-                  <td><input type="text" rows="16" cols="95" name="hp_Sex" value="${memberDto.hp_Sex}"></td>
-                </tr>
-                
-                <tr>
-                  <td>이메일</td>
-                  <td><input type="text" rows="16" cols="95" name="hp_Email" value="${memberDto.hp_Email}"> </td>
-                </tr>
-                <tr>
-                  <td>전화번호</td>
-                  <td><input type="text" rows="16" cols="95" name="hp_Phone" value="${memberDto.hp_Phone}"> </td>
-                </tr>
-                <tr>
-                  <td>티켓여부</td>
-                  <td><input type="text" rows="16" cols="95" name="hp_Ticket" value="${memberDto.hp_Ticket}"> </td>
-                </tr>
-                <tr>
-                  <td>권한 여부</td>
-                  <td><input type="text" rows="16" cols="95" name="hp_Auth" value="${memberDto.hp_Auth}"> </td>
-                </tr>
-
                 <form action="<c:url value="/updateMemberMyself"/>" method="post">
+
+                <c:forEach var="hp_member" items="${memberlist_byIndex}">
+		<table width="500">
+		
+		
+		<tr id="hidden">
+			<td>번호</td>
+			<td><input type="hidden" rows="16" cols="95" name="hp_Index" value="${hp_member.hp_Index}"></td>
+		</tr>
+		<tr>
+			<td>아이디</td>
+			<td><input type="text" rows="16" cols="95" name="hp_ID" value="${hp_member.hp_ID}"> </td>
+		</tr>
+		<tr>
+			<td>비밀번호</td>
+			<td><input type="text" rows="16" cols="95" name="hp_Password" value="${hp_member.hp_Password}"> </td>
+		</tr>
+		
+		
+		<tr>
+			<td>이름</td>
+			<td><input type="text" rows="16" cols="95" name="hp_Name" value="${hp_member.hp_Name}"> </td>
+		</tr>
+		
+		<tr>
+			<td>생년월일(연)</td>
+			<td><input rows="16" cols="95" name="hp_Birthday_Year" value="${hp_member.hp_Birthday_Year}"></td>
+		</tr>
+		<tr>
+			<td>생년월일(월)</td>
+			<td><input rows="16" cols="95" name="hp_Birthday_Month" value="${hp_member.hp_Birthday_Month}"></td>
+		</tr>
+		<tr>
+			<td>성별</td>
+			<td><input type="text" rows="16" cols="95" name="hp_Sex" value="${hp_member.hp_Sex}"></td>
+		</tr>
+		
+		<tr>
+			<td>이메일</td>
+			<td><input type="text" rows="16" cols="95" name="hp_Email" value="${hp_member.hp_Email}"> </td>
+		</tr>
+		<tr>
+			<td>전화번호</td>
+			<td><input type="text" rows="16" cols="95" name="hp_Phone" value="${hp_member.hp_Phone}"> </td>
+		</tr>
+		<tr id="hidden">
+			<td>티켓여부</td>
+			<td><input type="hidden" rows="16" cols="95" name="hp_Ticket" value="${hp_member.hp_Ticket}"> </td>
+		</tr>
+		<tr id="hidden">
+			<td>권한 여부</td>
+			<td><input type="hidden" rows="16" cols="95" name="hp_Auth" value="${hp_member.hp_Auth}"> </td>
+		</tr>
+		
+		</table>
+	
+	</c:forEach>
                   <div class="btn1">
                     <button class="button" type="submit" onclick="location.href='/user/views/member/change_infor?hp_Index=${memberDto.hp_Index}'">정보변경</button>
                   </form>
@@ -526,15 +537,9 @@
         function btn2(){
             alert('회원탈퇴 되었습니다');
         }
+	</script>
 
 
-
-
-          </script>
-
-
-
-    </script>
 
 
 

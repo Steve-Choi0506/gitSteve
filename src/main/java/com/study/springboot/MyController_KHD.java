@@ -489,8 +489,11 @@ public class MyController_KHD {
 		
 		// 1:1 문의 목록 삽입이 가능한 페이지
 				@RequestMapping("/admin/views/write_qna1")
-				public String qna1( HttpServletRequest req, Model model) {
+				public String qna1(@RequestParam("qna_Index") int qna_Index, HttpServletRequest req, Model model) {
 					
+					List<QnADto> qnabyIndex = adminService.qnabyIndex( qna_Index );
+					model.addAttribute("qnabyIndex",qnabyIndex);
+
 					return "admin/views/write_qna1";
 				}
 				
@@ -804,21 +807,39 @@ public class MyController_KHD {
 				return "user/views/member/change_infor";
 			}
 			
-		// 마이페이지 -> 정보변경 -> 확인
+		// 마이페이지 -> 정보변경 -> 내정보 확인
 			@RequestMapping("/user/views/member/change_infor2")
-			public String change_infor2( HttpServletRequest req, Model model ) {
+			public String change_infor2( @RequestParam("hp_ID") String hp_ID, HttpServletRequest req, Model model ) {
 				
-				// 세션값 받아와야함
-					String hp_ID = (String) req.getSession().getAttribute( "hp_ID" );
-					
-					List<MemberDto> list = memberService.memberlist_byIndex( hp_ID );
-					
-					if( list.size() > 0 ) {
-						model.addAttribute("memberDto", list.get(0));
-					}
+				List<MemberDto> memberlist_byIndex = adminService.memberlist_byIndex( hp_ID );
+			   	model.addAttribute( "memberlist_byIndex", memberlist_byIndex );
 							
 				return "user/views/member/change_infor2";
 			}
+
+
+			// 마이페이지 -> 정보변경
+			@RequestMapping(value="/updateMemberMyself", method=RequestMethod.POST)
+			public String updateMemberMyself( 			          
+					   	 @RequestParam("hp_Index") int hp_Index,
+					   	 @RequestParam("hp_ID") String hp_ID,
+					   	 @RequestParam("hp_Password") String hp_Password, 
+					   	 @RequestParam("hp_Name") String hp_Name, 
+					   	 @RequestParam("hp_Birthday_Year") int hp_Birthday_Year,
+					   	 @RequestParam("hp_Birthday_Month") int hp_Birthday_Month,
+					   	 @RequestParam("hp_Sex") int hp_Sex,
+					   	 @RequestParam("hp_Email") String hp_Email,
+					   	 @RequestParam("hp_Phone") String hp_Phone,
+					   	 @RequestParam("hp_Ticket") int hp_Ticket,
+					   	 @RequestParam("hp_Auth") int hp_Auth, 
+					   	 ModelMap modelMap) throws Exception {
+				
+							iMemberDao.updateMemberMyself( hp_Index, hp_ID, hp_Password, hp_Name, hp_Birthday_Year, hp_Birthday_Month,
+														hp_Sex, hp_Email, hp_Phone, hp_Ticket, hp_Auth );
+				
+							return "redirect:/user/views/member/change_infor?hp_Index="+hp_Index;
+				}
+
 		// 마이페이지 -> 회원탈퇴
 			@RequestMapping(value="/deleteMyself", method=RequestMethod.POST)
 			public String deleteMyself( @RequestParam("hp_Index") int hp_Index, HttpServletRequest req, ModelMap modelMap ) throws Exception {
@@ -975,7 +996,16 @@ public class MyController_KHD {
 				
 				return "user/views/books/books_introduction";
 			}
-		
+
+			// 도서 리뷰 불러오기
+//			@RequestMapping("/admin/views/write_review")
+//			public String review(@RequestParam("review_Index") int review_Index, HttpServletRequest req, Model model) {
+//				
+//				List<BookReviewDto> bookreviewbyIndex = adminService.bookreviewbyIndex( review_Index );
+//				model.addAttribute("bookreviewbyIndex",bookreviewbyIndex);
+//				
+//				return "admin/views/write_review";
+//			}
 	
 			
 	// 즐겨찾기

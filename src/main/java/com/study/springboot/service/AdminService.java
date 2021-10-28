@@ -56,6 +56,11 @@ public class AdminService {
 			  List<MemberDto> memberlist_byIndex = MemberDao.memberlist_byIndex( hp_ID );
 			  return memberlist_byIndex;
 		  }
+	// 마이페이지 회원정보 불러오기
+	  public List<MemberDto> memberInforInMypage(String hp_ID) {
+		  List<MemberDto> memberInforInMypage = MemberDao.memberInforInMypage( hp_ID );
+		  return memberInforInMypage;
+	  }	  
 	  
 	// 도서 목록 
 		  public List<BookListDto> booklist() {
