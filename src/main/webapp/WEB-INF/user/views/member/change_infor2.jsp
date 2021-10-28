@@ -437,7 +437,7 @@
 		</tr>
 		<tr>
 			<td>아이디</td>
-			<td><input type="text1" rows="16" cols="95" name="hp_ID" value="${hp_member.hp_ID}"> </td>
+			<td><input type="text1" rows="16" cols="95" name="hp_ID" value="${hp_member.hp_ID}" readonly> </td>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
