@@ -570,7 +570,7 @@
                 리뷰
             </div>
             
-            <form action="<c:url value="/addBookReviewByUser"/>" method="get">
+            <form action="<c:url value="/addBookReviewByUser"/>" method="post">
             	<div class="hp_Index">
 					<input type="hidden" name="hp_Index" value="${memberDto.hp_Index}"/>
 				</div> 

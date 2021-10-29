@@ -16,30 +16,21 @@
 		
 		<table width="500">
 		
-		<tr>
-			<td>제목</td>
-			<td><textarea rows="16" cols="95" name="notice_Title" value="${notice_Title}"></textarea> </td>
-		</tr>
-		<tr>
-			<td>내용</td>
-			<td><textarea rows="16" cols="95" name="notice_Content" value="${notice_Content}"></textarea> </td>
-		</tr>
-		<tr>
-			<td>날짜</td>
-			<td><input type="hidden" rows="16" cols="95" name="notice_Date" value="${notice_Date}"> </td>
-		</tr>
-		<tr>
-			<td>조회수</td>
-			<td><input type="text" rows="16" cols="95" name="notice_Count" value="${notice_Count}"> </td>
-		</tr>
+			<tr>
+				<td>제목</td>
+				<td><textarea rows="16" cols="95" name="notice_Title" value="${notice_Title}"></textarea> </td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td><textarea rows="16" cols="95" name="notice_Content" value="${notice_Content}"></textarea> </td>
+			</tr>
 		
-		
-		<tr>
-			<td colspan="2"> 
-
-				<a href="/admin/views/admin_notice"><input type="submit" value="추가"></a> 
-			</td>
-		</tr>
+			<tr>
+				<td colspan="2"> 
+	
+					<a href="/admin/views/admin_notice"><input type="submit" value="추가"></a> 
+				</td>
+			</tr>
 		
 		</table>
 	

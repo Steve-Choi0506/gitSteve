@@ -16,38 +16,33 @@
 		
 		<table width="500">
 	
-		<tr>
-			<td>번호</td>
-			<td><input type="text" rows="16" cols="95" name="hp_Index" value="${hp_Index}"> </td>
-		</tr>
-		<tr>
-			<td>책번호</td>
-			<td><input type="text" rows="16" cols="95" name="book_Index" value="${book_Index}"> </td>
-		</tr>
-		
-		
-		<tr>
-			<td>제목</td>
-			<td><input type="text" rows="16" cols="95" name="book_Title" value="${book_Title}"> </td>
-		</tr>
-		
-		<tr>
-			<td>저자</td>
-			<td><input type="text" rows="16" cols="95" name="book_Writer" value="${book_Writer}"></td>
-		</tr>
-		
-		<tr>
-			<td>이미지</td>
-			<td><input type="file" rows="16" cols="95" name="book_Image" value="${book_Image}"></td>
-		</tr>
-		
-		
-		<tr>
-			<td colspan="2"> 
-
-				<a href="/admin/views/admin_favor"><input type="submit" value="삽입"></a> 
-			</td>
-		</tr>
+			<tr>
+				<td>회원 번호</td>
+				<td><input type="text" rows="16" cols="95" name="hp_Index" value="${memberDto.hp_Index}"> </td>
+			</tr>
+			<tr>
+				<td>도서 번호</td>
+				<td><input type="text" rows="16" cols="95" name="book_Index" value="${book_Index}"> </td>
+			</tr>
+			<tr>
+				<td>제목</td>
+				<td><input type="text" rows="16" cols="95" name="book_Title" value="${book_Title}"> </td>
+			</tr>
+			<tr>
+				<td>저자</td>
+				<td><input type="text" rows="16" cols="95" name="book_Writer" value="${book_Writer}"></td>
+			</tr>
+			<tr>
+				<td>이미지</td>
+				<td><input type="file" rows="16" cols="95" name="book_Image" value="${book_Image}"></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2"> 
+	
+					<a href="/admin/views/admin_favor"><input type="submit" value="삽입"></a> 
+				</td>
+			</tr>
 		
 		</table>
 	

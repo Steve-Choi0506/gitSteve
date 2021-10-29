@@ -16,7 +16,8 @@
 	  <selectKey keyProperty="id" resultType="int" order="BEFORE">
 	        select hp_QnA_qna_Index.nextval FROM DUAL
 	  </selectKey>
-      INSERT INTO hp_QnA(qna_Index, hp_Index, hp_ID, qna_Title, qna_Content, answer_Check, qna_Date) VALUES (#{id}, #{param1}, #{param2}, #{param3}, #{param4}, '0', sysdate)
+      INSERT INTO hp_QnA( qna_Index, hp_Index, hp_ID, qna_Title, qna_Content, answer_Check, qna_Date) 
+      			 VALUES ( #{id}, #{param1}, #{param2}, #{param3}, #{param4}, '0', sysdate)
    </insert>
    
    

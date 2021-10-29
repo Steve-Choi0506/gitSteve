@@ -17,7 +17,7 @@
 		<table width="500">
 		
 		<tr>
-			<td>번호</td>
+			<td>도서 번호</td>
 			<td><input type="text" rows="16" cols="95" name="book_Index" value="${book_Index}"></td>
 		</tr>
 

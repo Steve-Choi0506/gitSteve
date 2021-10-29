@@ -45,7 +45,7 @@
 		</tr>
 		
 		<tr>
-			<td>목록 여부</td>
+			<td>도서 분류</td>
 			<td><input type="text" rows="16" cols="95" name="book_Category" value="${book_Category}"> </td>
 		</tr>
 		<tr>

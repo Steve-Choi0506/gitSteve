@@ -96,8 +96,9 @@
         <table class="table table-hover">
             <Thead>
                 <tr>
-                    <th>번호</th>
-                    <th>책번호</th>
+                    <th>회원 번호</th>
+                    <th>회원 아이디</th>
+                    <th>도서 번호</th>
                     <th>제목</th>
                     <th>작가</th>
                     <th>이미지</th>
@@ -106,6 +107,7 @@
             <c:forEach var="my_books" items="${my_books_list}">
                 <tr>
                     <td>${my_books.hp_Index}</td>
+                    <td>${my_books.hp_ID}</td>
                     <td>${my_books.book_Index}</td>
                     <td>${my_books.book_Title}</td>
                     <td>${my_books.book_Writer}</td>

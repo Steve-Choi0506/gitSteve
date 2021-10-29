@@ -109,9 +109,11 @@
                     <td>${hp_Notice.notice_Content}</td>
                     <td><fmt:formatDate value="${hp_Notice.notice_Date}" pattern="yyyy년 MM월 dd일"/>
                     <td>${hp_Notice.notice_Count}</td>
-                    <td><a href="/admin/views/write_notice?notice_Index=${hp_Notice.notice_Index}">갱신</a></td>
-                    <td><a href="/admin/views/write_notice1">삽입</a></td>
-                    <td><a href="/admin/views/write_notice2">삭제</a></td>
+                    <td>
+                    	<a href="/admin/views/write_notice?notice_Index=${hp_Notice.notice_Index}">갱신</a>
+                    	<a href="/admin/views/write_notice1">삽입</a>
+                    	<a href="/admin/views/write_notice2">삭제</a>
+                 	</td>
                 </tr>
             </c:forEach>
         </table>

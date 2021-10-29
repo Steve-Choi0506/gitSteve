@@ -197,7 +197,7 @@ public class MyController_KHD {
 							return "redirect:/admin/views/admin_member";
 				}
 		
-			// 회원 삭제 가능한 페이지
+		// 회원 삭제 가능한 페이지
 			@RequestMapping("/admin/views/write_member2")
 			public String member2(HttpServletRequest req, Model model) {
 							
@@ -344,6 +344,15 @@ public class MyController_KHD {
 			@RequestMapping("/admin/views/write_review1")
 			public String review1(HttpServletRequest req, Model model) {
 					
+			// 세션값 받아와야함
+				String hp_ID = (String) req.getSession().getAttribute( "hp_ID" );
+				
+				List<MemberDto> list = memberService.memberlist_byIndex( hp_ID );
+				
+				if( list.size() > 0 ) {
+					model.addAttribute( "memberDto", list.get(0) );
+				}
+				
 				return "admin/views/write_review1";
 			}
 						
@@ -423,7 +432,6 @@ public class MyController_KHD {
 			public String addNotice( 
 					  @RequestParam("notice_Title") String notice_Title,
 					  @RequestParam("notice_Content") String notice_Content,
-					  @RequestParam("notice_Count") int notice_Count,
 					  ModelMap modelMap ) throws Exception {
 				
 	                   iNoticeDao.addNotice( notice_Title, notice_Content );
@@ -472,7 +480,6 @@ public class MyController_KHD {
 			
 					
 				
-		
 	// 1:1 문의	
 			
 		// 1:1 문의 목록	
@@ -486,14 +493,20 @@ public class MyController_KHD {
 			}
 		
 		// 1:1 문의 목록 삽입이 가능한 페이지
-				@RequestMapping("/admin/views/write_qna1")
-				public String qna1(@RequestParam("qna_Index") int qna_Index, HttpServletRequest req, Model model) {
-					
-					List<QnADto> qnabyIndex = adminService.qnabyIndex( qna_Index );
-					model.addAttribute("qnabyIndex",qnabyIndex);
-
-					return "admin/views/write_qna1";
+			@RequestMapping("/admin/views/write_qna1")
+			public String qna1( HttpServletRequest req, Model model) {
+				
+			// 세션값 불러오기
+				String hp_ID = (String) req.getSession().getAttribute( "hp_ID" );
+				
+				List<MemberDto> memberlist = memberService.memberlist_byIndex( hp_ID );
+				
+				if( memberlist.size() > 0 ) {
+					model.addAttribute( "memberDto", memberlist.get(0) );
 				}
+				
+				return "admin/views/write_qna1";
+			}
 				
 		// 1:1 문의 목록 삽입
 			@RequestMapping(value="/addQnA", method=RequestMethod.POST)
@@ -557,53 +570,43 @@ public class MyController_KHD {
 			}
 			
 			
-		// 즐겨찾기
 			
+	// 즐겨찾기
 			
-			
-		// 즐겨찾기 페이지(관리자 페이지)
-	
+		// 즐겨찾기 페이지
 	       @RequestMapping("/admin/views/admin_favor")
 	       public String admin_mybooks( HttpServletRequest req, Model model ) {
 	    				
+		       List<MyBooksDto> mybookslist = iMyBooksDao.mybookslist();
+		       model.addAttribute( "my_books_list", mybookslist );
 	    				
-	       List<MyBooksDto> mybookslist = iMyBooksDao.mybookslist();
-	    				
-	       model.addAttribute( "my_books_list", mybookslist );
-	    				
-	    				
-	       return "admin/views/admin_favor";
-	    			
+		       return "admin/views/admin_favor";
 	       }
-	    		
-	    		// 즐겨찾기 정보 불러오기
-	    //			@RequestMapping("/admin/views/write_Mybooks")
-	    //			public String view( @RequestParam("hp_Index") int hp_Index, 
-	    //								HttpServletRequest req, Model model ) {
-	    				
-	    //				List<BookListDto> booklistbyIndex = adminService.booklistbyIndex( hp_Index );
-	    //				model.addAttribute( "booklistbyIndex", booklistbyIndex );
-	   // 				
-	    //				return "admin/views/write_Mybooks";
-	    //			} 
 	    			
-	    		// 즐겨찾기 목록 삽입이 가능한 페이지
-	    			@RequestMapping("/admin/views/write_favor1")
-	    			public String favor1( HttpServletRequest req, Model model ) {
-	    				
-	    				return "admin/views/write_favor1";
-	    			}
+		// 즐겨찾기 목록 삽입이 가능한 페이지
+			@RequestMapping("/admin/views/write_favor1")
+			public String favor1( HttpServletRequest req, Model model ) {
+				
+			// 세션값 불러오기
+				String hp_ID = (String) req.getSession().getAttribute( "hp_ID" );
+				
+				List<MemberDto> memberList = memberService.memberlist_byIndex( hp_ID );
+				
+				if( memberList.size() > 0 ) {
+					model.addAttribute( "memberDto", memberList.get(0) );
+				}
+				
+				return "admin/views/write_favor1";
+			}
 	    			
 	    	// 즐겨찾기 목록 삽입
 	      		@RequestMapping(value="/addfavor", method=RequestMethod.POST)
 	    			public String addBook( 
-	    					
 	    					@RequestParam("hp_Index") int hp_Index,
 	    					@RequestParam("book_Index") int book_Index,
 	    					@RequestParam("book_Title") String book_Title,
 	    					@RequestParam("book_Writer") String book_Writer,
 	    					@RequestParam("book_Image") MultipartFile book_Image,
-	    					
 	    					ModelMap modelMap, Model model ) throws Exception {
 	    				
 	    					String filename = fileUploadService.restore( book_Image );
@@ -616,23 +619,21 @@ public class MyController_KHD {
 	    					return "redirect:/admin/views/admin_favor";
 	    			}
 	    			
+    		// 즐겨찾기 삭제 페이지
+    			@RequestMapping("/admin/views/write_favor2")
+    			public String favor2( HttpServletRequest req, Model model ) {
+    				
+    				return "admin/views/write_favor2";
+    			}
 
-	    		
-	    		// 도서 삭제 페이지
-	    			@RequestMapping("/admin/views/write_favor2")
-	    			public String favor2( HttpServletRequest req, Model model ) {
-	    				
-	    				return "admin/views/write_favor2";
-	    			}
-
-	    		// 도서 목록 삭제
-	    			@RequestMapping(value="/deletefavor", method=RequestMethod.POST)
-	    			public String deletefavor( @RequestParam("hp_Index") int hp_Index, ModelMap modelMap ) throws Exception {
-	    			
-	    				iMyBooksDao.deletefavor( hp_Index );
-	    				                     
-	    				return "redirect:/admin/views/admin_favor";		
-	    			}	       
+    		// 즐겨찾기 삭제
+    			@RequestMapping(value="/deletefavor", method=RequestMethod.POST)
+    			public String deletefavor( @RequestParam("hp_Index") int hp_Index, ModelMap modelMap ) throws Exception {
+    			
+    				iMyBooksDao.deletefavor( hp_Index );
+    				                     
+    				return "redirect:/admin/views/admin_favor";		
+    			}	       
 				
 
 /* ************************************************************************************************************************* */
@@ -787,12 +788,12 @@ public class MyController_KHD {
 			public String mypage( HttpServletRequest req, Model model ) {
 				
 			// 세션값 받아와야함
-				String hp_ID = (String) req.getSession().getAttribute("hp_ID");
+				String hp_ID = (String) req.getSession().getAttribute( "hp_ID" );
 				
-				List<MemberDto> list = memberService.memberlist_byIndex(hp_ID);
+				List<MemberDto> list = memberService.memberlist_byIndex( hp_ID );
 				
 				if( list.size() > 0 ) {
-					model.addAttribute("memberDto", list.get(0));
+					model.addAttribute( "memberDto", list.get(0) );
 				}
 				
 				return "user/views/member/mypage";
@@ -816,7 +817,7 @@ public class MyController_KHD {
 			}
 
 
-			// 마이페이지 -> 정보변경
+		// 마이페이지 -> 정보변경
 			@RequestMapping(value="/updateMemberMyself", method=RequestMethod.POST)
 			public String updateMemberMyself( 			          
 					   	 @RequestParam("hp_Index") int hp_Index,
@@ -874,6 +875,7 @@ public class MyController_KHD {
 				
 				return "user/views/member/inquiry_in";
 			}
+			
 		// 마이페이지 -> 1:1 문의 스스로 삭제
 			@RequestMapping(value="/deleteQnAByself", method=RequestMethod.POST)
 			public String deleteQnAByself( @RequestParam("qna_Index") int qna_Index, HttpServletRequest req, ModelMap modelMap ) throws Exception {
@@ -973,7 +975,7 @@ public class MyController_KHD {
 			public String books_korea( HttpServletRequest req, Model model ) {
 				
 				List<BookListDto> booksKorea = adminService.booksKorea();
-				model.addAttribute("korea_book_list",booksKorea);
+				model.addAttribute( "korea_book_list", booksKorea );
 				
 				return "user/views/books/books_korea";
 			}
@@ -983,14 +985,14 @@ public class MyController_KHD {
 			public String books_overseas( HttpServletRequest req, Model model ) {
 				
 				List<BookListDto> booksOverseas = adminService.booksOverseas();
-				model.addAttribute("overseas_book_list",booksOverseas);
+				model.addAttribute( "overseas_book_list", booksOverseas );
 				
 				return "user/views/books/books_overseas";
 			}
 		
 		// 도서정보 불러오기
 			@RequestMapping("/user/views/books/books_introduction")
-			public String books_introduction(@RequestParam("book_Index") int book_Index, HttpServletRequest req, Model model) {
+			public String books_introduction( @RequestParam("book_Index") int book_Index, HttpServletRequest req, Model model ) {
 				
 			 // 도서 정보 불러오기
 				List<BookListDto> booklistbyIndex = adminService.booklistbyIndex( book_Index );
@@ -1013,7 +1015,7 @@ public class MyController_KHD {
 			}
 
 		// 리뷰 작성하기
-			@RequestMapping(value="/addBookReviewByUser", method=RequestMethod.GET)
+			@RequestMapping(value="/addBookReviewByUser", method=RequestMethod.POST)
 			public String addBookReviewByUser( 
 					      @RequestParam("book_Index") int book_Index,
 					      @RequestParam("hp_Index") int hp_Index,
@@ -1044,7 +1046,5 @@ public class MyController_KHD {
 				
 				return "user/views/member/favorites";
 			}
-		
-	  //ㅁㄴㅇㄹ
 	
 }

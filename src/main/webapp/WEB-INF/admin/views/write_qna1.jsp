@@ -13,44 +13,32 @@
 </head>
 <body>
 	<form action="<c:url value="/addQnA"/>" method="post">
-  
-  <c:forEach var="hp_Qna" items="${qnabyIndex}">
+
 		<table width="500">
 		<tr>
 			<td>회원 번호</td>
-			<td><input rows="16" cols="95" name="hp_Index" value="${hp_Qna.qna_Index}"> </td>
+			<td><input rows="16" cols="95" name="hp_Index" value="${memberDto.hp_Index}"> </td>
 		</tr>
 		<tr>
 			<td>작성자</td>
-			<td><input rows="16" cols="95" name="hp_ID" value="${hp_Qna.hp_ID}"> </td>
+			<td><input rows="16" cols="95" name="hp_ID" value="${hp_ID}"> </td>
 		</tr>
 	    <tr>
 			<td>제목</td>
-			<td><input type="text" rows="16" cols="95" name="qna_Title" value="${hp_Qna.hp_ID}"> </td>
+			<td><input type="text" rows="16" cols="95" name="qna_Title" value="${qna_Title}"> </td>
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td><textarea rows="16" cols="95" name="qna_Content" value="${hp_Qna.qna_Title}"></textarea> </td>
+			<td><textarea rows="16" cols="95" name="qna_Content" value="${qna_Content}"></textarea> </td>
 		</tr>
-		<tr>
-			<td>답변확인</td>
-			<td><input type="text" rows="16" cols="95" name="answer_Check" value="${hp_Qna.answer_Check}"> </td>
-		</tr>
-		<tr>
-			<td>날짜</td>
-			<td><input type="text" rows="16" cols="95" name="qna_Date" value="${hp_Qna.qna_Date}"> </td>
-		</tr>
-		
-		
+
 		<tr>
 			<td colspan="2"> 
-
 				<a href="/admin/views/admin_qna"><input type="submit" value="삽입"></a> 
 			</td>
 		</tr>
 		
 		</table>
-</c:forEach>
 	
 	</form>
 	
