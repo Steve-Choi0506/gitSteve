@@ -117,12 +117,19 @@ public class MemberService {
 		  return memberlist_byIndex;
 	  }
 
-	public List<MyBooksDto> mybookslist() {
+	// 관리자 페이지 - 즐겨찾기 목록
+		public List<MyBooksDto> mybookslist() {
 		
-		List<MyBooksDto> mybookslist = MyBooksDao.mybookslist();
-		return mybookslist;
+			List<MyBooksDto> mybookslist = MyBooksDao.mybookslist();
+			return mybookslist;
 	
-	}
+		}
+	// 사용자 페이지 - 즐겨찾기 목록
+		public List<MyBooksDto> mybookslist_ByUser( String hp_ID ) {
+			List<MyBooksDto> mybookslist_ByUser = MyBooksDao.mybookslist_ByUser( hp_ID );
+		
+			return mybookslist_ByUser;
+		}
 
 
 	

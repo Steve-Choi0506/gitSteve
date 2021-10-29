@@ -45,9 +45,14 @@
  		DELETE FROM hp_Mybooks WHERE hp_Index=#{param1}
  	</delete>
  	
- 	<!-- 즐겨찾기 목록 가져오기-->
+ 	<!-- 즐겨찾기 목록 가져오기 : 관리자 페이지 -->
 	<select id="mybookslist" resultType="com.study.springboot.dto.MyBooksDto">
 		SELECT * FROM hp_Mybooks
 	</select>
- 	
+
+	<!-- 즐겨찾기 가져오기 : 사용자 페이지 -->
+	<select id="mybookslist_ByUser" resultType="com.study.springboot.dto.MyBooksDto">
+		SELECT * FROM hp_Mybooks WHERE hp_ID=#{param1}
+	</select>
+	
  </mapper>

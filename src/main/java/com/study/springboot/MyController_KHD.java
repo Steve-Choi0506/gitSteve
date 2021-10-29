@@ -1017,8 +1017,14 @@ public class MyController_KHD {
 			@RequestMapping("/user/views/member/favorites")
 			public String mybookslist( HttpServletRequest req, Model model ) {
 				
-				List<MyBooksDto> mybookslist = memberService.mybookslist();
-				model.addAttribute("my_books_list",mybookslist);
+			// 세션값 불러오기	
+				String hp_ID = (String) req.getSession().getAttribute( "hp_ID" );
+				
+				List<MyBooksDto> mybookslist_ByUser = memberService.mybookslist_ByUser( hp_ID );
+				
+				if( mybookslist_ByUser.size() > 0 ) {
+					model.addAttribute( "mybookslist_ByUser", mybookslist_ByUser.get(0) );
+				}
 				
 				return "user/views/member/favorites";
 			}

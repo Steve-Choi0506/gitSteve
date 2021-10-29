@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class MyBooksDto {
 	private int 	hp_Index;
+	private String	hp_ID;
 	private int 	book_Index;
 	private String	book_Title;
 	private String	book_Writer;
@@ -18,6 +19,14 @@ public class MyBooksDto {
 
 	public void setHp_Index(int hp_Index) {
 		this.hp_Index = hp_Index;
+	}
+	
+	public String getHp_ID() {
+		return hp_ID;
+	}
+
+	public void setHp_ID(String hp_ID) {
+		this.hp_ID = hp_ID;
 	}
 
 	public int getBook_Index() {

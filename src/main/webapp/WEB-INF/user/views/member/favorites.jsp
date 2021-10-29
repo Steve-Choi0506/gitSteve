@@ -324,16 +324,18 @@
 
     <!-- 도서 목록 -->
     
-    <c:forEach var="my_books" items="${my_books_list}">
-    
     <section id="one" class="section">
-  <div class="box"><a href="/user/views/books/books_introduction"><img src="/upload/${my_books.book_Image}" alt="도서"></a>
-  <div class="t"><a href="/user/views/books/books_introduction"><p>${my_books.book_Index}번째 도서 ${my_books.book_Title} </p></a><button class="btn" type="button" href='#'>삭제</button></div>
-  </div>
+	  <div class="box">
+	  	<a href="/user/views/books/books_introduction?book_Index=${mybookslist_ByUser.book_Index}"><img src="/upload/${mybookslist_ByUser.book_Image}" alt="도서"></a>
+	  	<div class="t">
+	  		<a href="/user/views/books/books_introduction?book_Index=${mybookslist_ByUser.book_Index}"><p>${mybookslist_ByUser.book_Title} </p></a>
+	  		<button class="btn" type="button" href='#'>삭제</button>
+  		</div>
+	  </div>
     </section>
+    
     <!-- 도서 목록 종료 -->
 
-</c:forEach>
 
     <!-- 푸터 -->
     <footer class="footer">
