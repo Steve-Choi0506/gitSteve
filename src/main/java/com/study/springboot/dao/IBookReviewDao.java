@@ -19,8 +19,8 @@ public interface IBookReviewDao {
 	  public List<BookReviewDto> reviewListByBookIndex( int book_Index );
 	  
 	// 도서 리뷰 추가
-	  public int addBookReview(int book_Index,int hp_Index, String book_Title, 
-				String review_name, String review_password, String book_review);
+	  public int addBookReview( int book_Index, int hp_Index, String hp_ID, String book_Title, String book_review );
+	
 	// 도서 리뷰 편집  
 	  public int updateBookReview( int review_Index,int book_Index, int hp_Index, String book_Title, 
 			  					String review_name, String review_password, String book_review);

@@ -352,14 +352,12 @@ public class MyController_KHD {
 			public String addBookReview( 
 					      @RequestParam("book_Index") int book_Index,
 					      @RequestParam("hp_Index") int hp_Index, 
+					      @RequestParam("hp_ID") String hp_ID,
 					      @RequestParam("book_Title") String book_Title, 
-					      @RequestParam("review_name") String review_name,
-					      @RequestParam("review_password") String review_password,
 					      @RequestParam("book_review") String book_review,
 					      ModelMap modelMap ) throws Exception {
 				
-							iBookReviewDao.addBookReview( book_Index, hp_Index, book_Title, 
-															review_name, review_password, book_review );
+							iBookReviewDao.addBookReview( book_Index, hp_Index, hp_ID, book_Title, book_review );
 				
 							return "redirect:/admin/views/admin_review";
 			}
@@ -831,9 +829,9 @@ public class MyController_KHD {
 					   	 @RequestParam("hp_Email") String hp_Email,
 					   	 @RequestParam("hp_Phone") String hp_Phone,
 					   	 @RequestParam("hp_Ticket") int hp_Ticket,
-					   	 @RequestParam("hp_Auth") int hp_Auth, HttpServletRequest req,
-					   	 ModelMap modelMap) throws Exception {
-				
+					   	 @RequestParam("hp_Auth") int hp_Auth, 
+						 HttpServletRequest req, ModelMap modelMap ) throws Exception {
+						 
 							iMemberDao.updateMemberMyself( hp_Index, hp_ID, hp_Password, hp_Name, hp_Birthday_Year, hp_Birthday_Month,
 														hp_Sex, hp_Email, hp_Phone, hp_Ticket, hp_Auth );
 							
@@ -998,14 +996,37 @@ public class MyController_KHD {
 				List<BookListDto> booklistbyIndex = adminService.booklistbyIndex( book_Index );
 				model.addAttribute( "booklistbyIndex", booklistbyIndex );
 				
+			// 세션값 받아와야함
+				String hp_ID = (String) req.getSession().getAttribute("hp_ID");
+				
+				List<MemberDto> list = memberService.memberlist_byIndex(hp_ID);
+				
+				if( list.size() > 0 ) {
+					model.addAttribute("memberDto", list.get(0));
+				}
+				
 			 // 도서 리뷰 불러오기	
 				List<BookReviewDto> reviewListByBookIndex = memberService.reviewListByBookIndex( book_Index );
 				model.addAttribute( "reviewListByBookIndex", reviewListByBookIndex );
 				
 				return "user/views/books/books_introduction";
 			}
-	
-			
+
+		// 리뷰 작성하기
+			@RequestMapping(value="/addBookReviewByUser", method=RequestMethod.GET)
+			public String addBookReviewByUser( 
+					      @RequestParam("book_Index") int book_Index,
+					      @RequestParam("hp_Index") int hp_Index,
+					      @RequestParam("hp_ID") String hp_ID, 
+					      @RequestParam("book_Title") String book_Title,
+					      @RequestParam("book_review") String book_review,
+				    	  ModelMap modelMap ) throws Exception {
+				
+							iBookReviewDao.addBookReview( book_Index, hp_Index, hp_ID, book_Title, book_review );
+		        		 
+		         			return "redirect:/user/views/books/books_introduction?book_Index="+book_Index;
+			}
+
 	// 즐겨찾기
 			
 		// 즐겨찾기 목록

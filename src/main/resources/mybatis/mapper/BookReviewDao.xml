@@ -22,17 +22,10 @@
  	</select>
 	
 	
-	<!-- 도서 리뷰 추가하기 ; 도서 번호, 제목, 작가, 출판사, 내용, 소개, 이미지 -->
+	<!-- 도서 리뷰 추가하기 -->
 	<insert id="addBookReview" parameterType="com.study.springboot.dto.BookReviewDto">
-		INSERT INTO Book_review (
-		  review_Index, book_Index, hp_Index, book_Title,
-		  review_name, review_password, book_review)
-		<!-- 	values(hp_Book_Book_Index.nextval, #{book_Title}, #{book_Writer}, #{book_Company},
-					#{book_Image}, #{book_Content}, #{book_Introduce}, #{book_Category}) -->
-			<!--  	values(hp_Book_Book_Index.nextval, book_Title=#{param2}, book_Writer=#{param3}, book_Company=#{param4},
-					book_Image=#{param5}, book_Content=#{param6}, book_Introduce=#{param7}, book_Category=#{param8})	-->
-					values(Book_review_review_Index.nextval, #{param1}, #{param2}, #{param3},
-					#{param4}, #{param5}, #{param6})
+		INSERT INTO Book_review ( review_Index, book_Index, hp_Index, hp_ID, book_Title, book_review, review_Date )
+				 values ( Book_review_review_Index.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, sysdate )
 					
 	</insert>
 	

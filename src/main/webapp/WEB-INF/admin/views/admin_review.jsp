@@ -97,22 +97,22 @@
                 <tr>
                     <th>리뷰 번호</th>
                     <th>책 번호</th>
-                    <th>회원번호</th>
                     <th>책제목</th>
-                    <th>리뷰 닉네임</th>
-                    <th>닉네임 비밀번호</th>
+                    <th>회원 번호</th>
+                    <th>회원 아이디</th>
                     <th>리뷰 내용</th>
+                    <th>작성 일자</th>
                 </tr>
             </Thead>
             <c:forEach var="Book_review" items="${bookreviewlist}">
                 <tr>
                     <td>${Book_review.review_Index}</td>
                     <td>${Book_review.book_Index}</td>
-                    <td>${Book_review.hp_Index}</td>
                     <td>${Book_review.book_Title}</td>
-                    <td>${Book_review.review_name}</td>
-                    <td>${Book_review.review_password}</td>
+                    <td>${Book_review.hp_Index}</td>
+                    <td>${Book_review.hp_ID}</td>
                     <td>${Book_review.book_review}</td>
+                    <td><fmt:formatDate value="${Book_review.review_Date}" pattern="yyyy년 MM월 dd일"/></td>
                     <td><a href="/admin/views/write_review?review_Index=${Book_review.review_Index}">갱신</a>
                         <a href="/admin/views/write_review1">삽입</a>
                         <a href="/admin/views/write_review2">삭제</a>

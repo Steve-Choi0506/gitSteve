@@ -525,76 +525,89 @@
     <!-- 도서 목록 -->
     <section id="one" class="section">
     
-    <c:forEach var="hp_book" items="${booklistbyIndex}">
-    
-    
-    
-        <div class="book">
-
-            <div class="booksimg">
-                <img src="/upload/${hp_book.book_Image}" alt="책">
-            </div>
-
-            <div class="books-content">
-                <div class="books-title">
-                    <h2>${hp_book.book_Title}</h2>
-                </div>
-                <div class="writer">
-                    <p>${hp_book.book_Writer} 지음</p>
-                </div>
-                <div class="favorites">
-                    <button class="button-favor" type="button" name="즐겨찾기에 추가">즐겨찾기에 추가</button>
-                </div>
-                <div class="read">
-                    <button class="button-read" type="button" name="읽기">읽기</button>
-                </div>
-                <div class="rating">
-                    <div>
-                        <button class="button-rating" type="button" name="좋아요"><i class="fas fa-thumbs-up"> 0</i></button>
-                    </div>
-                    <div>
-                        <button class="button-rating" type="button" name="싫어요"><i class="fas fa-thumbs-down"> 0</i></button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="summary">
-            <div class="p-1">
-                책 소개
-            </div>
-            <div class="p-2">
-                ${hp_book.book_Introduce}
-            </div>
-        </div>
-        
-  </c:forEach>
-        
+	    <c:forEach var="hp_book" items="${booklistbyIndex}">
+	        <div class="book">
+	            <div class="booksimg">
+	                <img src="/upload/${hp_book.book_Image}" alt="책">
+	            </div>
+	            <div class="books-content">
+	                <div class="books-title">
+	                    <h2>${hp_book.book_Title}</h2>
+	                </div>
+	                <div class="writer">
+	                    <p>${hp_book.book_Writer} 지음</p>
+	                </div>
+	                <div class="favorites">
+	                    <button class="button-favor" type="button" name="즐겨찾기에 추가">즐겨찾기에 추가</button>
+	                </div>
+	                <div class="read">
+	                    <button class="button-read" type="button" name="읽기">읽기</button>
+	                </div>
+	                <div class="rating">
+	                    <div>
+	                        <button class="button-rating" type="button" name="좋아요"><i class="fas fa-thumbs-up"> 0</i></button>
+	                    </div>
+	                    <div>
+	                        <button class="button-rating" type="button" name="싫어요"><i class="fas fa-thumbs-down"> 0</i></button>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        
+	        <div class="summary">
+	            <div class="p-1">
+	                책 소개
+	            </div>
+	            <div class="p-2">
+	                ${hp_book.book_Introduce}
+	            </div>
+	        </div>
+	        
+  		</c:forEach>
         
         <div class="review">
             <div class="review-1">
                 리뷰
             </div>
-            <div class="review-2">
-                <input type="text">
-                <button id="btn1" class="btn" type="button" href='#'>등록</button>
-            </div>
-            <c:forEach var="hp_book_review" items="${reviewListByBookIndex}">
-	            <table class="table">
-	                <tr>
-	                    <td id="num">리뷰번호</td>
-	                    <td id="name">아이디</td>
-	                    <td id="text">내용</td>
-	                    <td id="day">날짜</td>
-					</tr>
+            
+            <form action="<c:url value="/addBookReviewByUser"/>" method="get">
+            	<div class="hp_Index">
+					<input type="hidden" name="hp_Index" value="${memberDto.hp_Index}"/>
+				</div> 
+				<div class="hp_ID">
+					<input type="hidden" name="hp_ID" value="${memberDto.hp_ID}"/>
+				</div>
+            	<c:forEach var="hp_book" items="${booklistbyIndex}">
+					<div class="book_Index">
+						<input type="hidden" name="book_Index" value="${hp_book.book_Index}"/>
+					</div>            
+					<div class=book_Title>
+						<input type="hidden" name="book_Title" value="${hp_book.book_Title}"/>
+					</div>
+		            <div class="review-2">
+		                <input type="text" name="book_review" value="${book_review}">
+		                <button id="btn1" class="btn" type="submit">등록</button>
+		            </div>
+	        </c:forEach>
+            </form>
+            
+            <table class="table">
+                <tr>
+                    <td id="num">리뷰 번호</td>
+                    <td id="name">아이디</td>
+                    <td id="text">내용</td>
+                    <td id="day">날짜</td>
+				</tr>
+				<c:forEach var="hp_book_review" items="${reviewListByBookIndex}">
 					<tr>
 						<td>${hp_book_review.review_Index}</td>
 						<td>${hp_book_review.hp_ID}</td>
 						<td>${hp_book_review.book_review}</td>
 						<td><fmt:formatDate value="${hp_book_review.review_Date}" pattern="yyyy년 MM월 dd일"/></td>
 					</tr>
-	            </table>
-            </c:forEach>
+				 </c:forEach>
+            </table>
+           
         </div>
         
         
