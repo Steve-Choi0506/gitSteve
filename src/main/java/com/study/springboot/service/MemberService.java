@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.study.springboot.dao.IBookListDao;
+import com.study.springboot.dao.IBookReviewDao;
 import com.study.springboot.dao.IMemberDao;
 import com.study.springboot.dao.IMyBooksDao;
 import com.study.springboot.dto.BookListDto;
+import com.study.springboot.dto.BookReviewDto;
 import com.study.springboot.dto.MemberDto;
 import com.study.springboot.dto.MyBooksDto;
 
@@ -20,6 +22,8 @@ public class MemberService {
 	private IBookListDao BookListDao;
 	@Autowired
 	private IMyBooksDao MyBooksDao;
+	@Autowired
+	private IBookReviewDao BookReviewDao;
 	
 	
 	// 회원로그인
@@ -99,11 +103,19 @@ public class MemberService {
 			return result;
 		}
 	
+	// 회원정보
+		public List<MemberDto> memberlist_byIndex(String hp_ID) {
+		  List<MemberDto> memberlist_byIndex = memberDao.memberlist_byIndex( hp_ID );
+		  
+		  return memberlist_byIndex;
+		}
+	
 	// 도서 목록 
-	  public List<BookListDto> booklist() {
-		  List<BookListDto> booklist = BookListDao.booklist();
-		  return booklist;
-	  }
+		  public List<BookListDto> booklist() {
+			  List<BookListDto> booklist = BookListDao.booklist();
+			  
+			  return booklist;
+		  }
 	  
 	// 도서 정보 불러오기
 	  public List<BookListDto> booklistbyIndex(int book_Index) {
@@ -112,10 +124,13 @@ public class MemberService {
 		  return booklistbyIndex;
 	  }
 	
-	public List<MemberDto> memberlist_byIndex(String hp_ID) {
-		  List<MemberDto> memberlist_byIndex = memberDao.memberlist_byIndex( hp_ID );
-		  return memberlist_byIndex;
+    // 도서 리뷰 불러오기 ; 도서 번호
+	  public List<BookReviewDto> reviewListByBookIndex( int book_Index ) {
+		  List<BookReviewDto> reviewListByBookIndex = BookReviewDao.reviewListByBookIndex( book_Index );
+		  
+		  return reviewListByBookIndex;
 	  }
+	
 
 	// 관리자 페이지 - 즐겨찾기 목록
 		public List<MyBooksDto> mybookslist() {

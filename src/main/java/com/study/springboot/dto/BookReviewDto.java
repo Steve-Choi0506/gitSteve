@@ -1,15 +1,18 @@
 package com.study.springboot.dto;
 
-//import lombok.Data;
-//@Data
+import lombok.Data;
+import java.util.Date;
+@Data
 public class BookReviewDto {
 	private int		review_Index;
 	private int 	book_Index;
 	private int 	hp_Index;
+	private String 	hp_ID;
 	private String	book_Title;
 	private String	review_name;
 	private String	review_password;
 	private String	book_review;
+	private Date 	review_Date;
 
 	public BookReviewDto() {	}
 
@@ -35,6 +38,14 @@ public class BookReviewDto {
 
 	public void setHp_Index(int hp_Index) {
 		this.hp_Index = hp_Index;
+	}
+	
+	public String getHp_ID() {
+		return hp_ID;
+	}
+
+	public void setHp_ID(String hp_ID) {
+		this.hp_ID = hp_ID;
 	}
 
 	public String getBook_Title() {
@@ -69,7 +80,13 @@ public class BookReviewDto {
 		this.book_review = book_review;
 	}
 
-	
+	public Date getReview_Date() {
+		return review_Date;
+	}
+
+	public void setReview_Date(Date review_Date) {
+		this.review_Date = review_Date;
+	}
 	
 }
 

@@ -350,11 +350,11 @@
         }
 
         #text {
-            width: 70%;
+            width: 60%;
         }
 
         #day {
-            width: 10%;
+            width: 20%;
         }
 
 
@@ -579,17 +579,24 @@
                 <input type="text">
                 <button id="btn1" class="btn" type="button" href='#'>등록</button>
             </div>
-            <table class="table">
-                <tr>
-                    <td id="num">리뷰번호</td>
-                    <td id="name">아이디</td>
-                    <td id="text">내용</td>
-                    <td id="day">날짜</td>
-                </tr>
-            </table>
+            <c:forEach var="hp_book_review" items="${reviewListByBookIndex}">
+	            <table class="table">
+	                <tr>
+	                    <td id="num">리뷰번호</td>
+	                    <td id="name">아이디</td>
+	                    <td id="text">내용</td>
+	                    <td id="day">날짜</td>
+					</tr>
+					<tr>
+						<td>${hp_book_review.review_Index}</td>
+						<td>${hp_book_review.hp_ID}</td>
+						<td>${hp_book_review.book_review}</td>
+						<td><fmt:formatDate value="${hp_book_review.review_Date}" pattern="yyyy년 MM월 dd일"/></td>
+					</tr>
+	            </table>
+            </c:forEach>
         </div>
         
-          
         
     </section>
     <!-- 도서 목록 종료 -->

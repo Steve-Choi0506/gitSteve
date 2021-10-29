@@ -11,6 +11,10 @@
 		select * from book_review order by review_Index
 	</select>
 	
+	<!-- 리뷰 가져오기 ; 도서 번호 -->
+	<select id="reviewListByBookIndex" resultType="com.study.springboot.dto.BookReviewDto">
+		SELECT * FROM book_review WHERE book_Index=#{param1} ORDER BY review_Index
+	</select>
 	
 	<!-- 리뷰 정보 불러오기 -->
 	<select id="bookreviewbyIndex" resultType="com.study.springboot.dto.BookReviewDto">

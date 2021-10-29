@@ -994,21 +994,16 @@ public class MyController_KHD {
 			@RequestMapping("/user/views/books/books_introduction")
 			public String books_introduction(@RequestParam("book_Index") int book_Index, HttpServletRequest req, Model model) {
 				
+			 // 도서 정보 불러오기
 				List<BookListDto> booklistbyIndex = adminService.booklistbyIndex( book_Index );
 				model.addAttribute( "booklistbyIndex", booklistbyIndex );
 				
+			 // 도서 리뷰 불러오기	
+				List<BookReviewDto> reviewListByBookIndex = memberService.reviewListByBookIndex( book_Index );
+				model.addAttribute( "reviewListByBookIndex", reviewListByBookIndex );
+				
 				return "user/views/books/books_introduction";
 			}
-
-			// 도서 리뷰 불러오기
-//			@RequestMapping("/admin/views/write_review")
-//			public String review(@RequestParam("review_Index") int review_Index, HttpServletRequest req, Model model) {
-//				
-//				List<BookReviewDto> bookreviewbyIndex = adminService.bookreviewbyIndex( review_Index );
-//				model.addAttribute("bookreviewbyIndex",bookreviewbyIndex);
-//				
-//				return "admin/views/write_review";
-//			}
 	
 			
 	// 즐겨찾기
