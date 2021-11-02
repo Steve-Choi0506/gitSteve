@@ -1,5 +1,6 @@
 package com.study.springboot;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -697,7 +698,6 @@ public class MyController_KHD {
 					PrintWriter out = response.getWriter();
 					
 					out.println("<script>alert('로그인 실패');</script>");
-					
 					out.flush();
 					
 					return "user/views/member/login";
@@ -791,18 +791,26 @@ public class MyController_KHD {
 				@RequestMapping(value="/findID", method=RequestMethod.POST)
 				public String findID ( @RequestParam("hp_Name") String hp_Name,
 										@RequestParam("hp_Email") String hp_Email,
-										HttpServletRequest req, Model model ) {
+										HttpServletRequest req, HttpServletResponse resp, Model model ) throws IOException {
+					
+					resp.setCharacterEncoding("UTF-8");
+					resp.setContentType("text/html; charset=UTF-8"); 
+					PrintWriter out = resp.getWriter();
 					
 					String hp_ID = memberService.findID( hp_Name, hp_Email );
 						System.out.println( "hp_ID : " + hp_ID );
 					
 					if( !hp_ID.equals("") ) {
-						req.setAttribute( "hp_ID", hp_ID );
+						out.println( "<script> alert( '회원님의 아이디는 " + hp_ID + "입니다.' ); </script>" );
+						out.flush();
+						
 					} else {
-						req.setAttribute( "hp_ID",  null );
+						out.println( "<script> alert( '등록되지 않은 회원입니다.' ); </script>" );
+						out.flush();
+						out.println( "<script> location.href='/user/views/member/findID'; </script>" );
 					}
 					
-					return "user/views/member/findID"; 
+					return "user/views/member/findPW"; 
 				}
 		
 		// 비밀번호 찾기 페이지
@@ -811,6 +819,32 @@ public class MyController_KHD {
 				
 				return "user/views/member/findPW";
 			}
+			
+			// 비밀번호 찾기 
+				@RequestMapping(value="/findPassword", method=RequestMethod.POST)
+				public String findPassword ( @RequestParam("hp_Name") String hp_Name,
+											 @RequestParam("hp_ID") String hp_ID,
+											 @RequestParam("hp_Email") String hp_Email,
+											 HttpServletRequest req, HttpServletResponse resp, Model model ) throws IOException {
+					
+					resp.setCharacterEncoding("UTF-8");
+					resp.setContentType("text/html; charset=UTF-8"); 
+					PrintWriter out = resp.getWriter();
+					
+					String hp_Password = memberService.findPassword( hp_Name, hp_ID, hp_Email );
+						System.out.println( "hp_Password : " + hp_Password );
+					
+					if( !hp_ID.equals("") ) {
+						out.println( "<script> alert( '회원님의 비밀번호는 " + hp_Password + "입니다.' ); </script>" );
+						out.flush();
+					} else {
+						out.println( "<script> alert( '등록되지 않은 회원입니다.' ); </script>" );
+						out.flush();
+						out.println( "<script> location.href='/user/views/member/findPW'; </script>" );
+					}
+					
+					return "user/views/member/login"; 
+				}
 			
 		
 	// 마이페이지

@@ -167,17 +167,6 @@
             border-radius:2px;
         }
 
-        input[type=password] {
-            text-align:center;
-            position:relative;
-            display: flex;
-            flex-direction : row;
-            justify-content : space-between;
-            width :250px;
-            height : 30px;
-            border-radius:2px;
-        }
-
         input[type=submit] {
             position:relative;
             width:250px;
@@ -293,23 +282,7 @@
         </ul>
 
         <ul class="navbar__login">
-          <%--  <%
-          String hp_ID = (String)session.getAttribute("hp_ID");
-          //null체크
-          if( hp_ID != null) 
-          {   //로그인 상태
-          %> --%>
-            <span>${hp_ID}님</span>
-            <li><a href="/logout">로그아웃</a></li>
-          <%--  <%		
-          }
-          else
-          {  //로그아웃 상태
-          %> --%>
             <li><a href="/user/views/member/login">로그인</a></li>
-          <%-- <%
-          }
-          %> --%>
         </ul>
 
         <a href="#" class="navbar__toggleBtn">
@@ -330,7 +303,7 @@
                 </br>
                 <input type="submit" value="아이디 찾기">
               </form>
-
+              
               <p>
               <a href="/user/views/member/login">로그인</a>｜
               <a href="/user/views/member/findPW">비밀번호 찾기</a>｜
