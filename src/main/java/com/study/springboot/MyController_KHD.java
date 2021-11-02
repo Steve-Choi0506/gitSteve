@@ -779,7 +779,39 @@ public class MyController_KHD {
 					 return("0"); // 아이디 사용 가능
 				 }
 			 }
+			 
+		// 아이디 찾기 페이지
+			@RequestMapping("/user/views/member/findID")
+			public String findID( HttpServletRequest req, Model model ) {
+				
+				return "user/views/member/findID";
+			}
+			
+			// 아이디 찾기 
+				@RequestMapping(value="/findID", method=RequestMethod.POST)
+				public String findID ( @RequestParam("hp_Name") String hp_Name,
+										@RequestParam("hp_Email") String hp_Email,
+										HttpServletRequest req, Model model ) {
+					
+					String hp_ID = memberService.findID( hp_Name, hp_Email );
+						System.out.println( "hp_ID : " + hp_ID );
+					
+					if( !hp_ID.equals("") ) {
+						req.setAttribute( "hp_ID", hp_ID );
+					} else {
+						req.setAttribute( "hp_ID",  null );
+					}
+					
+					return "user/views/member/findID"; 
+				}
 		
+		// 비밀번호 찾기 페이지
+			@RequestMapping("/user/views/member/findPW")
+			public String findPW( HttpServletRequest req, Model model ) {
+				
+				return "user/views/member/findPW";
+			}
+			
 		
 	// 마이페이지
 			
