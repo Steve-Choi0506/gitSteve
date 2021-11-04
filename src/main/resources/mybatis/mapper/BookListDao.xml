@@ -78,5 +78,14 @@
 	<update id="Dislike">
 		UPDATE hp_Book SET book_Dislike=Book_Dislike+1 WHERE book_Index=#{param1}
 	</update>
+	
+	<select id="bookForLike" resultType="com.study.springboot.dto.BookListDto">
+ 	select * from hp_Book where Book_Index=#{param1}
+ 	</select>
+ 	
+ 	<select id="bookForDislike" resultType="com.study.springboot.dto.BookListDto">
+ 	select * from hp_Book where Book_Index=#{param1}
+ 	</select>
+ 	
     
  </mapper>

@@ -1080,6 +1080,28 @@ public class MyController_KHD {
 				
 				return "user/views/books/books_introduction";
 			}
+			
+			// 좋아요 수 증가 페이지
+			@RequestMapping("/user/views/books/books_introForLike")
+			public String books_introForLike( @RequestParam("book_Index") int book_Index, HttpServletRequest req, Model model ) {
+				
+			// 좋아요
+				iBookListDao.Like( book_Index );
+				model.addAttribute("Like", iBookListDao.bookForLike(book_Index) );
+
+				return "user/views/books/books_introForLike";
+			}
+			
+			// 싫어요 수 증가 페이지
+			@RequestMapping("/user/views/books/books_introForDislike")
+			public String books_introForDislike( @RequestParam("book_Index") int book_Index, HttpServletRequest req, Model model ) {
+				
+			// 싫어요
+				iBookListDao.Dislike( book_Index );
+				model.addAttribute("Dislike", iBookListDao.bookForDislike(book_Index) );
+
+				return "user/views/books/books_introForDislike";
+			}
 
 		// 리뷰 작성하기
 			@RequestMapping(value="/addBookReviewByUser", method=RequestMethod.POST)

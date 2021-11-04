@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.study.springboot.dto.BookListDto;
+import com.study.springboot.dto.NoticeDto;
 
 @Mapper
 public interface IBookListDao {
@@ -20,6 +21,16 @@ public interface IBookListDao {
 	
 	// 도서 정보 불러오기
 		public List<BookListDto> booklistbyIndex(int book_Index);
+
+	// 좋아요
+	  public int Like(int book_Index);
+	// 싫어요
+	  public int Dislike(int book_Index);
+	  
+	  public BookListDto bookForLike(int book_Index);
+	  public BookListDto bookForDislike(int book_Index);
+	  
+	  
 		
 	public BookListDto contentView(int book_Index);
 

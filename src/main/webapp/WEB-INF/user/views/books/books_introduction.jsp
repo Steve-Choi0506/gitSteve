@@ -545,10 +545,10 @@
 	                </div>
 	                <div class="rating">
 	                    <div>
-	                        <button class="button-rating" type="button" name="좋아요"><i class="fas fa-thumbs-up">${hp_book.book_Like}</i></button>
+	                        <button class="button-rating" type="button" name="좋아요" onclick="location.href='books_introForLike?book_Index=${hp_book.book_Index}'"><i class="fas fa-thumbs-up">${hp_book.book_Like}</i></button>
 	                    </div>
 	                    <div>
-	                        <button class="button-rating" type="button" name="싫어요"><i class="fas fa-thumbs-down"> ${hp_book.book_Dislike}</i></button>
+	                        <button class="button-rating" type="button" name="싫어요" onclick="location.href='books_introForDislike?book_Index=${hp_book.book_Index}'"><i class="fas fa-thumbs-down"> ${hp_book.book_Dislike}</i></button>
 	                    </div>
 	                </div>
 	            </div>
@@ -643,6 +643,14 @@
             menu.classList.toggle('active');
             login.classList.toggle('active');
         });
+
+        if (self.name != 'reload') {
+            self.name = 'reload';
+            self.location.reload(true);
+        }
+        else {
+          self.name = '';
+        }
     </script>
 
 </body>
