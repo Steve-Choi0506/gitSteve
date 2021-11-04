@@ -104,6 +104,8 @@
                     <th>내용</th>
                     <th>소개</th>
                     <th>책 분류</th>
+                    <th>좋아요</th>
+                    <th>싫어요</th>
                 </tr>
             </Thead>
             <c:forEach var="hp_book" items="${hp_book_list}">
@@ -117,6 +119,8 @@
  <!--pdf파일-->     <td><a href="javascript:void(1);" onclick="window.open('/upload/${hp_book.book_Image}', 'pop01', 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no');">${hp_book.book_Content}</a></td>
                     <td>${hp_book.book_Introduce}</td>
                     <td>${hp_book.book_Category}</td>
+                    <td>${hp_book.book_Like}</td>
+                    <td>${hp_book.book_Dislike}</td>
                     <td><a href="/admin/views/write_view?book_Index=${hp_book.book_Index}">갱신</a>
                         <a href="/admin/views/write_view1">삽입</a>
                         <a href="/admin/views/write_view2">삭제</a></td>

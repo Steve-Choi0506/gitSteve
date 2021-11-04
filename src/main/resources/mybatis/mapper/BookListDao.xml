@@ -68,6 +68,15 @@
 			values(hp_Book_Book_Index.nextval, #{book_Title}, #{book_Writer}, #{book_Company},
 					#{book_Image}, #{book_Content}, #{book_Introduce}, #{book_Category})
  	</insert>
- 
+ 	
+ 	<!-- 좋아요 -->
+ 	<update id="Like">
+		UPDATE hp_Book SET book_Like=Book_Like+1 WHERE book_Index=#{param1}
+	</update>
+	
+	<!-- 싫어요 -->
+	<update id="Dislike">
+		UPDATE hp_Book SET book_Dislike=Book_Dislike+1 WHERE book_Index=#{param1}
+	</update>
     
  </mapper>

@@ -545,10 +545,10 @@
 	                </div>
 	                <div class="rating">
 	                    <div>
-	                        <button class="button-rating" type="button" name="좋아요"><i class="fas fa-thumbs-up"> 0</i></button>
+	                        <button class="button-rating" type="button" name="좋아요"><i class="fas fa-thumbs-up">${hp_book.book_Like}</i></button>
 	                    </div>
 	                    <div>
-	                        <button class="button-rating" type="button" name="싫어요"><i class="fas fa-thumbs-down"> 0</i></button>
+	                        <button class="button-rating" type="button" name="싫어요"><i class="fas fa-thumbs-down"> ${hp_book.book_Dislike}</i></button>
 	                    </div>
 	                </div>
 	            </div>

@@ -12,6 +12,8 @@ public class BookListDto {
 	private String 	book_Introduce;
 	private String 	book_Image;
 	private int     book_Category;
+	private int		book_Like;
+	private int		book_Dislike;
 
 	public BookListDto() {		}
 
@@ -82,6 +84,24 @@ public class BookListDto {
 
 	public void setBook_Index(int book_Index) {
 		this.book_Index = book_Index;
+	}
+	
+	public int getBook_Like() {
+		return book_Like;
+	}
+
+
+	public void setBook_Like(int book_Like) {
+		this.book_Like = book_Like;
+	}
+	
+	public int getBook_Dislike() {
+		return book_Dislike;
+	}
+
+
+	public void setBook_Dislike(int book_Dislike) {
+		this.book_Dislike = book_Dislike;
 	}
     
 }

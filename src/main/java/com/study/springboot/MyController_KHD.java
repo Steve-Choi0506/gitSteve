@@ -1064,6 +1064,7 @@ public class MyController_KHD {
 				List<BookListDto> booklistbyIndex = adminService.booklistbyIndex( book_Index );
 				model.addAttribute( "booklistbyIndex", booklistbyIndex );
 				
+				
 			// 세션값 받아와야함
 				String hp_ID = (String) req.getSession().getAttribute("hp_ID");
 				
