@@ -604,18 +604,12 @@ public class MyController_KHD {
 	      		@RequestMapping(value="/addfavor", method=RequestMethod.POST)
 	    			public String addBook( 
 	    					@RequestParam("hp_Index") int hp_Index,
+	    					@RequestParam("hp_ID") String hp_ID,
 	    					@RequestParam("book_Index") int book_Index,
 	    					@RequestParam("book_Title") String book_Title,
-	    					@RequestParam("book_Writer") String book_Writer,
-	    					@RequestParam("book_Image") MultipartFile book_Image,
 	    					ModelMap modelMap, Model model ) throws Exception {
-	    				
-	    					String filename = fileUploadService.restore( book_Image );
 	    					
-	    					System.out.println( "book_Image:" + book_Image );
-	    					model.addAttribute( "book_Image:", book_Image );
-	    					
-	    					iMyBooksDao.addfavor(hp_Index, book_Index, book_Title, book_Writer, filename);
+	    					iMyBooksDao.addfavor( hp_Index, hp_ID, book_Index, book_Title );
 	    					
 	    					return "redirect:/admin/views/admin_favor";
 	    			}
@@ -1132,6 +1126,7 @@ public class MyController_KHD {
 				if( mybookslist_ByUser.size() > 0 ) {
 					model.addAttribute( "mybookslist_ByUser", mybookslist_ByUser.get(0) );
 				}
+				
 				
 				return "user/views/member/favorites";
 			}

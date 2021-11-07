@@ -323,10 +323,11 @@
 
 
     <!-- 도서 목록 -->
-    
+ 
     <section id="one" class="section">
 	  <div class="box">
-	  	<a href="/user/views/books/books_introduction?book_Index=${mybookslist_ByUser.book_Index}"><img src="/upload/${mybookslist_ByUser.book_Image}" alt="도서"></a>
+	  	<a href="/user/views/books/books_introduction?book_Index=${mybookslist_ByUser.book_Index}">
+	  		<img src="/upload/${mybookslist_ByUser.book_Image}" alt="도서"></a>
 	  	<div class="t">
 	  		<a href="/user/views/books/books_introduction?book_Index=${mybookslist_ByUser.book_Index}"><p>${mybookslist_ByUser.book_Title} </p></a>
 	  		<button class="btn" type="button" href='#'>삭제</button>

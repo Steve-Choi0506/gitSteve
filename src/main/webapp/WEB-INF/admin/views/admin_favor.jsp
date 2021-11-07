@@ -96,22 +96,20 @@
         <table class="table table-hover">
             <Thead>
                 <tr>
+                	<th>즐겨찾기 번호</th>
                     <th>회원 번호</th>
                     <th>회원 아이디</th>
                     <th>도서 번호</th>
                     <th>제목</th>
-                    <th>작가</th>
-                    <th>이미지</th>
                 </tr>
             </Thead>
             <c:forEach var="my_books" items="${my_books_list}">
                 <tr>
+                	<td>${my_books.favor_Index}</td>
                     <td>${my_books.hp_Index}</td>
                     <td>${my_books.hp_ID}</td>
                     <td>${my_books.book_Index}</td>
                     <td>${my_books.book_Title}</td>
-                    <td>${my_books.book_Writer}</td>
-                    <td><img src="/upload/${my_books.book_Image}" wdith="20px" height="30px"></td>
                     <td>
                         <a href="/admin/views/write_favor1">삽입</a>
                         <a href="/admin/views/write_favor2?hp_Index=${my_books.hp_Index}">삭제</a>

@@ -23,13 +23,14 @@ public interface IMyBooksDao {
 		// 도서 삭제
 	  	  public void deleteBook( int book_Index );
 		  
-	   	// 즐겨찾기 목록 : 관리자 페이지 
-			public List<MyBooksDto> mybookslist();
+   	// 즐겨찾기 목록 : 관리자 페이지 
+		public List<MyBooksDto> mybookslist();
 		
-		// 즐겨찾기 목록 : 사용자 페이지
-			public List<MyBooksDto> mybookslist_ByUser( String hp_ID );
-
-		public void addfavor(int hp_Index, int book_Index, String book_Title, String book_Writer, String filename);
+	// 즐겨찾기 목록 : 사용자 페이지
+		public List<MyBooksDto> mybookslist_ByUser( String hp_ID );
+		
+	// 즐겨찾기 추가 : 관리자 페이지
+		public void addfavor( int hp_Index, String hp_ID, int book_Index, String book_Title );
 		
 		public void deletefavor(int hp_Index);
 }

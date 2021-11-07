@@ -21,20 +21,16 @@
 				<td><input type="text" rows="16" cols="95" name="hp_Index" value="${memberDto.hp_Index}"> </td>
 			</tr>
 			<tr>
+				<td>회원 아이디</td>
+				<td><input type="text" rows="16" cols="95" name="hp_ID" value="${hp_ID}"> </td>
+			</tr>
+			<tr>
 				<td>도서 번호</td>
 				<td><input type="text" rows="16" cols="95" name="book_Index" value="${book_Index}"> </td>
 			</tr>
 			<tr>
 				<td>제목</td>
 				<td><input type="text" rows="16" cols="95" name="book_Title" value="${book_Title}"> </td>
-			</tr>
-			<tr>
-				<td>저자</td>
-				<td><input type="text" rows="16" cols="95" name="book_Writer" value="${book_Writer}"></td>
-			</tr>
-			<tr>
-				<td>이미지</td>
-				<td><input type="file" rows="16" cols="95" name="book_Image" value="${book_Image}"></td>
 			</tr>
 			
 			<tr>

@@ -10,6 +10,7 @@ public class MyBooksDto {
 	private String	book_Title;
 	private String	book_Writer;
 	private String	book_Image;
+	private int		favor_Index;
 	
 	public MyBooksDto() {	}
 
@@ -59,6 +60,14 @@ public class MyBooksDto {
 
 	public void setBook_Image(String book_Image) {
 		this.book_Image = book_Image;
+	}
+
+	public int getFavor_Index() {
+		return favor_Index;
+	}
+
+	public void setFavor_Index(int favor_Index) {
+		this.favor_Index = favor_Index;
 	}
 
 }
