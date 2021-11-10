@@ -32,5 +32,9 @@ public interface IMyBooksDao {
 	// 즐겨찾기 추가 : 관리자 페이지
 		public void addfavor( int hp_Index, String hp_ID, int book_Index, String book_Title );
 		
+	// 즐겨찾기 추가 : 사용자 페이지	
+		public void addFavorByUser( int hp_Index, String hp_ID, int book_Index, String book_Title );
+		
+	// 즐겨찾기 삭제 : 관리자 페이지	
 		public void deletefavor(int hp_Index);
 }

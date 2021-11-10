@@ -538,10 +538,21 @@
 	                    <p>${hp_book.book_Writer} 지음</p>
 	                </div>
 	                <div class="favorites">
-	                    <button class="button-favor" type="button" name="즐겨찾기에 추가">즐겨찾기에 추가</button>
+	                	<form action="<c:url value="/addFavorByUser"/>" method="post">
+	                		<input type="hidden" name="hp_Index" value="${memberDto.hp_Index}" />
+	                		<input type="hidden" name="hp_ID" value="${memberDto.hp_ID}"/>
+	                		<c:forEach var="hp_book" items="${booklistbyIndex}">
+		                		<input type="hidden" name="book_Index" value="${hp_book.book_Index}" />
+		                		<input type="hidden" name="book_Title" value="${hp_book.book_Title}"/>
+	                		</c:forEach>
+	                    	<button class="button-favor" type="submit" name="즐겨찾기에 추가">즐겨찾기에 추가</button>
+	                    </form>
 	                </div>
 	                <div class="read">
-	                    <button class="button-read" type="button" name="읽기">읽기</button>
+	                	<a href="javascript:void(0);">
+	                    	<button class="button-read" type="button" name="읽기" 
+	                    		onclick="window.open('/upload/${hp_book.book_Image}', 'pop01', 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no');">읽기</button>
+	                	</a>    
 	                </div>
 	                <div class="rating">
 	                    <div>
@@ -588,7 +599,7 @@
 		                <input type="text" name="book_review" value="${book_review}">
 		                <button id="btn1" class="btn" type="submit">등록</button>
 		            </div>
-	        </c:forEach>
+	        	</c:forEach>
             </form>
             
             <table class="table">

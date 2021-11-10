@@ -33,13 +33,22 @@
  		DELETE FROM hp_Book WHERE book_Index=#{param1} 
  	</delete>
  	
- 	<!-- 즐겨찾기 추가하기 ; 회원 번호, 아이디, 도서 번호, 제목 -->
+ 	<!-- 즐겨찾기 추가하기_관리자 모드 ; 즐겨찾기 번호, 회원 번호, 아이디, 도서 번호, 제목 -->
 	<insert id="addfavor">
 		<selectKey keyProperty="id" resultType="int" order="BEFORE" >
 			select My_Books_Seq.nextval FROM DUAL
 		</selectKey>
 		INSERT INTO hp_Mybooks ( favor_Index, hp_Index, hp_ID, book_Index, book_Title )
 						 values( #{id}, #{param1}, #{param2}, #{param3}, #{param4} )
+	</insert>
+	
+	<!-- 즐겨찾기 추가하기_사용자 모드 ; 즐겨찾기 번호, 회원 번호, 아이디, 도서 번호, 제목 -->
+	<insert id="addFavorByUser">
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
+			SELECT My_Books_Seq.nextval FROM DUAL
+		</selectKey>
+		INSERT INTO hp_Mybooks( favor_Index, hp_Index, hp_ID, book_Index, book_Title )
+						values( #{id}, #{param1}, #{param2}, #{param3}, #{param4} )
 	</insert>
 	
  	<!-- 즐겨찾기 삭제하기 ; 도서 인덱스 : 삭제버튼으로 번호 얻어오기! -->

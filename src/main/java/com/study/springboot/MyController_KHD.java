@@ -1096,6 +1096,20 @@ public class MyController_KHD {
 
 				return "user/views/books/books_introForDislike";
 			}
+			
+			// 즐겨찾기 목록 삽입
+      		@RequestMapping(value="/addFavorByUser", method=RequestMethod.POST)
+    			public String addFavorByUser( 
+    					@RequestParam("hp_Index") int hp_Index,
+    					@RequestParam("hp_ID") String hp_ID,
+    					@RequestParam("book_Index") int book_Index,
+    					@RequestParam("book_Title") String book_Title,
+    					ModelMap modelMap, Model model ) throws Exception {
+    					
+    					iMyBooksDao.addFavorByUser( hp_Index, hp_ID, book_Index, book_Title );
+    					
+    					return "redirect:/user/views/member/favorites";
+    			}
 
 		// 리뷰 작성하기
 			@RequestMapping(value="/addBookReviewByUser", method=RequestMethod.POST)
