@@ -607,16 +607,9 @@ public class MyController_KHD {
 	    					@RequestParam("hp_ID") String hp_ID,
 	    					@RequestParam("book_Index") int book_Index,
 	    					@RequestParam("book_Title") String book_Title,
-	    					@RequestParam("book_Writer") String book_Writer,
-	    					@RequestParam("book_Image") MultipartFile book_Image,
 	    					ModelMap modelMap, Model model ) throws Exception {
-	    				
-	    					String filename = fileUploadService.restore( book_Image );
 	    					
-	    					System.out.println( "book_Image:" + book_Image );
-	    					model.addAttribute( "book_Image:", book_Image );
-	    					
-	    					iMyBooksDao.addfavor(hp_Index, hp_ID, book_Index, book_Title, book_Writer, filename);
+	    					iMyBooksDao.addfavor( hp_Index, hp_ID, book_Index, book_Title );
 	    					
 	    					return "redirect:/admin/views/admin_favor";
 	    			}
@@ -1059,7 +1052,7 @@ public class MyController_KHD {
 		
 		// 도서정보 불러오기
 			@RequestMapping("/user/views/books/books_introduction")
-			public String books_introduction( @RequestParam("book_Index") int book_Index, HttpServletRequest req, Model model )throws Exception {
+			public String books_introduction( @RequestParam("book_Index") int book_Index, HttpServletRequest req, Model model ) {
 				
 			 // 도서 정보 불러오기
 				List<BookListDto> booklistbyIndex = adminService.booklistbyIndex( book_Index );
@@ -1116,7 +1109,7 @@ public class MyController_KHD {
     					iMyBooksDao.addFavorByUser( hp_Index, hp_ID, book_Index, book_Title );
     					
     					return "redirect:/user/views/member/favorites";
-						}
+    			}
 
 		// 리뷰 작성하기
 			@RequestMapping(value="/addBookReviewByUser", method=RequestMethod.POST)
@@ -1151,50 +1144,5 @@ public class MyController_KHD {
 				
 				return "user/views/member/favorites";
 			}
-			
-			
-			// 즐겨찾기(사용자) 목록 삽입
-      		@RequestMapping(value="/addfavorUser", method=RequestMethod.POST)
-    			public String addfavorBook( 
-    					@RequestParam("hp_Index") int hp_Index,
-    					@RequestParam("hp_ID") String hp_ID,
-    					@RequestParam("book_Index") int book_Index,
-    					@RequestParam("book_Title") String book_Title,
-    					@RequestParam("book_Writer") String book_Writer,
-    					@RequestParam("book_Image") MultipartFile book_Image, //MultipartFile
-    					HttpServletRequest req, ModelMap modelMap, Model model ) throws Exception {
-    				
-      			
-    					String filename = fileUploadService.restore( book_Image );
-    					
-    					iMyBooksDao.addfavorUser(hp_Index, hp_ID, book_Index, book_Title, book_Writer, filename);
-    			    
-    				
-    					return "user/views/books/books_addfavorUser";
-    			}
-			
-			
-      	
-			
-			
-      	// 즐겨찾기 추가가 가능한 예비동작 페이지 
-      				@RequestMapping("/user/views/books/books_addfavorUser")
-      				public String addfavorUserfucking(  
-      						@RequestParam("book_Index") int book_Index,
-      						HttpServletRequest req, Model model) throws Exception {
-      					
-      					
-      					
-      					
-      			
-      					
-      					
-      					iMyBooksDao.mybookslist_ByIndex(book_Index);
-      					model.addAttribute("mybookslist_ByIndex", iMyBooksDao.mybookslist_ByIndex(book_Index) );
-      			   
-      					
-      					return "redirect:/user/views/books/books_addfavorUser?book_Index="+book_Index;
-      				}				
-				    	
-			    	
+	
 }

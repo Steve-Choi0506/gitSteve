@@ -69,6 +69,7 @@ public class MyBooksDto {
 	public void setFavor_Index(int favor_Index) {
 		this.favor_Index = favor_Index;
 	}
+
 }
 /*	hp_Index            number(6) primary key,
   	book_Index          number(6) not null,
