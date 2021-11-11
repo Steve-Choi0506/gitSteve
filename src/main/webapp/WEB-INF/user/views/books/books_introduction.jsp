@@ -575,7 +575,25 @@
 	        </div>
 	        
   		</c:forEach>
-        
+  		
+  		
+  		
+
+  		
+  		
+  		<div class="favorites">
+  		
+
+
+				<a href="/user/views/books/books_addfavorUser?book_Index=${hp_book.book_Index}"><input type="button" class="button-favor" name="즐겨찾기에 추가" value="즐겨찾기에 추가"></a>
+
+	                   
+	    </div>
+  	
+  		
+  		
+  		
+  		
         <div class="review">
             <div class="review-1">
                 리뷰

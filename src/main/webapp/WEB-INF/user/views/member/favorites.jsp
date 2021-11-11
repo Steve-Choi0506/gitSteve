@@ -323,7 +323,6 @@
 
 
     <!-- 도서 목록 -->
- 
     <section id="one" class="section">
 	  <div class="box">
 	  	<a href="/user/views/books/books_introduction?book_Index=${mybookslist_ByUser.book_Index}">
