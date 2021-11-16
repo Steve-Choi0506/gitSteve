@@ -539,7 +539,7 @@
 	                </div>
                 </c:forEach>
 	                <div class="favorites">
-	                	<form action="<c:url value="/addFavorByUser"/>" method="get">
+	                	<form action="<c:url value="/addFavorByUser"/>" method="post">
 	                		<input type="hidden" name="hp_Index" value="${memberDto.hp_Index}" />
 	                		<input type="hidden" name="hp_ID" value="${memberDto.hp_ID}"/>
 	                		<c:forEach var="hp_book" items="${booklistbyIndex}">
@@ -552,7 +552,12 @@
 	                </div>
                 
 	                <div class="read">
-	                    <button class="button-read" type="button" name="읽기">읽기</button>
+	                
+	                <a href="javascript:void(0);">
+	                
+	                    <button class="button-read" type="button" name="읽기" onclick="window.open('/upload/${hp_book.book_Image}', 'pop01', 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no');">읽기</button>
+	                    
+	                </a>    
 	                </div>
 	                <div class="rating">
 			<c:forEach var="hp_book" items="${booklistbyIndex}">
