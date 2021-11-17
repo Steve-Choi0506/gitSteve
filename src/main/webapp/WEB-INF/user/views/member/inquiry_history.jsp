@@ -391,7 +391,7 @@
 
         <ul class="navbar__menu">
             <li><a href="/user/views/books/books_korea">도서</a></li>
-            <li><a href="/user/views/member/favorites">즐겨찾기</a></li>
+            <li><a href="/user/views/member/favorites?hp_ID=${hp_ID}">즐겨찾기</a></li>
             <li><a id="header" href="/user/views/member/mypage">마이페이지</a></li>
         </ul>
 
@@ -449,11 +449,11 @@
                             <td id="t3">처리여부</td>
                         </tr>
                         <c:forEach var="hp_Qna" items="${qnalistByuser}">
-                        <tr>
-                            <td id="t1"><a href="/user/views/member/inquiry_in?qna_Index=${hp_Qna.qna_Index}">${hp_Qna.qna_Title}</a></td>
-                            <td id="t2"><fmt:formatDate value="${hp_Qna.qna_Date}" pattern="yyyy년 MM월 dd일"/></td>
-                            <td id="t3">${hp_Qna.answer_Check}</td>
-                        </tr>
+	                        <tr>
+	                            <td id="t1"><a href="/user/views/member/inquiry_in?qna_Index=${hp_Qna.qna_Index}">${hp_Qna.qna_Title}</a></td>
+	                            <td id="t2"><fmt:formatDate value="${hp_Qna.qna_Date}" pattern="yyyy년 MM월 dd일"/></td>
+	                            <td id="t3">${hp_Qna.answer_Check}</td>
+	                        </tr>
                         </c:forEach>
                     </table>
                 </div>

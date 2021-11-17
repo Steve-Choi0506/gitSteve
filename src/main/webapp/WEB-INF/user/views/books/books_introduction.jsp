@@ -545,6 +545,8 @@
 	                		<c:forEach var="hp_book" items="${booklistbyIndex}">
 		                		<input type="hidden" name="book_Index" value="${hp_book.book_Index}" />
 		                		<input type="hidden" name="book_Title" value="${hp_book.book_Title}"/>
+		                		<input type="hidden" name="book_Writer" value="${hp_book.book_Writer}"/>
+		                		<input type="hidden" name="book_Image" value="${hp_book.book_Image}"/>
 	                		</c:forEach>
 	                    	<button class="button-favor" type="submit" name="즐겨찾기에 추가">즐겨찾기에 추가</button>
 	                    </form>

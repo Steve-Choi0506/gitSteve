@@ -27,20 +27,16 @@ public interface IMyBooksDao {
 		// 즐겨찾기 목록 : 관리자 페이지 
 		  public List<MyBooksDto> mybookslist();
 		
-		// 즐겨찾기 목록 : 사용자 페이지
-			public List<MyBooksDto> mybookslist_ByIndex( int book_Index );
-			
+		// 즐겨찾기 목록 : 사용자 페이지	- 회원번호
 			public List<MyBooksDto> mybookslist_ByUser( String hp_ID );
 
-			public void addfavor(int hp_Index, String hp_ID, int book_Index, String book_Title, String book_Writer, String filename);
-		
+	// 즐겨찾기 추가 : 관리자 페이지	
+		public void addfavor( int hp_Index, String hp_ID, int book_Index, String book_Title );
+	
 	// 즐겨찾기 추가 : 사용자 페이지	
-		public void addFavorByUser( int hp_Index, String hp_ID, int book_Index, String book_Title );
+		public void addFavorByUser( int hp_Index, String hp_ID, int book_Index, String book_Title, String book_Writer, String book_Image );
 		
 	// 즐겨찾기 삭제 : 관리자 페이지	
-		public void deletefavor(int hp_Index);
+		public void deletefavor( int favor_Index );
 	
-		public void addfavorUser(int hp_Index, String hp_ID, int book_Index, String book_Title, String book_Writer,
-				String filename);
-		
 }
