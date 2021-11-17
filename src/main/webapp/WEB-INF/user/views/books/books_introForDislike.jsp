@@ -6,5 +6,5 @@
 
 <script>
   alert('싫어요를 누르셨습니다.');
-  window.history.back();
+  location.href = document.referrer;
 </script>
