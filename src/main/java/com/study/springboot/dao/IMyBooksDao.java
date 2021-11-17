@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.study.springboot.dto.BookListDto;
 import com.study.springboot.dto.MyBooksDto;
+import com.study.springboot.dto.QnADto;
 
 @Mapper
 public interface IMyBooksDao {
@@ -26,9 +27,13 @@ public interface IMyBooksDao {
 		  
 		// 즐겨찾기 목록 : 관리자 페이지 
 		  public List<MyBooksDto> mybookslist();
+		  
+
 		
-		// 즐겨찾기 목록 : 사용자 페이지	- 회원번호
+		// 즐겨찾기 목록 : 사용자 페이지	- 회원아이디로
 			public List<MyBooksDto> mybookslist_ByUser( String hp_ID );
+			
+			public List<MyBooksDto> mybookslist_ofUser(String hp_ID);
 
 	// 즐겨찾기 추가 : 관리자 페이지	
 		public void addfavor( int hp_Index, String hp_ID, int book_Index, String book_Title );

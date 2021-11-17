@@ -66,4 +66,9 @@
 		SELECT * FROM hp_Mybooks WHERE hp_ID=#{param1}
 	</select>
 	
+	<!-- 내 즐겨찾기 가져오기 : 사용자 페이지 -->
+	<select id="mybookslist_ofUser" resultType="com.study.springboot.dto.MyBooksDto">
+		SELECT * FROM hp_Mybooks WHERE hp_ID=#{param1}
+	</select>
+	
  </mapper>

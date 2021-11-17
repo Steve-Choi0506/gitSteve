@@ -1134,9 +1134,9 @@ public class MyController_KHD {
 			@RequestMapping("/user/views/member/favorites")
 			public String mybookslist( @RequestParam("hp_ID") String hp_ID, HttpServletRequest req, Model model ) {
 				
-				List<MyBooksDto> mybookslist_ByUser = memberService.mybookslist_ByUser( hp_ID );
-				model.addAttribute( "mybookslist_ByUser", mybookslist_ByUser );
-				
+				List<MyBooksDto> mybookslist_ofUser = iMyBooksDao.mybookslist_ofUser( hp_ID );
+			    model.addAttribute( "mybookslist_ofUser", mybookslist_ofUser );
+			       
 				return "user/views/member/favorites";
 			}
 			    	

@@ -146,6 +146,12 @@ public class MemberService {
 		
 			return mybookslist_ByUser;
 		}
+		
+		public List<MyBooksDto> mybookslist_ofUser( String hp_ID ) {
+			List<MyBooksDto> mybookslist_ofUser = MyBooksDao.mybookslist_ofUser( hp_ID );
+		
+			return mybookslist_ofUser;
+		}
 
 
 	
