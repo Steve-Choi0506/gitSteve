@@ -554,7 +554,7 @@
 	                </div>
                 
 	                <div class="read">
-	                
+                    <c:forEach var="hp_book" items="${booklistbyIndex}">
 	                <a href="javascript:void(0);">
 	                
 	                    <button class="button-read" type="button" name="읽기" onclick="window.open('/upload/${hp_book.book_Image}', 'pop01', 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no');">읽기</button>
@@ -562,7 +562,7 @@
 	                </a>    
 	                </div>
 	                <div class="rating">
-			<c:forEach var="hp_book" items="${booklistbyIndex}">
+			
 	                    <div>
 	                        <button class="button-rating" type="button" name="좋아요" onclick="location.href='books_introForLike?book_Index=${hp_book.book_Index}'"><i class="fas fa-thumbs-up">${hp_book.book_Like}</i></button>
 	                    </div>
