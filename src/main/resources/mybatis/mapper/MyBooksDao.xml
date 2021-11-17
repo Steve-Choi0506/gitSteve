@@ -47,8 +47,8 @@
 		<selectKey keyProperty="id" resultType="int" order="BEFORE">
 			SELECT My_Books_Seq.nextval FROM DUAL
 		</selectKey>
-		INSERT INTO hp_Mybooks( favor_Index, hp_Index, hp_ID, book_Index, book_Title )
-						values( #{id}, #{param1}, #{param2}, #{param3}, #{param4} )
+		INSERT INTO hp_Mybooks( favor_Index, hp_Index, hp_ID, book_Index, book_Title, book_Writer, book_Image )
+						values( #{id}, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6} )
 	</insert>
 	
  	<!-- 즐겨찾기 삭제하기 ; 도서 인덱스 : 삭제버튼으로 번호 얻어오기! -->
@@ -64,17 +64,6 @@
 	<!-- 즐겨찾기 가져오기 : 사용자 페이지 -->
 	<select id="mybookslist_ByUser" resultType="com.study.springboot.dto.MyBooksDto">
 		SELECT * FROM hp_Mybooks WHERE hp_ID=#{param1}
-	</select>
-	
-	<insert id="addfavorUser" parameterType="com.study.springboot.dto.MyBooksDto">
-		INSERT INTO hp_Mybooks (
-		  hp_Index, hp_ID, book_Index, book_Title, book_Writer, book_Image)
-			values(#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6})
-	</insert>
-	
-	<!-- 즐겨찾기 가져오기 : 사용자 페이지 -->
-	<select id="mybookslist_ByIndex" resultType="com.study.springboot.dto.MyBooksDto">
-		SELECT * FROM hp_Mybooks WHERE book_Index=#{param1}
 	</select>
 	
  </mapper>
