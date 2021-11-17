@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
@@ -321,19 +321,19 @@
 
 
 
-
     <!-- 도서 목록 -->
- 
-    <section id="one" class="section">
-	  <div class="box">
-	  	<a href="/user/views/books/books_introduction?book_Index=${mybookslist_ByUser.book_Index}">
-	  		<img src="/upload/${mybookslist_ByUser.book_Image}" alt="도서"></a>
-	  	<div class="t">
-	  		<a href="/user/views/books/books_introduction?book_Index=${mybookslist_ByUser.book_Index}"><p>${mybookslist_ByUser.book_Title} </p></a>
-	  		<button class="btn" type="button" href='#'>삭제</button>
-  		</div>
-	  </div>
-    </section>
+	<c:forEach var="mybooks" items="${mybookslist_ByUser}">
+	   	<section id="one" class="section">
+	   		<div class="box">
+			  	<a href="/user/views/books/books_introduction?book_Index=${mybooks.book_Index}">
+			  		<img src="/upload/${mybooks.book_Image}" alt="도서"></a>
+			  	<div class="t">
+			  		<a href="/user/views/books/books_introduction?book_Index=${mybooks.book_Index}"><p>${mybooks.book_Title} </p></a>
+			  		<button class="btn" type="button" href='#'>삭제</button>
+		  		</div>
+	  		</div>
+	   	</section>
+   	</c:forEach>
     
     <!-- 도서 목록 종료 -->
 
