@@ -58,7 +58,7 @@
  	
  	<!-- 유저 개인의 즐겨찾기 스스로 삭제하기  -->
  	<delete id="deletefavorByUser" parameterType="com.study.springboot.dto.MyBooksDto">
- 		DELETE FROM hp_Mybooks WHERE favor_Index=#{param1}
+ 		DELETE FROM hp_Mybooks WHERE favor_Index=#{param1} order by favor_Index
  	</delete>
  	
  	<!-- 즐겨찾기 목록 가져오기 : 관리자 페이지 -->
@@ -68,12 +68,12 @@
 
 	<!-- 즐겨찾기 가져오기 : 사용자 페이지 -->
 	<select id="mybookslist_ByUser" resultType="com.study.springboot.dto.MyBooksDto">
-		SELECT * FROM hp_Mybooks WHERE hp_ID=#{param1}
+		SELECT * FROM hp_Mybooks WHERE hp_ID=#{param1} ORDER BY favor_Index
 	</select>
 	
 	<!-- 내 즐겨찾기 가져오기 : 사용자 페이지 -->
 	<select id="mybookslist_ofUser" resultType="com.study.springboot.dto.MyBooksDto">
-		SELECT * FROM hp_Mybooks WHERE hp_ID=#{param1}
+		SELECT * FROM hp_Mybooks WHERE hp_ID=#{param1} ORDER BY favor_Index
 	</select>
 	
  </mapper>

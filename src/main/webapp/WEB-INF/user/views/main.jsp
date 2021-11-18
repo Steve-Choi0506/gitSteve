@@ -551,27 +551,25 @@
         <div class="books">
             <div class="books-korea">
                 <div id="p1">국내도서</div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="국내도서"></a></div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="국내도서"></a></div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="국내도서"></a></div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="국내도서"></a></div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="국내도서"></a></div>
+                <c:forEach var="hp_book" items="${korea_book_list}">
+                  <div id="box1" class="box">
+                    <a href="/user/views/books/books_introduction?book_Index=${hp_book.book_Index}"><img src="/upload/${hp_book.book_Image}" alt="도서"></a>
+                  </div>
+                </c:forEach>
             </div>
             <div class="books-over">
                 <div id="p2">국외도서</div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="해외도서"></a></div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="해외도서"></a></div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="해외도서"></a></div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="해외도서"></a></div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="해외도서"></a></div>
+                <c:forEach var="hp_book" items="${overseas_book_list}">
+                    <div id="box1" class="box">
+                      <a href="/user/views/books/books_introduction?book_Index=${hp_book.book_Index}"><img src="/upload/${hp_book.book_Image}" alt="도서"></a>
+                    </div>
+                </c:forEach>
             </div>
             <div class="books-new">
                 <div id="p3">신간도서</div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="신간도서"></a></div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="신간도서"></a></div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="신간도서"></a></div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="신간도서"></a></div>
-                <div><a href="/user/views/books/books_introduction"><img src="/img/books/book.png" alt="신간도서"></a></div>
+                <c:forEach var="hp_book" items="${hp_book_list}">
+                  <a href="/user/views/books/books_introduction?book_Index=${hp_book.book_Index}"><img src="/upload/${hp_book.book_Image}" alt="도서"></a>
+                </c:forEach>
             </div>
         </div>
     </section>

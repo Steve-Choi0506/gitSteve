@@ -641,6 +641,15 @@ public class MyController_KHD {
 			@RequestMapping("/user/views/main")
 			public String main( HttpServletRequest req, Model model ) {
 				
+				List<BookListDto> booksKorea = adminService.booksKorea();
+				model.addAttribute( "korea_book_list", booksKorea );
+				
+				List<BookListDto> booksOverseas = adminService.booksOverseas();
+				model.addAttribute( "overseas_book_list", booksOverseas );
+				
+				List<BookListDto> booklist = memberService.booklist();
+				model.addAttribute( "hp_book_list", booklist );
+				
 				return "user/views/main";
 			}
 			
