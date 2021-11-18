@@ -346,6 +346,19 @@
                     <td><img src="/upload/${my_books.book_Image}" wdith="20px" height="30px"></td>
                 </tr>
             </c:forEach>
+            <form action="<c:url value="/deletefavorByUser"/>" method="post" enctype="multipart/form-data">
+            <tr>
+              <td> 즐겨찾기 번호</td>
+              <td><input type="text" rows="16" cols="95" name="hp_Index" value="${hp_Index}"></td>
+            </tr>
+        
+            <tr>
+              <td colspan="2"> 
+        
+                <input type="submit" value="삭제"></a> 
+              </td>
+            </tr>
+            </form>
           </table>
 	  		</div>
 	   	</section>

@@ -44,4 +44,8 @@ public interface IMyBooksDao {
 	// 즐겨찾기 삭제 : 관리자 페이지	
 		public void deletefavor( int favor_Index );
 	
+	// 즐겨찾기 삭제 : 사용자 페이지
+		public void deletefavorByUser( int favor_Index );
+		
+	
 }

@@ -1110,8 +1110,19 @@ public class MyController_KHD {
     					
     					iMyBooksDao.addFavorByUser( hp_Index, hp_ID, book_Index, book_Title, book_Writer, book_Image );
     					
-    					return "redirect:/user/views/member/favorites";
+    					return "redirect:/user/views/member/favorites?hp_ID="+hp_ID;
 						}
+      		
+      		// 즐겨찾기 삭제 
+      		@RequestMapping(value="/deletefavorByUser", method=RequestMethod.POST)
+			public String deletefavorByUser( @RequestParam("hp_Index") int hp_Index, HttpServletRequest req , ModelMap modelMap ) throws Exception {
+			
+      			String hp_ID = (String) req.getSession().getAttribute( "hp_ID" );
+      			
+				iMyBooksDao.deletefavorByUser( hp_Index );
+				                     
+				return "redirect:/user/views/member/favorites?hp_ID="+hp_ID;		
+			}
 
 		// 리뷰 작성하기
 			@RequestMapping(value="/addBookReviewByUser", method=RequestMethod.POST)
