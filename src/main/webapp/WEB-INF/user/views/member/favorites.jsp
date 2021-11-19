@@ -284,7 +284,7 @@
 
         <ul class="navbar__menu">
             <li><a href="/user/views/books/books_korea">도서</a></li>
-            <li><a id="header" href="/user/views/member/favorites">즐겨찾기</a></li>
+            <li><a href="/user/views/member/favorites?hp_ID=${hp_ID}">즐겨찾기</a></li>
             <li><a href="/user/views/member/mypage">마이페이지</a></li>
         </ul>
 
@@ -322,46 +322,21 @@
 
 
     <!-- 도서 목록 -->
-	
+	<c:forEach var="myBooks" items="${mybookslist_ByUser}">
 	   	<section id="one" class="section">
 	   		<div class="box">
-           <table class="table table-hover" border=1>
-            <tr>
-                    <th>즐겨찾기 번호</th>
-                    <th>회원 번호</th>
-                    <th>회원 아이디</th>
-                    <th>도서 번호</th>
-                    <th>제목</th>
-                    <th>작가</th>
-                    <th>이미지</th>
-                </tr>
-			  	<c:forEach var="my_books" items="${mybookslist_ofUser}">
-                <tr>
-                	<td>${my_books.favor_Index}</td>
-                    <td>${my_books.hp_Index}</td>
-                    <td>${my_books.hp_ID}</td>
-                    <td>${my_books.book_Index}</td>
-                    <td>${my_books.book_Title}</td>
-                    <td>${my_books.book_Writer}</td>
-                    <td><img src="/upload/${my_books.book_Image}" wdith="20px" height="30px"></td>
-                </tr>
-            </c:forEach>
-            <form action="<c:url value="/deletefavorByUser"/>" method="post" enctype="multipart/form-data">
-            <tr>
-              <td> 즐겨찾기 번호</td>
-              <td><input type="text" rows="16" cols="95" name="hp_Index" value="${hp_Index}"></td>
-            </tr>
-        
-            <tr>
-              <td colspan="2"> 
-        
-                <input type="submit" value="삭제"></a> 
-              </td>
-            </tr>
-            </form>
-          </table>
+	         	<a href="/user/views/books/books_introduction?book_Index=${myBooks.book_Index}">
+			  		<img src="/upload/${myBooks.book_Image}" alt="도서"></a>
+			  	<div class="t">
+			  		<a href="/user/views/books/books_introduction?book_Index=${myBooks.book_Index}"><p>${myBooks.book_Title} </p></a>
+	           		<form action="<c:url value="/deletefavorByUser"/>" method="post" enctype="multipart/form-data">
+	           			<input type="hidden" name="favor_Index" value="${myBooks.favor_Index}" />
+			  			<button class="btn" type="submit" name="즐겨찾기 삭제">삭제</button>
+	           		</form>
+		  		</div>
 	  		</div>
 	   	</section>
+	</c:forEach>
    	
     
     <!-- 도서 목록 종료 -->

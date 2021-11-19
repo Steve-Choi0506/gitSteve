@@ -491,7 +491,7 @@
 
         <ul class="navbar__menu">
             <li><a id="header" href="/user/views/books/books_korea">도서</a></li>
-            <li><a href="/user/views/member/favorites">즐겨찾기</a></li>
+            <li><a href="/user/views/member/favorites?hp_ID=${hp_ID}">즐겨찾기</a></li>
             <li><a href="/user/views/member/mypage">마이페이지</a></li>
         </ul>
 
@@ -584,24 +584,7 @@
 	        
   		</c:forEach>
   		
-  		
-  		
 
-  		
-  		
-  		<div class="favorites">
-  		
-
-
-				<a href="/user/views/books/books_addfavorUser?book_Index=${hp_book.book_Index}"><input type="button" class="button-favor" name="즐겨찾기에 추가" value="즐겨찾기에 추가"></a>
-
-	                   
-	    </div>
-  	
-  		
-  		
-  		
-  		
         <div class="review">
             <div class="review-1">
                 리뷰

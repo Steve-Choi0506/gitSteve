@@ -1124,11 +1124,11 @@ public class MyController_KHD {
       		
       		// 즐겨찾기 삭제 
       		@RequestMapping(value="/deletefavorByUser", method=RequestMethod.POST)
-			public String deletefavorByUser( @RequestParam("hp_Index") int hp_Index, HttpServletRequest req , ModelMap modelMap ) throws Exception {
+			public String deletefavorByUser( @RequestParam("favor_Index") int favor_Index, HttpServletRequest req , ModelMap modelMap ) throws Exception {
 			
       			String hp_ID = (String) req.getSession().getAttribute( "hp_ID" );
       			
-				iMyBooksDao.deletefavorByUser( hp_Index );
+				iMyBooksDao.deletefavorByUser( favor_Index );
 				                     
 				return "redirect:/user/views/member/favorites?hp_ID="+hp_ID;		
 			}
@@ -1154,8 +1154,8 @@ public class MyController_KHD {
 			@RequestMapping("/user/views/member/favorites")
 			public String mybookslist( @RequestParam("hp_ID") String hp_ID, HttpServletRequest req, Model model ) {
 				
-				List<MyBooksDto> mybookslist_ofUser = iMyBooksDao.mybookslist_ofUser( hp_ID );
-			    model.addAttribute( "mybookslist_ofUser", mybookslist_ofUser );
+				List<MyBooksDto> mybookslist_ByUser = iMyBooksDao.mybookslist_ByUser( hp_ID );
+			    model.addAttribute( "mybookslist_ByUser", mybookslist_ByUser );
 			       
 				return "user/views/member/favorites";
 			}

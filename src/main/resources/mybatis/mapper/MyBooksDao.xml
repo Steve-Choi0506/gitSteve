@@ -58,7 +58,7 @@
  	
  	<!-- 유저 개인의 즐겨찾기 스스로 삭제하기  -->
  	<delete id="deletefavorByUser" parameterType="com.study.springboot.dto.MyBooksDto">
- 		DELETE FROM hp_Mybooks WHERE favor_Index=#{param1} order by favor_Index
+ 		DELETE FROM hp_Mybooks WHERE favor_Index=#{param1}
  	</delete>
  	
  	<!-- 즐겨찾기 목록 가져오기 : 관리자 페이지 -->

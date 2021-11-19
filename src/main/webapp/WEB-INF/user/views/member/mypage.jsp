@@ -367,7 +367,7 @@
 
         <ul class="navbar__menu">
             <li><a href="/user/views/books/books_korea">도서</a></li>
-            <li><a href="/user/views/member/favorites">즐겨찾기</a></li>
+            <li><a href="/user/views/member/favorites?hp_ID=${hp_ID}">즐겨찾기</a></li>
             <li><a id="header" href="/user/views/member/mypage">마이페이지</a></li>
         </ul>
 
@@ -431,23 +431,6 @@
                 </div>
                 <div class="btn1">
                     <button id="btn1" class="button" type="button" onclick="location.href='/user/views/member/change_infor'">정보변경</button>
-                </div>
-            </div>
-
-            <div class="main-2">
-                <div>
-                    <p>이용권</p>
-                </div>
-                <div>
-                    <span>
-                        이용권 남은 일자
-                    </span>
-                    <span>
-                        D - 00
-                    </span>
-                    <div class="btn2">
-                        <button id="btn2" class="button" type="button" onclick="location.href='#'">결제하기</button>
-                    </div>
                 </div>
             </div>
 

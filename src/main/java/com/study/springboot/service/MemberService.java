@@ -140,19 +140,12 @@ public class MemberService {
 			return mybookslist;
 	
 		}
+		
 	// 사용자 페이지 - 즐겨찾기 목록
 		public List<MyBooksDto> mybookslist_ByUser( String hp_ID ) {
 			List<MyBooksDto> mybookslist_ByUser = MyBooksDao.mybookslist_ByUser( hp_ID );
 		
 			return mybookslist_ByUser;
 		}
-		
-		public List<MyBooksDto> mybookslist_ofUser( String hp_ID ) {
-			List<MyBooksDto> mybookslist_ofUser = MyBooksDao.mybookslist_ofUser( hp_ID );
-		
-			return mybookslist_ofUser;
-		}
 
-
-	
 }
