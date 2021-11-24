@@ -5,10 +5,26 @@
 <%@ page trimDirectiveWhitespaces="true" %> 
     
   <style>
+    
+    :root {
+        --accent-color: rgba(66, 183, 226, 0.8);
+        --background-color: #bfc8d7;
+        --heder-color:  rgba(0, 0, 0, 0.8);
+        }
+
     textarea{
       resize: none;
       width: 700px;
     }
+
+    .joinForm {
+      background-color: var(--background-color);
+    }
+
+    .t1 {
+
+    }
+
   </style>
     
      <script>
@@ -41,11 +57,11 @@
       <div class="joinSe1">
         <div><h3>회원가입</h3></div>
       </div>
-      <div class="wellcome">
-        <h3>OOO사이트에 오신 것을 환영합니다.</h3>
+      <div class="welcome">
+        <h3>부키도키 사이트에 오신 것을 환영합니다.</h3>
         <h5>-이름과 이메일을 입력해 주시면 가입여부를 확인 후 회원가입 절차가 이루어집니다.</h5>
       </div>
-      <div class="terms1">
+      <div class="t1">
         <div>이용약관</div>
         
         <div>
@@ -54,7 +70,7 @@
         
         <div><input class="check" type="checkbox">위 약관에 동의합니다.</div>
       </div>
-      <div class="terms2">
+      <div class="t2">
         <div>개인정보보호정책</div>
         
         <div>
@@ -63,7 +79,7 @@
                     
         <div><input class="check" type="checkbox">위 개인정보취급방침에 동의합니다.</div>
       </div>
-      <div class="terms3">
+      <div class="t3">
         <div>개인정보의 수집 및 이용목적</div>
         
         <div>

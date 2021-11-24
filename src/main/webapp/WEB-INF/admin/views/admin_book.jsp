@@ -50,6 +50,9 @@
             height: 100px;
             width: 150px;
             list-style-type: none;
+
+            position: fixed;
+            top: 630px;
         }
         ul li{
             display: flex;
