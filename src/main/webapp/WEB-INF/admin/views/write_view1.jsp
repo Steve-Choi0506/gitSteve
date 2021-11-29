@@ -36,7 +36,7 @@
 			<td><input type="file" rows="16" cols="95" name="book_Image" value="${book_Image}"></td>
 		</tr>
 		<tr>
-			<td>내용</td>
+			<td>파일</td>
 			<td><textarea rows="16" cols="95" name="book_Content" value="${book_Content}"></textarea> </td>
 		</tr>
 		<tr>

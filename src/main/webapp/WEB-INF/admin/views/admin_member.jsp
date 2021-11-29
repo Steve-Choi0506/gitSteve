@@ -106,7 +106,7 @@
                     <th>휴대폰</th>
                     <th>이용권</th>
                     <th>권한</th>
-                    
+                    <th><a href="/admin/views/write_member1">추가</a></th>
                 </tr>
             </Thead>
             <c:forEach var="hp_member" items="${hp_member_list}">
@@ -123,9 +123,8 @@
                     <td>${hp_member.hp_Ticket}</td>
                     <td>${hp_member.hp_Auth}</td>
                     <td>
-                    <a href="/admin/views/write_member?hp_ID=${hp_member.hp_ID}">갱신</a>
-                        <a href="/admin/views/write_member1">삽입</a>
-                        <a href="/admin/views/write_member2">삭제</a>
+                    <a href="/admin/views/write_member?hp_ID=${hp_member.hp_ID}">수정</a>
+                    <a href="/admin/views/write_member2">삭제</a>
                     </td>
                 </tr>
             </c:forEach>

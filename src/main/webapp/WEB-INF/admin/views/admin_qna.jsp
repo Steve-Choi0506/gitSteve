@@ -105,6 +105,7 @@
                     <th>내용</th>
                     <th>처리 여부</th>
                     <th>완료 날짜</th>
+                    <th><a href="/admin/views/write_qna1">추가</a></th>
                 </tr>
             </Thead>
             <c:forEach var="hp_Qna" items="${hp_qna_list}">
@@ -117,8 +118,7 @@
                     <td>${hp_Qna.answer_Check}</td>
                     <td><fmt:formatDate value="${hp_Qna.qna_Date}" pattern="yyyy년 MM월 dd일"/>
                     <td>
-                    	<a href="/admin/views/write_qna?qna_Index=${hp_Qna.qna_Index}">갱신</a>
-                    	<a href="/admin/views/write_qna1">삽입</a>
+                    	<a href="/admin/views/write_qna?qna_Index=${hp_Qna.qna_Index}">수정</a>
                     	<a href="/admin/views/write_qna2?qna_Index=${hp_Qna.qna_Index}">삭제</a>
                     </td>
                   

@@ -24,7 +24,6 @@
         --accent-color: rgba(66, 183, 226, 0.8);
         --background-color: #bfc8d7;
         --heder-color:  rgba(0, 0, 0, 0.8);
-
         }
 
         * {
@@ -279,14 +278,14 @@
 
         .books img {
             width: 200px;
-            height: 300px;
+            height: 280px;
         }
 
         .books-korea {
             display: flex;
             /* border: 1px solid red; */
             margin-top: 80px;
-            height: 300px;
+            height: 280px;
             align-items: center;
             flex-flow: row wrap;
             justify-content: space-between;
@@ -296,23 +295,23 @@
         .books-over {
             display: flex;
             /* border: 1px solid blue; */
-            height: 300px;
+            height: 280px;
             align-items: center;
             flex-flow: row wrap;
             justify-content: space-between;
             overflow: hidden;
-            margin-top: 50px;
+            margin-top: 20px;
         }
 
         .books-new {
             display: flex;
             /* border: 1px solid purple; */
-            height: 300px;
+            height: 280px;
             align-items: center;
             flex-flow: row wrap;
             justify-content: space-between;
             overflow: hidden;
-            margin-top: 50px;
+            margin-top: 20px;
         }
 
         #p1 {

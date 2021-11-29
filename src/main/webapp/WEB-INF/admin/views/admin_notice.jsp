@@ -100,6 +100,7 @@
                     <th>내용</th>
                     <th>날짜</th>
                     <th>조회수</th>
+                    <th><a href="/admin/views/write_notice1">추가</a></th>
                 </tr>
             </Thead>
             <c:forEach var="hp_Notice" items="${hp_notice_list}">
@@ -110,8 +111,7 @@
                     <td><fmt:formatDate value="${hp_Notice.notice_Date}" pattern="yyyy년 MM월 dd일"/>
                     <td>${hp_Notice.notice_Count}</td>
                     <td>
-                    	<a href="/admin/views/write_notice?notice_Index=${hp_Notice.notice_Index}">갱신</a>
-                    	<a href="/admin/views/write_notice1">삽입</a>
+                    	<a href="/admin/views/write_notice?notice_Index=${hp_Notice.notice_Index}">수정</a>
                     	<a href="/admin/views/write_notice2">삭제</a>
                  	</td>
                 </tr>

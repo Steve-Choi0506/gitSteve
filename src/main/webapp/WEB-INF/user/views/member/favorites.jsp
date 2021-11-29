@@ -125,6 +125,7 @@
         /* 페이지 너비 */
         section {
             width: 100%;
+            height: 100%;
             position: relative;
         }
 
@@ -143,6 +144,9 @@
             background-color: red;
             height: 30px;
             margin-top: 10px;
+            /* position: absolute; */
+            /* top: 100px; */
+            /* margin-right: 50px; */
         }
 
 
@@ -177,6 +181,7 @@
             color: black;
         }
 
+        
 
 
 
@@ -322,8 +327,9 @@
 
 
     <!-- 도서 목록 -->
-	<c:forEach var="myBooks" items="${mybookslist_ByUser}">
+	
 	   	<section id="one" class="section">
+            <c:forEach var="myBooks" items="${mybookslist_ByUser}">
 	   		<div class="box">
 	         	<a href="/user/views/books/books_introduction?book_Index=${myBooks.book_Index}">
 			  		<img src="/upload/${myBooks.book_Image}" alt="도서"></a>
@@ -335,9 +341,11 @@
 	           		</form>
 		  		</div>
 	  		</div>
+        </c:forEach>
 	   	</section>
-	</c:forEach>
-   	
+	
+
+
     
     <!-- 도서 목록 종료 -->
 

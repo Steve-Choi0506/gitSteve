@@ -102,6 +102,7 @@
                     <th>회원 아이디</th>
                     <th>리뷰 내용</th>
                     <th>작성 일자</th>
+                    <th><a href="/admin/views/write_review1">추가</a></th>
                 </tr>
             </Thead>
             <c:forEach var="Book_review" items="${bookreviewlist}">
@@ -113,8 +114,8 @@
                     <td>${Book_review.hp_ID}</td>
                     <td>${Book_review.book_review}</td>
                     <td><fmt:formatDate value="${Book_review.review_Date}" pattern="yyyy년 MM월 dd일"/></td>
-                    <td><a href="/admin/views/write_review?review_Index=${Book_review.review_Index}">갱신</a>
-                        <a href="/admin/views/write_review1">삽입</a>
+                    <td>
+                        <a href="/admin/views/write_review?review_Index=${Book_review.review_Index}">수정</a>
                         <a href="/admin/views/write_review2">삭제</a>
                     </td>
                 </tr>
